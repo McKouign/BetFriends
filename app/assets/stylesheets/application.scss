@@ -10,3 +10,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(127deg, #232347 8.01%, #261652 94.28%);
+  width: 100%;
+}
