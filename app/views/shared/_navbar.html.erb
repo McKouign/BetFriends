@@ -2,7 +2,7 @@
     <%= link_to "BetFriends", root_path , class: "navbar-brand" %>
   <% if user_signed_in? %>
       <!-- Boutons ajoutés à la barre de navigation -->
-      <li class="btnDisplay">
+      <div class="btnDisplay">
          <div class="btnNav">
         <a class="btn btn-custom2"><i class="fa-solid fa-crown me-2"></i>Mes Points</a>
         </div>
@@ -10,17 +10,16 @@
           <a class="btn btn-custom2"><i class="fa-solid fa-star me-2"></i>Bonus</a>
         </div>
         <div class="btnNav">
-          <a href="deconnexion.php" class="btn btn-custom"><i class="fa-solid fa-user me-2"></i>Mon profil</a>
+          <div class="btn btn-custom2"><i class="fa-solid fa-user me-2"></i> <%= current_user.nickname %> </div>
            <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-custom" %>
         </div>
-      </li>
-    </ul>
+      </div>
   </div>
     <% else %>
-    <li class="btnDisplay">
+    <div class="btnDisplay">
       <div class="btnNav">
       <%= link_to "Se connecter", new_user_session_path, class: "btn btn-custom" %>
         <%= link_to "S'inscrire",  new_user_registration_path, class: "btn btn-custom" %>
-    </li>
+    </div>
   <% end %>
 </nav>
