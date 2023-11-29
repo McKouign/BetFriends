@@ -1,2 +1,23 @@
-<h1>Squads#show</h1>
-<p>Find me in app/views/squads/show.html.erb</p>
+<div class="container">
+  <h1><%= @squad.name %> Squad</h1>
+
+  <h2>Matches</h2>
+  <ul>
+    <% @matches.each do |match| %>
+      <li><%= match.sport %> - <%= match.date %></li>
+    <% end %>
+  </ul>
+
+  <h2>Squad Members</h2>
+  <ul>
+    <% @squad.users.each do |user| %>
+      <li><%= user.nickname %></li>
+    <% end %>
+  </ul>
+
+  <h2>Squad Bets</h2>
+  <ul>
+    <% @squad_user_bets.each do |bet| %>
+      <li><%= bet.user.nickname %> - <%= bet.match.sport %> - <%= bet.match.date %> - <%= bet.participation.team.name %> - <%= bet.progress %></li>
+    <% end %>
+  </ul> 
