@@ -1,28 +1,25 @@
-<div class="container-fluid">
-
 <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="#">BetFriends</a>
+    <%= link_to "BetFriends", root_path , class: "navbar-brand" %>
   <% if user_signed_in? %>
       <!-- Boutons ajoutés à la barre de navigation -->
-    <ul>
-      <li class="btnDisplay">
+      <div class="btnDisplay">
          <div class="btnNav">
-        <a href="" class="btn btn-custom"><i class="fa-solid fa-crown me-2"></i>Mes Points</a>
+        <a class="btn btn-custom2"><i class="fa-solid fa-crown me-2"></i>Mes Points</a>
         </div>
         <div class="btnNav">
-          <a href="deconnexion.php" class="btn btn-custom"><i class="fa-solid fa-star me-2"></i>Bonus</a>
+          <a class="btn btn-custom2"><i class="fa-solid fa-star me-2"></i>Bonus</a>
         </div>
         <div class="btnNav">
-          <a href="deconnexion.php" class="btn btn-custom"><i class="fa-solid fa-user me-2"></i>Mon profil</a>
+          <div class="btn btn-custom2"><i class="fa-solid fa-user me-2"></i> <%= current_user.nickname %> </div>
            <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-custom" %>
         </div>
-      </li>
-    </ul></div>
-    </div>
+      </div>
+  </div>
     <% else %>
-    <%= link_to "Se connecter", new_user_session_path, class: "nav-link d-inline-block" %>
-            <%= link_to "S'inscrire",  new_user_registration_path, class: "nav-link d-inline-block" %>
-          </li>
+    <div class="btnDisplay">
+      <div class="btnNav">
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-custom" %>
+        <%= link_to "S'inscrire",  new_user_registration_path, class: "btn btn-custom" %>
+    </div>
   <% end %>
 </nav>
-</div>
