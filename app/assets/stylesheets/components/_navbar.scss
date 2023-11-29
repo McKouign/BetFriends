@@ -1,12 +1,30 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+.navbar {
+  display:flex;
+  background-color: #34325700;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 1vw;
+  margin-left: 1vw;
+  margin-right: 2vw;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
 }
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-brand{
+  color: white;
+}
+.btnDisplay {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.btnNav {
+  margin-right: 10px;
+  background-color: #181433;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.btn-custom{
+  border-radius: 8px;
+  color: white;
+  border-color: #88937aa3;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.657);
 }
