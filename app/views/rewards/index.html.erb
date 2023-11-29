@@ -1,4 +1,34 @@
 
   <div>
-    aaaa
-  </div>
+
+
+
+      <%# POUR AFFICHER TOUS LES REWARDS DEJA ACHETÉ %>
+
+      <h2>Bonus achetés</h2>
+
+      <% @user_rewards.each do |user_reward| %>
+        <%= user_reward.reward.title %> <br>
+        <%= user_reward.reward.description %>
+      <% end %>
+
+
+</div>
+<br>
+
+              <%# POUR AFFICHER TOUS LES REWARDS DISPONIBLES %>
+
+
+<div>
+
+<H2>Bonus disponibles</H2>
+
+
+    <% @rewards.each do |reward| %>
+          <%= reward.title %> <br>
+          <%= reward.description %> <br>
+          <%= reward.price %> <br>
+          <%= link_to "Acheter ce bonus", reward_users_rewards_path(reward), class:"btn btn-dark pe-4 text-center" %> <br>
+    <% end %>
+
+</div>

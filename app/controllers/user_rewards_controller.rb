@@ -1,9 +1,9 @@
 class UserRewardsController < ApplicationController
 
   def create
+    raise
   end
-  def show
-  end
+
   def update
   end
 
