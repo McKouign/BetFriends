@@ -1,3 +1,5 @@
+
+
 .navbar {
   display:flex;
   background-color: #34325700;
@@ -8,6 +10,11 @@
   margin-right: 2vw;
 }
 
+// Titre de la NavBar
+.navbar-brand:hover{
+  background-color: #232247;
+  color: white;
+}
 .navbar-brand{
   color: white;
 }
@@ -20,4 +27,35 @@
 
 .btnNav {
   margin-right: 10px;
+  background-color: #181433;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+.btn-custom{
+  border-radius: 8px;
+  color: white;
+  border-color: #88937aa3;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.657);
+  transition: none;
+}
+.btn-custom:hover {
+  background-color: #181433;
+  color: white;
+  border-color: #c6e210;
+}
+
+
+// Boutons non clickables mes points et bonus
+.btn-custom2{
+  background-color: #181433;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-color: #88937aa3;
+}
+.btn-custom2:hover{
+  background-color: #181433;
+  color: white;
+  border-color: #88937aa3;
 }
