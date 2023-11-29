@@ -2,6 +2,8 @@ Bet.destroy_all
 Participation.destroy_all
 Team.destroy_all
 Match.destroy_all
+UserReward.destroy_all
+Reward.destroy_all
 User.destroy_all
 Squad.destroy_all
 
@@ -27,8 +29,8 @@ participation_2 = Participation.create!(team: om, match: match_2, odd: 1.8)
 participation_1 = Participation.create!(team: lorient, match: match_3, odd: 3)
 participation_2 = Participation.create!(team: rennes, match: match_3, odd: 2)
 
-reward_1 = Reward.create!(title: "double tes points", description: "points doublés au prochain pari", price: 200)
-reward_2 = Reward.create!(title: "+100 points", description: "+100 points au prochain pari gagné", price: 50)
+reward_1 = Reward.create!(title: "Le Winner", description: "points doublés au prochain pari", price: 200)
+reward_2 = Reward.create!(title: "Coup de pouce", description: "+100 points au prochain pari gagné", price: 50)
 
 user_reward_1 = UserReward.create!(reward: reward_1, target: user_1, progress: 0, user: user_1)
 user_reward_2 = UserReward.create!(reward: reward_2, target: user_2, progress: 0, user: user_2)
