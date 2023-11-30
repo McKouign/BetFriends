@@ -1,28 +1,28 @@
 <div class="container-fluid">
   <div class="row d-flex">
 
-   <div class="col-12 d-flex flex-row justify-content-between  my-3">
+   <div class="col-12  d-flex flex-row justify-content-between  my-3">
 
-    <div class="col-2 ">
-      <a href="/"><%= image_tag "logo/logo-betfriends.svg" %></a>
-    </div>
+      <div class="col-2 align-middle">
+        <a href="/"><%= image_tag "logo/logo-betfriends.svg" %></a>
+      </div>
 
 
-    <div class="col-10 ml-auto">
+    <div class="col-10 ml-auto ">
       <% if user_signed_in? %>
 
-      <div class="d-flex px-3">
+      <div class="d-flex px-3 link-nav">
 
-        <div class="mx-2">
-          <a class="btn btn-outline-light"><%= image_tag "picto/icon-points.svg", class:"mx-2" %>Mes Points</a>
+        <div class="me-4 pe-3">
+          <a class="btn btn-outline-light mh-100 "><%= image_tag "picto/icon-points.svg", class:"me-2" %>Mes Points</a>
         </div>
 
-        <div class="mx-2">
-          <a class="btn btn-outline-light"><%= image_tag "picto/icon-bonus.svg", class:"mx-2" %>Bonus</a>
+        <div class="me-4 pe-3">
+          <a class="btn btn-outline-light mh-100"><%= image_tag "picto/icon-bonus.svg", class:"me-2" %>Bonus</a>
         </div>
 
-        <div class="mx-2">
-          <a class="btn btn-outline-light"><%= image_tag "picto/icon-bonus.svg", class:"mx-2" %><%= current_user.nickname %></a>
+        <div class=" pe-3">
+          <a class="btn btn-outline-light mh-100"><%= image_tag "picto/icon-points.svg", class:"me-2" %><%= current_user.nickname %></a>
 
         </div>
 
