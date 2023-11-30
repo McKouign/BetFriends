@@ -3,7 +3,6 @@ class BetsController < ApplicationController
   def create
     @bet = Bet.new(bet_params)
     @bet.user = current_user
-    raise
     if @bet.save
       redirect_to matches_path
     else
