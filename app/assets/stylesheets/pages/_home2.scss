@@ -1,0 +1,25 @@
+.cover-banner {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.bet-card {
+  overflow: hidden;
+  min-height: 250px;
+}
+
+.btn-bet:hover {
+  background-color: chocolate;
+}
+
+.btn-bet-group {
+  position: absolute;
+  top: 30px  !important;
+  // margin-top: -0.25rem !important;
+}
+
+.card-image-top {
+  width: 100%;
+  height: auto;
+}

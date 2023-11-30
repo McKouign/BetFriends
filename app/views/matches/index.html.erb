@@ -1,48 +1,68 @@
-<%# HERO CONTENT %>
-<div class="parent ">
-      <%# -----FUN BET---- %>
-      <div class="row">
-      <div class="col-12">
-      <div class="div1 bg-light card-main">
-      </div>
-      </div>
-      </div>
-      <%# -----REGULAR BETS---- %>
-      <div class="row">
-      <div class="col-12">
+<%# ----- HERO FUNBET ----- %>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-12 mxwidth rounded-4 bg-light mb-5">
+    <div class="cover-banner">
+      <img src="https://plus.unsplash.com/premium_photo-1701187887029-907bed510db6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" id="cover-banner">
+    </div>
   </div>
+</div>
+</div>
 
-                    <% @matches.each do |match| %>
+<%# ----- CONTENT > BETS ----- %>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-12 d-flex flex-row justify-content-center">
 
-                      <div class="cardd col-4">
-                        <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22259%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20259%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_18c17e40538%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_18c17e40538%22%3E%3Crect%20width%3D%22259%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.25%22%20y%3D%2296%22%3E259x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-                          <div data-controller="bets" class="bouton-paris d-flex justify-content-center text-center mt-3">
-                                        <%# PREMIERE TEAM  %>
+  <%# ----- BET CARD ----- %>
 
-                                <% if match.participations.first.odd < match.participations.last.odd %>
-                                  <div class="mx-2 mb-2">
-                                    <button data-bets-target="button" data-action="click->bets#betSubmit" class="btn btn-dark pe-4 text-center"><small><%= match.participations.first.team.name %></small><br>Favori</button>
-                                  </div>
-                                  <div class="mx-2 mb-2">
-                                    <button class="btn btn-dark pe-4"><small>Nul</small></button>
-                                  </div>
-                                  <div class="mx-2 mb-2">
-                                    <button data-bets-target="button" data-action="click->bets#betSubmit" class="btn btn-dark pe-4 text-center"><small><%= match.participations.last.team.name %></small><br>Outsider</button>
-                                  </div>
-                                <% else %>
-                                 <div class="mx-2 mb-2">
-                                    <button data-bets-target="button" data-action="click->bets#betSubmit" class="btn btn-dark pe-4 text-center"><small><%= match.participations.first.team.name %></small><br>Outsider</button>
-                                  </div>
 
-                                  <div class="mx-2 mb-2">
-                                    <button class="btn btn-dark pe-4"><small>Nul</small></button>
-                                  </div>
-                                  <div class="mx-2 mb-2">
-                                    <button data-bets-target="button" data-action="click->bets#betSubmit" class="btn btn-dark pe-4 text-center"><small><%= match.participations.last.team.name %></small><br>Favori</button>
-                                  </div>
-                                <% end %>
-                        </div>
+  <% @matches.each do |match| %>
 
-                      </div>
-                     <% end %>
+    <div class="col-4 rounded-4 bg-white bet-card position-relative shadow-sm">
+    <%# IMAGE CARD %>
+    <span class="position-relative">
+      <img class="card-img-top "  alt="100%x180" style="height: 140px; width: 120%; display: inline-block;" src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-holder-rendered="true">
+      <div data-controller="bets" class="bouton-paris d-flex justify-content-center text-center my-3">
+    </span>
+    <%# BET BUTONS  %>
+    <span class="d-flex btn-bet-group justify-content-between px-2 ">
+    <% if match.participations.first.odd < match.participations.last.odd %>
+
+      <div class="mb-2">
+        <button class="btn btn-info btn-bet pe-4 rounded-3 text-center mx-1 mb-2" data-bets-target="button" data-action="click->bets#betSubmit"><small><%= match.participations.first.team.name %></small><br>Favori</button>
+      </div>
+
+      <div class="mb-2">
+        <button class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small>Nul</small></button>
+      </div>
+
+      <div class="mb-2">
+        <button class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100" data-bets-target="button" data-action="click->bets#betSubmit"><small><%= match.participations.last.team.name %></small><br>Outsider</button>
+      </div>
+
+    <% else %>
+      <div class=" mb-2">
+        <button data-bets-target="button" data-action="click->bets#betSubmit" class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small><%= match.participations.first.team.name %></small><br>Outsider</button>
+      </div>
+
+      <div class=" mb-2">
+        <button class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small>Nul</small></button>
+      </div>
+      <div class=" mb-2">
+        <button data-bets-target="button" data-action="click->bets#betSubmit" class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small><%= match.participations.last.team.name %></small><br>Favori</button>
+      </div>
+    <% end %>
+      </div>
+</span>
+
+    <div class="col-12 d-flex  flex-column justify-content-center mt-5 mb-3 text-center">
+      <button class="btn col-8 d-flex justify-content-center text-center btn-info rounded-5">Utiliser un bonus</button>
+      <p class=" col-8 d-flex justify-content-center text-center" >14/24 joueurs on pariés</p>
+      </div>
+
+    </div>
+    <% end %>
   </div>
+</div>
+</div>
