@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BetFriends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%# -----HEADER----- %>
+    <div class="row">
+
+      <div class="col-12">
+       <%= render "shared/navbar" %>
+    </div>
+
+
+    <%# -----BODY----- %>
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="col-2 full-height">
+          <%= render "shared/leftbar2" %>
+        </div>
+
+        <div class="col-8">
+           <%= yield %>
+
+        </div>
+
+        <div class="col-2 full-height">
+          <%= render "shared/rightbar" %>
+        </div>
+
+    </div>
+    </div>
+    <%= render "shared/flashes" %>
+  </div>
+  </div>
+  </body>
+</html>

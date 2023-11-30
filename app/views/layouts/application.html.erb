@@ -3,7 +3,7 @@
   <head>
     <title>BetFriends</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,37 +12,34 @@
   </head>
 
   <body>
-    <%# -----HEADER----- %>
-    <div class="row">
-
-      <div class="col-12">
-       <%= render "shared/navbar" %>
+  <%# -----NAVBAR HEADER----- %>
+    <div class="container-fluid">
+      <div class="row">
+        <%= render "shared/navbar2" %>
+      </div>
     </div>
 
-
-    <%# -----BODY----- %>
-
+  <%# -----ROW CONTENT----- %>
     <div class="container-fluid">
-
       <div class="row">
 
-        <div class="col-2 full-height">
-          <%= render "shared/leftbar2" %>
+    <%# ------ CONTENT > LEFTBAR ----- %>
+        <div class="col-2 mxwidth mxheight">
+          <%= render "shared/leftbar3" %>
         </div>
 
-        <div class="col-8">
-           <%= yield %>
-
+    <%# ------ CONTENT > CENTER ------ %>
+        <div class="col-8 mxwidth ">
+          <%= yield %>
         </div>
 
-        <div class="col-2 full-height">
-          <%= render "shared/rightbar" %>
+    <%# ------ CONTENT > RIGHT ------ %>
+        <div class="col-2 mxwidth mxheight">
+          <%= render "shared/rightbar2" %>
         </div>
-
+      </div>
     </div>
-    </div>
+
     <%= render "shared/flashes" %>
-  </div>
-  </div>
   </body>
 </html>
