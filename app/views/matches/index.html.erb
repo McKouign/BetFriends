@@ -30,15 +30,15 @@
     <% if match.participations.first.odd < match.participations.last.odd %>
 
       <div class="mb-2">
-        <button class="btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" data-bets-target="button" data-action="click->bets#betSubmit"><small><%= match.participations.first.team.name %></small><br>Favori</button>
+        <button class="btn btn-info btn-bet pe-4 rounded-3 text-center mx-1 mb-2" data-bets-target="button" data-action="click->bets#betSubmit"><small><%= match.participations.first.team.name %></small><br>Favori</button>
       </div>
 
       <div class="mb-2">
-        <button class="btn btn-dark pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small>Nul</small></button>
+        <button class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small>Nul</small></button>
       </div>
 
       <div class="mb-2">
-        <button class="btn btn-dark pe-4 rounded-3 text-center mx-1 mb-2 h-100" data-bets-target="button" data-action="click->bets#betSubmit"><small><%= match.participations.last.team.name %></small><br>Outsider</button>
+        <button class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100" data-bets-target="button" data-action="click->bets#betSubmit"><small><%= match.participations.last.team.name %></small><br>Outsider</button>
       </div>
 
     <% else %>
