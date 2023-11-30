@@ -20,6 +20,9 @@ class BetsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def bet_params

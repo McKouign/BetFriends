@@ -1,16 +1,14 @@
 <div class="container">
   <h1><%= @squad.name %> Squad</h1>
 
-  <h2>Matches</h2>
+  <h2 class="text-white">Matches</h2>
     <% @matches.each do |match| %>
       <%= match.sport %> le <%= match.date %> : <h5><%= match.participations.first.team.name %> - <%= match.participations.last.team.name %></h5>
-      <h4>Joueurs qui ont parié sur ce match</h4>
+      <h4 class="text-white">Nombre de joueur qui ont parié sur ce match</h4>
 
           <% if match.bets.present? %>
-            <% match.bets.each do |bet| %>
-              <%= bet.user.nickname %>
-            <% end %> <br>
+            <%= match.bets.count %> joueur(s) ont parié sur ce match.<br>
           <% else %>
-            <p>Sniff... Personne n'a parié sur ce match.</p>
+            <p>0 joueurs ont parié sur ce match</p>
           <% end %>
     <% end %>
