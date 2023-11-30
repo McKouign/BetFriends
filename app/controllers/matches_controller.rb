@@ -3,5 +3,6 @@ class MatchesController < ApplicationController
   def index
     @matches = Match.all
     @users = User.all
+    @bet = Bet.new
   end
 end

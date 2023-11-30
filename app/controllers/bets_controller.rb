@@ -1,6 +1,7 @@
 class BetsController < ApplicationController
 
   def create
+    raise
     @bet = Bet.new(bet_params)
     @bet.user = current_user
     @bet.user_reward = @user_reward
