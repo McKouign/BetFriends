@@ -1,0 +1,21 @@
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g filter="url(#filter0_d_41_5452)">
+<rect x="3" y="2" width="19.5" height="19.5" fill="url(#pattern0)" shape-rendering="crispEdges"/>
+</g>
+<defs>
+<filter id="filter0_d_41_5452" x="0.6" y="0.6" width="24.3" height="24.3" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.29 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_41_5452"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_41_5452" result="shape"/>
+</filter>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_41_5452" transform="scale(0.01)"/>
+</pattern>
+<image id="image0_41_5452" width="100" height="100" xlink:href="data:image/png;base64,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"/>
+</defs>
+</svg>
