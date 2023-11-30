@@ -1,15 +1,50 @@
-<div class="navbar d-flex justify-content-between flex-row">
+<div class="container-fluid">
+  <div class="row d-flex">
 
-  <div>
-  LOGO
+   <div class="col-12 d-flex flex-row justify-content-between  my-3">
+
+    <div class="col-2 ">
+      <a href="/"><%= image_tag "logo/logo-betfriends.svg" %></a>
+    </div>
+
+
+    <div class="col-10 ml-auto">
+      <% if user_signed_in? %>
+
+      <div class="d-flex px-3">
+
+        <div class="mx-2">
+          <a class="btn btn-outline-light"><%= image_tag "picto/icon-points.svg", class:"mx-2" %>Mes Points</a>
+        </div>
+
+        <div class="mx-2">
+          <a class="btn btn-outline-light"><%= image_tag "picto/icon-bonus.svg", class:"mx-2" %>Bonus</a>
+        </div>
+
+        <div class="mx-2">
+          <a class="btn btn-outline-light"><%= image_tag "picto/icon-bonus.svg", class:"mx-2" %><%= current_user.nickname %></a>
+
+        </div>
+
+      </div>
+
+
+    <% else %>
+      <div class="btnDisplay">
+      <div class="btnNav">
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-custom" %>
+        <%= link_to "S'inscrire",  new_user_registration_path, class: "btn btn-custom" %>
+    </div>
+    </div>
+  <% end %>
+
+
+
+
+    </div>
+
+   </div>
+
+
   </div>
-
-  <div>
-    <button>Hello</button>
-    <button>Hello</button>
-    <button>Hello</button>
-    <button>Hello</button>
-  </div>
-
-
 </div>
