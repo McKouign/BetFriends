@@ -1,14 +1,37 @@
-<div class="container">
+<div class="container col-12">
+
+  <div class="squad-header row col-12 justify-content-center align-items-center">
   <h1><%= @squad.name %> Squad</h1>
+  <p>Alors ? ca dit quoi tes derniers paris ?</p>
+  </div>
 
   <h2 class="text-white">Matches</h2>
     <% @matches.each do |match| %>
-      <%= match.sport %> le <%= match.date %> : <h5><%= match.participations.first.team.name %> - <%= match.participations.last.team.name %></h5>
+
+
+       <div class="card-squad-display-1 col-12">
+         <div class="card-squad-display-2">
+
+          <div class="squad-sport">
+          <h3><%= match.sport %></h3>
+           <h5><%= match.participations.first.team.name %> - <%= match.participations.last.team.name %></h5>
+          </div>
+
+        </div>
+      <div class="card-body">
+
+    </div>
+  </div>
+
       <h4 class="text-white">Nombre de joueur qui ont parié sur ce match</h4>
+        <div class="card-squad-display-3">
 
           <% if match.bets.present? %>
             <%= match.bets.count %> joueur(s) ont parié sur ce match.<br>
           <% else %>
             <p>0 joueurs ont parié sur ce match</p>
           <% end %>
-    <% end %>
+
+        </div>
+          <% end %>
+</div>
