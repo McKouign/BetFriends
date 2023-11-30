@@ -27,40 +27,73 @@
       </span>
                       <%# BET BUTONS  %>
       <span class="d-flex btn-bet-group justify-content-between px-2 ">
-          <% if match.participations.first.odd < match.participations.last.odd %>
 
-            <div class="mb-2">
-              <button class="btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" data-bets-target="button" data-action="click->bets#betSubmit"><small><%= match.participations.first.team.name %></small><br>Favori</button>
-            </div>
+            <%= simple_form_for @bet do |f|%>
 
-            <div class="mb-2">
-              <button class="btn btn-dark pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small>Nul</small></button>
-            </div>
+              <%= f.input :participation_id, input_html: { value: Match.first.participations.first.id} %>
 
-            <div class="mb-2">
-              <button class="btn btn-dark pe-4 rounded-3 text-center mx-1 mb-2 h-100" data-bets-target="button" data-action="click->bets#betSubmit"><small><%= match.participations.last.team.name %></small><br>Outsider</button>
-            </div>
+              <fieldset class="mb-3 radio_buttons optional bet_user_reward">
+                <legend class="col-form-label pt-0">User reward</legend>
+                <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
 
-          <% else %>
+                <% current_user.user_rewards.each do |user_reward| %>
 
-            <div class=" mb-2">
-              <button data-bets-target="button" data-action="click->bets#betSubmit" class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small><%= match.participations.first.team.name %></small><br>Outsider</button>
-            </div>
+                  <div class="form-check">
+                    <input class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id %>" name="bet[user_reward_id]" id="bet_user_reward_id_<%= %>">
+                    <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id <%= %>"><%= user_reward.reward.title %></label>
+                  </div>
+                <% end %>
 
-            <div class=" mb-2">
-              <button class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small>Nul</small></button>
-            </div>
+              </fieldset>
+              <%= f.button :submit, Match.first.participations.first.team.name, class:"btn btn-danger" %>
+            <% end %>
 
-            <div class=" mb-2">
-              <button data-bets-target="button" data-action="click->bets#betSubmit" class="btn btn-info pe-4 rounded-3 text-center mx-1 mb-2 h-100"><small><%= match.participations.last.team.name %></small><br>Favori</button>
-            </div>
+            <%= simple_form_for @bet do |f|%>
 
-          <% end %>
+              <fieldset class="mb-3 radio_buttons optional bet_user_reward">
+                <legend class="col-form-label pt-0">User reward</legend>
+                <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
+
+                <% current_user.user_rewards.each do |user_reward| %>
+
+                  <div class="form-check">
+                    <input class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id %>" name="bet[user_reward_id]" id="<%= user_reward.id %>">
+                    <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id"<%= user_reward.reward.title %>></label>
+                  </div>
+                <% end %>
+
+              </fieldset>
+              <%= f.button :submit, "Nul", class:"btn btn-danger" %>
+            <% end %>
+
+            <%= simple_form_for @bet do |f|%>
+
+              <%= f.input :participation_id, input_html: { value: Match.first.participations.last.id} %>
+
+              <fieldset class="mb-3 radio_buttons optional bet_user_reward">
+                <legend class="col-form-label pt-0">User reward</legend>
+                <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
+
+                <% current_user.user_rewards.each do |user_reward| %>
+
+                  <div class="form-check">
+                    <input data- class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id %>" name="bet[user_reward_id]" id="bet_user_reward_id_<%= %>">
+                    <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id"<%= user_reward.reward.title %>></label>
+                  </div>
+                <% end %>
+
+              </fieldset>
+              <%= f.button :submit, Match.first.participations.last.team.name, class:"btn btn-danger" %>
+            <% end %>
+
+
         </div>
       </span>
 
+
+
       <div class="col-12 d-flex  flex-column justify-content-center mt-5 mb-3 text-center">
-        <button class="btn col-8 d-flex justify-content-center text-center btn-info rounded-5"></button>
+
 
       <% if match.bets.present? %>
             <p class=" col-8 d-flex justify-content-center text-center" ><%= match.bets.count %>/<%= @users.count %> joueur(s) ont parié sur ce match.</p>
@@ -68,60 +101,20 @@
             <p>0 joueurs ont parié sur ce match</p>
           <% end %>
       </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Utiliser un bonus</button>
       </div>
+
     <% end %>
   </div>
 </div>
 </div>
 
 
-<%= simple_form_for @bet do |f|%>
 
-  <%= f.input :participation_id, input_html: { value: Match.first.participations.first.id} %>
-
-  <fieldset class="mb-3 radio_buttons optional bet_user_reward">
-    <legend class="col-form-label pt-0">User reward</legend>
-    <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
-
-  <% current_user.user_rewards.each do |user_reward| %>
-
-    <div class="form-check">
-      <input data- class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id %>" name="bet[user_reward_id]" id="bet_user_reward_id_<%= %>">
-      <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id_<%= %>"><%= user_reward.reward.title %></label>
-    </div>
-  <% end %>
-
-  </fieldset>
-  <%= f.button :submit, Match.first.participations.first.team.name, class:"btn btn-danger" %>
-<% end %>
-
-
-
-<%= simple_form_for @bet do |f|%>
-
-  <%= f.input :participation_id, input_html: { value: Match.first.participations.last.id} %>
-
-  <fieldset class="mb-3 radio_buttons optional bet_user_reward">
-    <legend class="col-form-label pt-0">User reward</legend>
-    <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
-
-  <% current_user.user_rewards.each do |user_reward| %>
-
-    <div class="form-check">
-      <input data- class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id %>" name="bet[user_reward_id]" id="bet_user_reward_id_<%= %>">
-      <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id_<%= %>"><%= user_reward.reward.title %></label>
-    </div>
-  <% end %>
-
-  </fieldset>
-  <%= f.button :submit, Match.first.participations.last.team.name, class:"btn btn-danger" %>
-<% end %>
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Utiliser un bonus
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -136,7 +129,7 @@
 
 
 
-        <label  for="bet_user_reward_id_20"><%= current_user.user_rewards.first.id %></label>
+        <label  for="bet_user_reward_id"><%= current_user.user_rewards.first.reward.title %></label>
 
 
       </div>
