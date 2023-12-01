@@ -95,7 +95,7 @@
 
 
       <% if match.bets.present? %>
-            <p class=" col-8 d-flex justify-content-center text-center" ><%= match.bets.count %>/<%= @users.count %> joueur(s) ont parié sur ce match.</p>
+            <p class=" col-8 d-flex justify-content-center text-center" ><%= match.bets.count / users.count %>/<%= @users.count %> joueur(s) ont parié sur ce match.</p>
           <% else %>
             <p>0 joueurs ont parié sur ce match</p>
           <% end %>
