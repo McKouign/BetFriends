@@ -14,7 +14,7 @@
 
 <%# ----- CONTENT > BETS ----- %>
 <div class="container-fluid">
-<div class="row">
+<div data-controller="bets" class="row">
   <div class="col-12 d-flex flex-row justify-content-center">
 
   <%# ----- BET CARD ----- %>
@@ -67,7 +67,7 @@
                 <legend class="col-form-label pt-0">User reward</legend>
                 <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
                 <% current_user.user_rewards.each do |user_reward| %>
-                  <div class="form-check">
+                  <div data-bets-target="reward" class="form-check">
                     <input class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id%>" name="bet[user_reward_id]" id="bet_user_reward_id_<%= user_reward.id%>">
                     <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id_<%= user_reward.id%>"><%= user_reward.reward.title%></label>
                   </div>
