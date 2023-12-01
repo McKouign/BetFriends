@@ -32,20 +32,20 @@
 
 
             <%= simple_form_for @bet do |f|%>
-            <div data-bets-target="reward" >
-              <%= f.input :match_id, input_html: { value: match.id} %>
-              <%= f.input :participation_id, input_html: { value: match.favori_participation.id} %>
-                  <%#= f.association :user_reward, as: :radio_buttons %>
-                <%= f.input :user_reward_id %>
+              <div data-bets-target="reward">
+                <%= f.input :match_id, input_html: { value: match.id} %>
+                <%= f.input :participation_id, input_html: { value: match.favori_participation.id} %>
+                    <%#= f.association :user_reward, as: :radio_buttons %>
+                  <%= f.input :user_reward_id %>
               </div>
               <%= f.button :submit, "#{match.favori_participation.team.name}",class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
             <% end %>
 
             <%= simple_form_for @bet do |f|%>
-              <div data-bets-target="reward" class="d-none">
+              <div class="d-none">
               <fieldset class="mb-3 radio_buttons optional bet_user_reward">
                 <legend class="col-form-label pt-0">User reward</legend>
-                <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
+                <input data-bets-target="reward" type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <% current_user.user_rewards.each do |user_reward| %>
                   <div class="form-check">
@@ -59,15 +59,15 @@
             <% end %>
 
             <%= simple_form_for @bet do |f|%>
-            <div data-bets-target="reward" class="d-none">
+            <div class="d-none">
               <%= f.input :match_id, input_html: { value: match.id} %>
               <%= f.input :participation_id, input_html: {value: match.outsider_participation.id} %>
                   <%#= f.association :user_reward, as: :radio_buttons %>
               <fieldset class="mb-3 radio_buttons optional bet_user_reward">
                 <legend class="col-form-label pt-0">User reward</legend>
-                <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
+                <input data-bets-target="reward" type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
                 <% current_user.user_rewards.each do |user_reward| %>
-                  <div class="form-check">
+                  <div data-bets-target="reward" class="form-check">
                     <input class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id%>" name="bet[user_reward_id]" id="bet_user_reward_id_<%= user_reward.id%>">
                     <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id_<%= user_reward.id%>"><%= user_reward.reward.title%></label>
                   </div>
@@ -121,7 +121,7 @@
           <ul class="list-unstyled">
             <li>
               <div >
-                  <input data-action="click->bets#RewardSelect" type="checkbox" id="bet_user_reward_id_<%= user_reward.id %>" name="bet[user_reward_id]" value="<%= user_reward.id %>">
+                  <input data-action="click->bets#RewardSelect" type="checkbox" id="bet_user_reward_id_<%= user_reward.id %>" name="bet[user_reward_id]" data-bets-user-reward-id-value="<%= user_reward.id %>">
                   <%= user_reward.reward.title %>
               </div>
             </li>
