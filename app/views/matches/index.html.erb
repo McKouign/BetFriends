@@ -96,9 +96,9 @@
 
       <button type="button" class="btn btn-dark btn-bet pe-4 rounded-3 text-center mx-5 mb-3 " data-bs-toggle="modal" data-bs-target="#exampleModal">Utiliser un bonus</button>
       <% if match.bets.present? %>
-            <p ><%= match.bets.count %>/<%= @users.count %> joueur(s) ont parié sur ce match.</p>
+            <p ><%= match.bets.count %> pari(s) sur ce match.</p>
           <% else %>
-            <p>0 joueurs ont parié sur ce match</p>
+            <p>Aucun pari sur ce match</p>
           <% end %>
       </div>
       </div>
@@ -125,12 +125,14 @@
       </div>
       <div class="modal-body">
         <% current_user.user_rewards.each do |user_reward| %>
-          <label  for="bet_user_reward_id"><%= user_reward.reward.title %></label>
+          <ul class="list-unstyled">
+            <li><label  for="bet_user_reward_id"><%= user_reward.reward.title %></label></li>
+          </ul>
         <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-info btn-bet pe-4 rounded-3 text-center mx-3 mb-3 text-white" data-bs-dismiss="modal">Retour</button>
+        <button type="button" class="btn btn-dark btn-bet pe-4 rounded-3 text-center mx-3 mb-3 text-white">Valider</button>
       </div>
     </div>
   </div>
