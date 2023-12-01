@@ -1,5 +1,8 @@
+
+
 <div class="container col-12">
 
+<%# ----- SQUAD HEADER ----- %>
   <div class="squad-header row col-12 justify-content-center align-items-center">
     <h1><%= @squad.name %> Squad</h1>
     <p>Alors ? Ça dit quoi tes derniers paris ?</p>
@@ -7,6 +10,7 @@
 
   <h2 class="text-white">Matches</h2>
 
+<%# ----- recup et affichage des matches ----- %>
   <% @matches.each do |match| %>
     <div class="cadre m-3">
       <div class="card-squad-display-1 col-12">

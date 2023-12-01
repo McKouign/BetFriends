@@ -1,0 +1,35 @@
+.card-rewards{
+  justify-content: center;
+  justify-content:space-between;
+  align-items: center;
+  height: 20vh;
+  background: #16113A;
+  border: 1px solid;
+  border-color: white;
+  border-radius:10px;
+  color: white;
+}
+
+h1,h2,h3,h4,h5{
+  color: white;
+}
+
+hr{
+  color: white;
+}
+
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
