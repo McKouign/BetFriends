@@ -33,7 +33,7 @@ reward_1 = Reward.create!(title: "Le Winner", description: "points doublés au p
 reward_2 = Reward.create!(title: "Coup de pouce", description: "+100 points au prochain pari gagné", price: 50)
 
 user_reward_1 = UserReward.create!(reward: reward_1, target: user_1, progress: 0, user: user_1)
-user_reward_2 = UserReward.create!(reward: reward_2, target: user_2, progress: 0, user: user_2)
+user_reward_2 = UserReward.create!(reward: reward_2, target: user_1, progress: 0, user: user_1)
 
 bet_1 = Bet.create!(user: user_1, participation: participation_1, progress: 0, match: match_1, user_reward: user_reward_1)
 bet_2 = Bet.create!(user: user_2, participation: participation_1, progress: 0, match: match_3, user_reward: user_reward_2)
