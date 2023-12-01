@@ -1,25 +1,51 @@
- <div class="d-flex sticky-top flex-column justify-content-evenly  p-3 text-white sidecontent rounded-4">
+ <div class="d-flex sticky-top flex-column justify-content-between  p-3 text-white sidecontent rounded-4">
+      <div class="div">
         <div class="nav-links">
-          <ul class="list-unstyled">
-            <li><i class="fa-solid fa-bomb me-2"></i><a href="#">Accueil</a></li>
-            <li><i class="fa-solid fa-bomb me-2"></i><a href="#">Mes stats</a></li>
-            <li><i class="fa-solid fa-bomb me-2"></i><a href="#">Historique</a></li>
-            <li><i class="fa-solid fa-bomb me-2"></i><a href="#">Discussion</a></li>
-            <li><i class="fa-solid fa-bomb me-2"></i><a href="#">Boutique</a></li>
-          </ul>
-          <hr>
+
+
+      <ul class="list-unstyled text-decoration-none text-center">
+        <% if user_signed_in? %>
+            <li class="mb-2 range-links object-fit-fill"><%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
+              <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
+            <% end %>
+            </li>
+
+            <li><%= image_tag "picto/icon-stats.svg", class:"me-2 mb-2" %><%= link_to "Mes stats", class: " text-decoration-none" %></li>
+
+            <li><%= image_tag "picto/icon-historique.svg", class:"me-2 mb-2" %><%= link_to "Historique",  class: " text-decoration-none" %>   </li>
+
+            <li><%= image_tag "picto/icon-discussion.svg", class:"me-2 mb-2" %><%= link_to "Discussion",  data: {turbo_method: :delete}, class: " text-decoration-none" %>   </li>
+
+            <li><%= image_tag "picto/icon-boutique.svg", class:"me-2 mb-2" %><%= link_to "Boutique", rewards_path, data: {turbo_method: :delete}, class: " text-decoration-none" %>   </li>
+
+            <%#      ---    %>
+
+
+
+        <% else %>
+          <p>Coucou</p>
+        <% end %>
+
+
         </div>
-
-      <div class="user-links">
-        <ul class="list-unstyled">
-            <li><i class="fa-solid fa-bomb me-2"></i><a href="#">Paramètres</a></li>
-            <li><i class="fa-solid fa-bomb me-2 text-warning"></i><a href="#">Déconnexion</a></li>
-        </ul>
-      <hr>
-
-      <div class="help-links">
-        <p>Besoin d'aide ?</p>
       </div>
+
+
+
+      <div class="text-center">
+        <div class="user-links">
+          <ul class="list-unstyled">
+            <li><a href="#">Paramètres</a></li>
+            <li><%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-warning" %></li>
+          </ul>
+
+          <hr>
+
+          <div class="help-links">
+            <p><i class="fa-solid fa-circle-info me-2"></i>Besoin d'aide ?</p>
+          </div>
+
+        </div>
 
     </div>
     </div>

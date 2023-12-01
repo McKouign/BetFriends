@@ -1,40 +1,60 @@
-<div class="d-flex flex-column sticky-top justify-content-evenly sidecontent rounded-4">
+<div class="d-flex flex-column sticky-top justify-content-between sidecontent rounded-4 text-white">
 
-      <div class="LShead top-0">
 
-       <div class="classement text-center">
-        <h5 class="mb-2">Classement</h5>
-        <ul class="list-unstyled">
-          <div class="classement-list-player mb-2">
-            <li>Player 1</li>
+    <%# ----- HEADER MENU > CLASSEMENT  %>
+
+
+      <div class="classement text-center mt-2">
+
+        <h5 class="mb-3">Les boss de la team</h5>
+
+        <%# IMPLEMENTER ITERATION CLASSEMENT LIMIT TOP 5 %>
+
+        <ul class="list-unstyled ">
+
+          <div class="classement-list-player mx-2 mb-2">
+            <li><%= image_tag "picto/icon-sports.svg", class:"me-2" %><small>Player 1</small></li>
           </div>
-          <div class="classement-list-player mb-2">
-            <li>Player 2</li>
+
+          <div class="classement-list-player mx-2 mb-2">
+            <li><%= image_tag "picto/icon-sports.svg", class:"me-2" %><small>Player 1</small></li>
           </div>
-          <div class="classement-list-player mb-2">
-            <li>Player 3</li>
+
+          <div class="classement-list-player mx-2 mb-2">
+            <li><%= image_tag "picto/icon-sports.svg", class:"me-2" %><small>Player 1</small></li>
           </div>
-          <div class="classement-list-player mb-2">
-            <li>Player 4</li>
+
+          <div class="classement-list-player mx-2 mb-2">
+            <li><%= image_tag "picto/icon-sports.svg", class:"me-2" %><small>Player 1</small></li>
           </div>
-          <div class="classement-list-player">
-            <li>Player 5</li>
+
+          <div class="classement-list-player mx-2 mb-2">
+            <li><%= image_tag "picto/icon-sports.svg", class:"me-2" %><small>Player 1</small></li>
           </div>
+
           <div class="mt-2">
             <li><small><%= link_to "Classement complet"%></small></li>
           </div>
         </ul>
-       </div>
-      </div>
 
-      <div class="LSmain ">
-        <div class="hightlight-bonus border rounded-4 text-center">
-          <img src="" alt="">
+        <hr class="mx-4">
+      </div>
+    <%# ----- HEADER MENU > PICTURE  %>
+      <div class="">
+
+        <div class="LSmain ">
+          <div class="hightlight-bonus overflow-hidden rounded-4 mx-2 h-75 text-center classement-list-player">
+            <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" id="right-image-bonus">
+          </div>
         </div>
+
       </div>
 
-      <div class="LSfoot ">
-        <div class="conversation text-center border rounded-4 p-3">
+    <%# ----- HEADER MENU > DISCUSSION  %>
+      <div class="tadaaa">
+
+        <div class="LSfoot">
+          <div class="conversation text-center  rounded-4 p-3">
 
           <h5 class="mb-2">Le vestiaire</h5>
 
@@ -49,15 +69,13 @@
             <div class="message text-start">
               <small><i class="fa-solid fa-user-ninja me-2"></i>User 1 - jeudi 21</small>
               <p>Hello toi</p>
-              <hr>
             </div>
 
+            </div>
           </div>
+        </div>
 
-
-       </div>
       </div>
-
 
 
     </div>

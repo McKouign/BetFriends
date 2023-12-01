@@ -20,11 +20,31 @@
 }
 
 body {
-  background: linear-gradient(127deg, #232347 8.01%, #261652 94.28%);
+  background: linear-gradient(127deg, #181832 8.01%, #261652 94.28%);
 }
 
 .sidecontent {
   background: linear-gradient(148deg, rgba(255, 255, 255, 0.16) -28.48%, rgba(255, 255, 255, 0.00) 114.99%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   height: 92vh;
+}
+
+.classement-list-player {
+  border-radius: 8px;
+  border: 1px solid #FFF;
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.range-links {
+  height: 30px;
+}
+
+#right-image-bonus {
+  height: 100% auto;
+  width: 100%;
+}
+
+.link-nav {
+  margin-left: 610px;
+
 }
