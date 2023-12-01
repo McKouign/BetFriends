@@ -3,10 +3,10 @@
         <div class="nav-links">
 
 
-      <ul class="list-unstyled text-decoration-none text-center">
+      <ul class="list-unstyled text-decoration-none ms-2">
         <% if user_signed_in? %>
-            <li class="mb-2 range-links object-fit-fill"><%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
-              <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
+            <li class="mb-2 range-links object-fit-fill"><%= link_to root_path, class: "rounded-3  text-decoration-none text-white" do %>
+              <%= image_tag "picto/icon-sports.svg", class:"me-2 " %>Accueil
               <br>
              <li> <%= link_to "📉 Mes stats", user_path(current_user), class: "text-decoration-none text-white" %></li>
              <br>
@@ -18,7 +18,7 @@
             </li>
 
         <% else %>
-
+         <ul class="list-unstyled text-decoration-none text-center">
               <li class="mb-2 range-links object-fit-fill"><%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
               <br>
