@@ -13,12 +13,7 @@ class BetsController < ApplicationController
   end
 
   def update
-    @bet = Bet.find(params[:id])
-    if @bet.update(bet_params)
-      redirect_to matches_path
-    else
-      render :update, status: :unprocessable_entity
-    end
+    
   end
 
   def destroy

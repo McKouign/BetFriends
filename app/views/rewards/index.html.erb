@@ -53,18 +53,16 @@
 
 
 <%# ----- HERO REWARD A DEBLOQUER ----- %>
-<br>
-  <div class="row">
-      <div class="card-rewards col-12">
-      <div>
-        <H2>Bonus disponibles</H2>
-        <% @rewards.each do |reward| %>
-              <%= reward.title %> <br>
-              <%= reward.description %> <br>
-              <%= reward.price %> <br>
-              <%= link_to "Acheter ce bonus", reward_users_rewards_path(reward), class:"btn btn-dark pe-4 text-center" %> <br>
-        <% end %>
-      </div>
+<div class="row">
+  <div class="col-12 mxwidth rounded-4 bg-light mb-5">
+    <div>
+      <H2>Bonus disponibles</H2>
+      <% @rewards.each do |reward| %>
+            <%= reward.title %> <br>
+            <%= reward.description %> <br>
+            <%= reward.price %> <br>
+            <%= link_to "Acheter ce bonus", reward_user_rewards_path(reward), data: { turbo_method: :post }, class:"btn btn-dark pe-4 text-center" %> <br>
+      <% end %>
     </div>
   </div>
 </div>
