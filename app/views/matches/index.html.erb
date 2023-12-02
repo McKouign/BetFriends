@@ -2,11 +2,18 @@
 
 <div class="row">
 
-   <div class="grid-1 mb-3">
-      <div class="squad-header d-flex justify-content-center align-items-center">
-        <h1>Fun bet</h1>
-      </div>
-    </div>
+    <% @matches.each do |match| %>
+        <% if match.funbet == true %>
+          <div class="grid-1 mb-3">
+            <div class="squad-header d-flex justify-content-center align-items-center">
+              <h1><%= match.sport %></h1>
+              <h5><%= match.date %></h5>
+              <h3><%= match.favori_participation.team.name %> - <%= match.outsider_participation.team.name %></h3>
+
+            </div>
+          </div>
+        <% end %>
+    <% end %>
 </div>
 
 
@@ -19,6 +26,7 @@
 
 
   <% @matches.each do |match| %>
+    <% if match.funbet == false %>
 
       <div class="col-4 rounded-4 bg-white bet-card position-relative shadow">
                       <%# IMAGE CARD %>
@@ -36,7 +44,7 @@
                     <%#= f.association :user_reward, as: :radio_buttons %>
                   <%= f.input :user_reward_id %>
               </div>
-              <%= f.button :submit, "#{match.favori_participation.team.name}",class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
+              <%= f.button :submit, "#{match.favori_participation.team.name}", class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
             <% end %>
 
             <%= simple_form_for @bet do |f|%>
@@ -93,8 +101,8 @@
           <% end %>
       </div>
       </div>
-
     <% end %>
+  <% end %>
   </div>
 
 </div>
