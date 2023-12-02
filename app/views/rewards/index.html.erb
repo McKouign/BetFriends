@@ -14,20 +14,24 @@
 
 <div class="row">
     <div class="grid-3">
-        <% current_user.user_rewards.each do |user_reward| %>
+        <% @user_rewards.each do |user_reward| %>
             <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
                 <%= image_tag "wald.jpg", class: "img-fluid", style: "object-fit: cover" %>
                 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <h5><%= user_reward.reward.title %></h5>
                           <%= @description = user_reward.reward.description %>
+
+
                     <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Détails
-                      </button>
+                  <button type="button" class="btn btn-custom details-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-reward-description="<%= user_reward.reward.description %>" data-reward-title="<%= user_reward.reward.title %>">
+                    <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Détails
+                  </button>
                 </div>
             </div>
-        <% end %>
-           <!-- Modal -->
+               <% end %>
+
+
+           <!-- Modale -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -36,8 +40,7 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                               <p> <%= @description %></p>
-
+                                <p id="modal-description"></p>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -52,17 +55,49 @@
 
 
 
-<%# ----- HERO REWARD A DEBLOQUER ----- %>
-<div class="row">
-  <div class="col-12 mxwidth rounded-4 bg-light mb-5">
-    <div>
-      <H2>Bonus disponibles</H2>
-      <% @rewards.each do |reward| %>
-            <%= reward.title %> <br>
-            <%= reward.description %> <br>
-            <%= reward.price %> <br>
-            <%= link_to "Acheter ce bonus", reward_user_rewards_path(reward), data: { turbo_method: :post }, class:"btn btn-dark pe-4 text-center" %> <br>
-      <% end %>
-    </div>
+
+  <div class="bonus shadow-sm">
+  <H2>Bonus disponibles</H2>
   </div>
-</div>
+    <div class="row">
+      <div class="grid-3">
+         <% @rewards.each do |reward| %>
+        <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
+          <%= image_tag "wald.jpg", class: "img-fluid", style: "object-fit: cover" %>
+            <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+              <%= reward.title %> <br>
+                 <%= reward.description %> <br>
+                   <%= reward.price %> <br>
+
+
+
+          </div>
+        </div>
+         <% end %>
+      </div>
+    </div>
+
+
+<%# JavaScript pour modifier l'intérieur de la modale %>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    var modalTitle = document.getElementById('exampleModalLabel');
+    var modalDescription = document.getElementById('modal-description');
+
+    var detailsButtons = document.querySelectorAll('.details-button');
+
+    detailsButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var title = button.getAttribute('data-reward-title');
+        var description = button.getAttribute('data-reward-description');
+
+        modalTitle.innerText = title;
+        modalDescription.innerText = description;
+
+        myModal.show();
+      });
+    });
+  });
+</script>
+ </div>

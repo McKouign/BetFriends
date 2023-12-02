@@ -1,43 +1,43 @@
-<div class="d-flex sticky-top flex-column justify-content-between p-3 text-white sidecontent rounded-4">
+<div class="cadre d-flex sticky-top flex-column justify-content-between p-3 text-white sidecontent rounded-4">
   <div class="div">
     <div class="nav-links">
       <ul class="list-unstyled text-decoration-none text-center">
         <% if user_signed_in? %>
-          <li class="mb-2 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill">
             <%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
             <% end %>
           </li>
 
-          <li class="mb-2 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill">
             <%= link_to "📉 Mes stats", user_path(current_user), class: "text-decoration-none text-white" %>
           </li>
 
-          <li class="mb-2 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill">
             <%= link_to "🏆 Historique", squad_path(current_user.squad), class: "text-decoration-none text-white" %>
           </li>
 
-          <li class="mb-2 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill">
             <%= link_to "🏬 Boutique", rewards_path, class: "text-decoration-none text-white"%>
           </li>
 
         <% else %>
 
-          <li class="mb-2 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill">
             <%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
             <% end %>
           </li>
 
-          <li class="mb-2 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill">
             <%= link_to "📉 Mes stats", new_user_session_path, class: "text-decoration-none text-white" %>
           </li>
 
-          <li class="mb-2 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill">
             <%= link_to "🏆 Historique", new_user_session_path, class: "text-decoration-none text-white" %>
           </li>
 
-          <li class="mb-2 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill">
             <%= link_to "🏬 Boutique", new_user_session_path, class: "text-decoration-none text-white"%>
           </li>
 
