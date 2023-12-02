@@ -51,26 +51,24 @@
 
 
 <%# ----- HERO REWARD A DEBLOQUER ----- %>
-<br>
-  <div class="titre">
+  <div class="bonus shadow-sm">
   <H2>Bonus disponibles</H2>
   </div>
     <div class="row">
       <div class="grid-3">
-        <div class="card-rewards col-12">
-
-          <div>
-
-            <% @rewards.each do |reward| %>
-                  <%= reward.title %> <br>
-                  <%= reward.description %> <br>
-                  <%= reward.price %> <br>
-                  <%= link_to "Acheter ce bonus", reward_users_rewards_path(reward), class:"btn btn-dark pe-4 text-center" %> <br>
-            <% end %>
+         <% @rewards.each do |reward| %>
+        <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
+          <%= image_tag "wald.jpg", class: "img-fluid", style: "object-fit: cover" %>
+            <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+              <%= reward.title %> <br>
+                 <%= reward.description %> <br>
+                   <%= reward.price %> <br>
           </div>
         </div>
+         <% end %>
       </div>
     </div>
+
 
 
 <%# JavaScript pour modifier l'intérieur de la modale %>
