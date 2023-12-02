@@ -11,7 +11,7 @@
   <h2 class="text-white">Matches</h2>
 
 <%# ----- recup et affichage des matches ----- %>
-  <% @matches.each do |match| %>
+  <% @matches.sort_by { |match| match.date }.reverse.each do |match| %>
     <div class="cadre m-3">
       <div class="card-squad-display-1 col-12">
         <div class="card-squad-display-2 col-12 d-flex">
