@@ -1,56 +1,54 @@
 <div class="container col-12">
-<%# ----- SQUAD HEADER ----- %>
+  <%# ----- SQUAD HEADER ----- %>
   <div class="squad-header row col-12 justify-content-center align-items-center">
     <h1>Jackpot ! C’est l’heure d’encaisser...</h1>
   </div>
 
-<%# ----- HERO REWARD POSSEDE ----- %>
-    <div class="bonus">
-      <div class="text">
-        <h2>Mes Bonus</h2>
+  <%# ----- HERO REWARD POSSEDE ----- %>
 
-      </div>
-    </div>
-      <div class="row">
-        <div class="grid-3">
+
+
+<div class="bonus shadow-sm">
+    <h2>Mes Bonus</h2>
+</div>
+
+<div class="row">
+    <div class="grid-3">
         <% @user_rewards.each do |user_reward| %>
-
-         <div class="card-rewards">
-         <h1> <%= user_reward.reward.title %> </h1><br>
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Afficher détails bonus
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    ...
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
+            <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
+                <%= image_tag "wald.jpg", class: "img-fluid", style: "object-fit: cover" %>
+                <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h5><%= user_reward.reward.title %></h5>
+                          <%= @description = user_reward.reward.description %>
+                    <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Détails
+                      </button>
                 </div>
-              </div>
             </div>
+        <% end %>
+           <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Détails</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                               <p> <%= @description %></p>
 
-         <%= user_reward.reward.description %>
-
-        </div>
-           <% end %>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
     </div>
+</div>
 
-  </div>
 
 
 
