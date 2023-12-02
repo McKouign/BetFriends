@@ -1,8 +1,8 @@
 class UserRewardsController < ApplicationController
 
   def create
+    @rewards = Reward.all
     @user_reward = UserReward.new(user_reward_params)
-    raise
     @user_reward.user = current_user
     if @user_reward.save
       redirect_to rewards_path
@@ -12,6 +12,7 @@ class UserRewardsController < ApplicationController
       render "rewards/index", status: :unprocessable_entity
     end
   end
+
   private
 
   def user_reward_params
