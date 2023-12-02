@@ -23,13 +23,38 @@
 body {
   background: linear-gradient(127deg, #181832 8.01%, #261652 94.28%);
 }
-.range-links:hover {
-  margin: 5px;
-  border-radius: 8px;
-  border: 1px solid #FFF;
-  background: rgba(0, 0, 0, 0.32);
-  color: white;
+
+
+
+//********** LEFT-SIDE-BAR NAVLINKS MISE EN PAGE **********
+
+.list-unstyled{
+  padding-top: 30px;
 }
+.range-links:hover {
+  margin:auto;
+  width: 210px;
+  height: 50px;
+  display: grid;
+  place-items:center;
+  position:relative;
+  z-index:0;
+  background-color: #181832;
+}
+.range-links:hover::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  padding: 2px;
+  border-radius: 3px;
+  background: linear-gradient(45deg, rgb(249, 249, 249), #820D95), border-box;
+  --grad: linear-gradient(red, red);
+  -webkit-mask: var(--grad) content-box, var(--grad);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  }
+
 
 .sidecontent {
   background: linear-gradient(148deg, rgba(255, 255, 255, 0.16) -28.48%, rgba(255, 255, 255, 0.00) 114.99%);
@@ -58,6 +83,7 @@ hr {
 .link-nav {
   margin-left: 610px;
 }
+
 
 .form-inputs{
   color: white;
