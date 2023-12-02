@@ -1,8 +1,8 @@
 class UserRewardsController < ApplicationController
 
   def create
-    raise
     @user_reward = UserReward.new(user_reward_params)
+    raise
     @user_reward.user = current_user
     if @user_reward.save
       redirect_to rewards_path
