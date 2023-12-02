@@ -30,7 +30,7 @@
             <%= reward.title %> <br>
             <%= reward.description %> <br>
             <%= reward.price %> <br>
-            <%= link_to "Acheter ce bonus", reward_users_rewards_path(reward), class:"btn btn-dark pe-4 text-center" %> <br>
+            <%= link_to "Acheter ce bonus", reward_user_rewards_path(reward), data: { turbo_method: :post }, class:"btn btn-dark pe-4 text-center" %> <br>
       <% end %>
     </div>
   </div>
