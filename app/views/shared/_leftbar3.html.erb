@@ -1,51 +1,69 @@
- <div class="d-flex sticky-top flex-column justify-content-between  p-3 text-white sidecontent rounded-4">
-      <div class="div">
-        <div class="nav-links">
-
-
+<div class="d-flex sticky-top flex-column justify-content-between p-3 text-white sidecontent rounded-4">
+  <div class="div">
+    <div class="nav-links">
       <ul class="list-unstyled text-decoration-none text-center">
         <% if user_signed_in? %>
-            <li class="mb-2 range-links object-fit-fill"><%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
+          <li class="mb-2 range-links object-fit-fill">
+            <%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
             <% end %>
-            </li>
+          </li>
 
-            <li><%= image_tag "picto/icon-stats.svg", class:"me-2 mb-2" %><%= link_to "Mes stats", class: " text-decoration-none" %></li>
+          <li class="mb-2 range-links object-fit-fill">
+            <%= link_to "📉 Mes stats", user_path(current_user), class: "text-decoration-none text-white" %>
+          </li>
 
-            <li><%= image_tag "picto/icon-historique.svg", class:"me-2 mb-2" %><%= link_to "Historique",  class: " text-decoration-none" %>   </li>
+          <li class="mb-2 range-links object-fit-fill">
+            <%= link_to "🏆 Historique", squad_path(current_user.squad), class: "text-decoration-none text-white" %>
+          </li>
 
-            <li><%= image_tag "picto/icon-discussion.svg", class:"me-2 mb-2" %><%= link_to "Discussion",  data: {turbo_method: :delete}, class: " text-decoration-none" %>   </li>
-
-            <li><%= image_tag "picto/icon-boutique.svg", class:"me-2 mb-2" %><%= link_to "Boutique", rewards_path, data: {turbo_method: :delete}, class: " text-decoration-none" %>   </li>
-
-            <%#      ---    %>
-
-
+          <li class="mb-2 range-links object-fit-fill">
+            <%= link_to "🏬 Boutique", rewards_path, class: "text-decoration-none text-white"%>
+          </li>
 
         <% else %>
-          <p>Coucou</p>
+
+          <li class="mb-2 range-links object-fit-fill">
+            <%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
+              <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
+            <% end %>
+          </li>
+
+          <li class="mb-2 range-links object-fit-fill">
+            <%= link_to "📉 Mes stats", new_user_session_path, class: "text-decoration-none text-white" %>
+          </li>
+
+          <li class="mb-2 range-links object-fit-fill">
+            <%= link_to "🏆 Historique", new_user_session_path, class: "text-decoration-none text-white" %>
+          </li>
+
+          <li class="mb-2 range-links object-fit-fill">
+            <%= link_to "🏬 Boutique", new_user_session_path, class: "text-decoration-none text-white"%>
+          </li>
+
         <% end %>
+        <li><hr></li>
+      </ul>
+    </div>
+  </div>
 
+  <div class="text-center">
+    <div class="user-links">
+      <ul class="list-unstyled">
+        <li><a href="#">Paramètres</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-warning" %></li>
+        <% else %>
+          <li><%= link_to "Connexion", new_user_session_path, class: "text-decoration-none text-white"%></li>
+          <br>
+        <% end %>
+      </ul>
 
-        </div>
+      <hr>
+
+      <div class="help-links">
+        <p><i class="fa-solid fa-circle-info me-2"></i>Besoin d'aide ?</p>
       </div>
-
-
-
-      <div class="text-center">
-        <div class="user-links">
-          <ul class="list-unstyled">
-            <li><a href="#">Paramètres</a></li>
-            <li><%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-warning" %></li>
-          </ul>
-
-          <hr>
-
-          <div class="help-links">
-            <p><i class="fa-solid fa-circle-info me-2"></i>Besoin d'aide ?</p>
-          </div>
-
-        </div>
-
     </div>
-    </div>
+  </div>
+</div>

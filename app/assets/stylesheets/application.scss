@@ -10,7 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
+@import "pages/rewards";
+@import "pages/users-show";
 
 
 * {
@@ -22,11 +23,21 @@
 body {
   background: linear-gradient(127deg, #181832 8.01%, #261652 94.28%);
 }
+.range-links:hover {
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid #FFF;
+  background: rgba(0, 0, 0, 0.32);
+  color: white;
+}
 
 .sidecontent {
   background: linear-gradient(148deg, rgba(255, 255, 255, 0.16) -28.48%, rgba(255, 255, 255, 0.00) 114.99%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   height: 92vh;
+}
+hr {
+  border-top: 2px solid #fbf9f9;
 }
 
 .classement-list-player {
@@ -46,5 +57,15 @@ body {
 
 .link-nav {
   margin-left: 610px;
+}
 
+.form-inputs{
+  color: white;
+  font-weight: 600;
+}
+
+.formulaire{
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
 }

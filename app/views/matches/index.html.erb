@@ -1,28 +1,26 @@
 <%# ----- HERO FUNBET ----- %>
-<div class="container-fluid">
+
 <div class="row">
-  <div class="col-12 mxwidth mb-5 position-relative">
-    <div class="cover-banner rounded-4 shadow-sm">
-      <%= image_tag "fond1.jpg", class: "img-fluid", style: "object-fit: cover" %>
-      <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-    <h2>Ton message ici</h2>
+
+   <div class="grid-1 mb-3">
+      <div class="squad-header d-flex justify-content-center align-items-center">
+        <h1>Fun bet</h1>
       </div>
     </div>
-  </div>
-</div>
 </div>
 
+
 <%# ----- CONTENT > BETS ----- %>
-<div class="container-fluid">
-<div data-controller="bets" class="row">
-  <div class="col-12 d-flex flex-row justify-content-center">
+<div class="container"></div>
+<div class="row">
+  <div class="grid-3 d-flex px-4 flex-row justify-content-center">
 
   <%# ----- BET CARD ----- %>
 
 
   <% @matches.each do |match| %>
 
-      <div class="col-4 rounded-4 bg-white bet-card position-relative shadow-sm">
+      <div class="col-4 rounded-4 bg-white bet-card position-relative shadow">
                       <%# IMAGE CARD %>
       <span class="position-relative">
         <img class="card-img-top "  alt="100%x180" style="height: 140px; width: 120%; display: inline-block;" src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-holder-rendered="true">
@@ -98,7 +96,7 @@
 
     <% end %>
   </div>
-</div>
+
 </div>
 
 
