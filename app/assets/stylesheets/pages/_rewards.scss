@@ -1,3 +1,4 @@
+//AFFICHAGE DES CARTES BONUS
 .card-rewards{
   justify-content: center;
   justify-content:space-between;
@@ -13,22 +14,32 @@
   color: white;
 }
 
-h1,h2,h3,h4,h5{
+// BANNIERE
+.banner{
+  height: 30vh;
+  border-radius: 10px;
   color: white;
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-hr{
-  color: white;
-}
+// MISE EN PAGE TITRES
 .bonus{
   margin-top: 30px;
 }
+h1,h2,h3,h4,h5{
+  color: white;
+}
+hr{
+  color: white;
+}
 
+// MISE EN PLACE DU GRID
 .grid-1 {
   display: grid;
   grid-template-columns: 1fr;
 }
-
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -38,6 +49,8 @@ hr{
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
 }
+
+// BOUTONS ET MODALE
 .btn-custom{
   margin-left: 20px;
   margin-right: 20px;
