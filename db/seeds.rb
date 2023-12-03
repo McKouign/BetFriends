@@ -8,8 +8,8 @@ User.destroy_all
 Squad.destroy_all
 
 squad = Squad.create!(name: "Les Boss")
-user_1 = User.create!(email: "azerty@gamil.com", password: "azerty", nickname: "Gégédu33", squad: squad)
-user_2 = User.create!(email: "azerto@gamil.com", password: "azerto", nickname: "MBappé", squad: squad )
+user_1 = User.create!(email: "azerty@gamil.com", password: "azerty", nickname: "Gégédu33", points_counter: 600, squad: squad)
+user_2 = User.create!(email: "azerto@gamil.com", password: "azerto", nickname: "MBappé", points_counter: 900, squad: squad )
 
 barcelone = Team.create!(name: "FC Barcelone", sport: "Football")
 madrid = Team.create!(name: "Real Madrid", sport: "Football")

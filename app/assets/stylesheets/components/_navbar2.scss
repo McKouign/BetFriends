@@ -25,20 +25,42 @@
   margin-left: 50px;
 }
 
-.btn-custom{
+
+// ****** BOUTONS CONNEXION ET INSCRIPTION NAVBAR *******
+
+// ESPACEMENT DES BOUTONS
+.btnNav {
+  margin-right: 15px;
+  background-color: #1E183E;
   border-radius: 8px;
+}
+
+// CONNEXION VERT + ON HOVER
+.btn-custom-co{
   color: white;
+  border-radius: 19px;
+  background:linear-gradient(180deg, #b9de17 0%, #09c33a 100%);
   border-color: #88937aa3;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.657);
   transition: none;
 }
-.btn-custom:hover {
+.btn-custom-co:hover {
   background-color: #181433;
   color: white;
-  border-color: #c6e210;
+  background:linear-gradient(180deg, #a6c715 0%, #07a933 100%);
 }
-.btnNav {
-  margin-right: 10px;
-  background-color: #1D173D;
-  border-radius: 8px;
+
+// INSCRIPTION ORANGE + ON HOVER
+.btn-custom-ins{
+  color: white;
+  border-radius: 19px;
+  background:linear-gradient(180deg, #d7800e 0%, #bd0f43 100%);
+  border-color: #88937aa3;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.657);
+  transition: none;
+}
+.btn-custom-ins:hover {
+  background-color: #181433;
+  color: white;
+  background:linear-gradient(180deg, #bd700c 0%, #a60d3b 100%);
 }

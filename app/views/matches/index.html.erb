@@ -1,16 +1,9 @@
-<%# ----- HERO FUNBET ----- %>
-<div class="container-fluid">
-<div class="row">
-  <div class="col-12 mxwidth mb-5 position-relative">
-    <div class="cover-banner rounded-4 shadow-sm">
-      <%= image_tag "fond1.jpg", class: "img-fluid", style: "object-fit: cover" %>
-      <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-    <h2>Ton message ici</h2>
+<%# ----- BANNER ----- %>
+<div class="grid-1">
+      <div class="squad-header d-flex justify-content-center align-items-center">
+        <h1>Plutôt winner ou looser ?</h1>
       </div>
     </div>
-  </div>
-</div>
-</div>
 
 <%# ----- CONTENT > BETS ----- %>
 <div class="container-fluid">
@@ -36,6 +29,7 @@
               <%= f.input :match_id, input_html: { value: match.id} %>
               <%= f.input :participation_id, input_html: { value: match.favori_participation.id} %>
                   <%#= f.association :user_reward, as: :radio_buttons %>
+                  <% if user_signed_in? %>
               <fieldset class="mb-3 radio_buttons optional bet_user_reward">
                 <legend class="col-form-label pt-0">User reward</legend>
                 <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
@@ -47,12 +41,14 @@
                 <% end %>
 
               </fieldset>
+              <% end %>
               </div>
               <%= f.button :submit, "#{match.favori_participation.team.name}",class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
             <% end %>
 
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
+                <% if user_signed_in? %>
               <fieldset class="mb-3 radio_buttons optional bet_user_reward">
                 <legend class="col-form-label pt-0">User reward</legend>
                 <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
@@ -64,6 +60,7 @@
                   </div>
                 <% end %>
               </fieldset>
+                <% end %>
               </div>
               <%= f.button :submit, "Nul", class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
             <% end %>
@@ -73,6 +70,7 @@
               <%= f.input :match_id, input_html: { value: match.id} %>
               <%= f.input :participation_id, input_html: {value: match.outsider_participation.id} %>
                   <%#= f.association :user_reward, as: :radio_buttons %>
+                  <% if user_signed_in? %>
               <fieldset class="mb-3 radio_buttons optional bet_user_reward">
                 <legend class="col-form-label pt-0">User reward</legend>
                 <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
@@ -83,6 +81,7 @@
                   </div>
                 <% end %>
               </fieldset>
+               <% end %>
               </div>
               <%= f.button :submit, "#{match.outsider_participation.team.name}",class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
             <% end %>
@@ -127,6 +126,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+         <% if user_signed_in? %>
         <% current_user.user_rewards.each do |user_reward| %>
           <ul class="list-unstyled">
             <li><label  for="bet_user_reward_id"><%= user_reward.reward.title %></label></li>
@@ -138,5 +138,6 @@
         <button type="button" class="btn btn-dark btn-bet pe-4 rounded-3 text-center mx-3 mb-3 text-white">Valider</button>
       </div>
     </div>
+             <% end %>
   </div>
 </div>
