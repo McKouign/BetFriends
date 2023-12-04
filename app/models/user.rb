@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :rewards, through: :user_rewards
   has_many :bets
 
-  def bet_won_points
+  def won_points
     self.points_counter += 50
   end
 end
