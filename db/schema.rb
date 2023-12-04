@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_30_164309) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_03_184409) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bets", force: :cascade do |t|
-    t.integer "progress"
+    t.integer "progress", default: 0
     t.bigint "match_id", null: false
-    t.bigint "participation_id", null: false
+    t.integer "participation_id"
     t.bigint "user_id", null: false
     t.integer "user_reward_id"
     t.datetime "created_at", null: false
@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_164309) do
   end
 
   create_table "user_rewards", force: :cascade do |t|
-    t.integer "progress"
+    t.integer "progress", default: 0
     t.bigint "user_id", null: false
     t.bigint "reward_id", null: false
     t.bigint "target_id", null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_164309) do
     t.datetime "updated_at", null: false
     t.string "nickname"
     t.text "avatar"
-    t.integer "points_counter"
+    t.integer "points_counter", default: 0
     t.bigint "squad_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

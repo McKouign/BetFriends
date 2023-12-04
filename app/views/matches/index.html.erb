@@ -1,58 +1,45 @@
-  <%# ----- SQUAD HEADER ----- %>
-<div class="banner overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
-<%= image_tag "tennis.jpg", class: "img-fluid", style: "object-fit: cover" %>
-<div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-<h1>FunBet !</h1>
-</div>
-</div>
-<br>
-<%# ----- CONTENT > BETS ----- %>
-<div class="container-fluid">
+<%# ----- HERO FUNBET ----- %>
 <div class="row">
-  <div class="col-12 d-flex flex-row justify-content-center">
-
+    <% @matches.each do |match| %>
+        <% if match.funbet == true %>
+          <div class="grid-1 mb-3">
+            <div class="squad-header d-flex justify-content-center align-items-center">
+              <h1><%= match.sport %></h1>
+              <h5><%= match.date %></h5>
+              <h3><%= match.favori_participation.team.name %> - <%= match.outsider_participation.team.name %></h3>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+</div>
+<%# ----- CONTENT > BETS ----- %>
+<div class="container"></div>
+<div class="row">
+  <div class="grid-3 d-flex px-4 flex-row justify-content-center">
   <%# ----- BET CARD ----- %>
-
-
   <% @matches.each do |match| %>
-
-      <div class="col-4 rounded-4 bg-white bet-card position-relative shadow-sm">
+    <% if match.funbet == false %>
+      <div class="col-4 rounded-4 bg-white bet-card position-relative shadow">
                       <%# IMAGE CARD %>
       <span class="position-relative">
         <img class="card-img-top "  alt="100%x180" style="height: 140px; width: 120%; display: inline-block;" src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-holder-rendered="true">
         <div class="bouton-paris d-flex justify-content-center text-center my-3">
       </span>
                       <%# BET BUTONS  %>
-
-
             <%= simple_form_for @bet do |f|%>
-            <div class="d-none">
-              <%= f.input :match_id, input_html: { value: match.id} %>
-              <%= f.input :participation_id, input_html: { value: match.favori_participation.id} %>
-                  <%#= f.association :user_reward, as: :radio_buttons %>
-                  <% if user_signed_in? %>
-              <fieldset class="mb-3 radio_buttons optional bet_user_reward">
-                <legend class="col-form-label pt-0">User reward</legend>
-                <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
-                <% current_user.user_rewards.each do |user_reward| %>
-                  <div class="form-check">
-                    <input class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id%>" name="bet[user_reward_id]" id="bet_user_reward_id_<%= user_reward.id%>">
-                    <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id_<%= user_reward.id%>"><%= user_reward.reward.title%></label>
-                  </div>
-                <% end %>
-
-              </fieldset>
-              <% end %>
+              <div data-bets-target="reward">
+                <%= f.input :match_id, input_html: { value: match.id} %>
+                <%= f.input :participation_id, input_html: { value: match.favori_participation.id} %>
+                    <%#= f.association :user_reward, as: :radio_buttons %>
+                  <%= f.input :user_reward_id %>
               </div>
-              <%= f.button :submit, "#{match.favori_participation.team.name}",class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
+              <%= f.button :submit, "#{match.favori_participation.team.name}", class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
             <% end %>
-
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
-                <% if user_signed_in? %>
               <fieldset class="mb-3 radio_buttons optional bet_user_reward">
                 <legend class="col-form-label pt-0">User reward</legend>
-                <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
+                <input data-bets-target="reward" type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <% current_user.user_rewards.each do |user_reward| %>
                   <div class="form-check">
@@ -61,42 +48,29 @@
                   </div>
                 <% end %>
               </fieldset>
-                <% end %>
               </div>
               <%= f.button :submit, "Nul", class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
             <% end %>
-
             <%= simple_form_for @bet do |f|%>
             <div class="d-none">
               <%= f.input :match_id, input_html: { value: match.id} %>
               <%= f.input :participation_id, input_html: {value: match.outsider_participation.id} %>
                   <%#= f.association :user_reward, as: :radio_buttons %>
-                  <% if user_signed_in? %>
               <fieldset class="mb-3 radio_buttons optional bet_user_reward">
                 <legend class="col-form-label pt-0">User reward</legend>
-                <input type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
+                <input data-bets-target="reward" type="hidden" name="bet[user_reward_id]" value="" autocomplete="off">
                 <% current_user.user_rewards.each do |user_reward| %>
-                  <div class="form-check">
+                  <div data-bets-target="reward" class="form-check">
                     <input class="form-check-input radio_buttons optional" type="radio" value="<%= user_reward.id%>" name="bet[user_reward_id]" id="bet_user_reward_id_<%= user_reward.id%>">
                     <label class="form-check-label collection_radio_buttons" for="bet_user_reward_id_<%= user_reward.id%>"><%= user_reward.reward.title%></label>
                   </div>
                 <% end %>
               </fieldset>
-               <% end %>
               </div>
               <%= f.button :submit, "#{match.outsider_participation.team.name}",class:"btn btn-dark btn-bet pe-4 rounded-3 text-center mx-1 mb-2" %>
             <% end %>
-
-
-
         </div>
-
-
-
-
       <div class="col-12 d-flex  flex-column justify-content-center mt-5 mb-3 text-center">
-
-
       <button type="button" class="btn btn-dark btn-bet pe-4 rounded-3 text-center mx-5 mb-3 " data-bs-toggle="modal" data-bs-target="#exampleModal">Utiliser un bonus</button>
       <% if match.bets.present? %>
             <p ><%= match.bets.count %> pari(s) sur ce match.</p>
@@ -105,40 +79,35 @@
           <% end %>
       </div>
       </div>
-
     <% end %>
+  <% end %>
   </div>
 </div>
-</div>
-
-
-
-
-
 <!-- Button trigger modal -->
-
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div data-controller="bets" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Mes bonus disponibles</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-         <% if user_signed_in? %>
+      <div  class="modal-body">
         <% current_user.user_rewards.each do |user_reward| %>
           <ul class="list-unstyled">
-            <li><label  for="bet_user_reward_id"><%= user_reward.reward.title %></label></li>
+            <li>
+              <div >
+                  <input data-action="click->bets#RewardSelect" type="checkbox" id="bet_user_reward_id_<%= user_reward.id %>" name="bet[user_reward_id]" data-bets-user-reward-id-value="<%= user_reward.id %>">
+                  <%= user_reward.reward.title %>
+              </div>
+            </li>
           </ul>
         <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-info btn-bet pe-4 rounded-3 text-center mx-3 mb-3 text-white" data-bs-dismiss="modal">Retour</button>
+        <button type="button" class="btn btn-info btn-bet pe-4 rounded-3 text-center mx-3 mb-3 text-black" data-bs-dismiss="modal">Retour</button>
         <button type="button" class="btn btn-dark btn-bet pe-4 rounded-3 text-center mx-3 mb-3 text-white">Valider</button>
       </div>
     </div>
-             <% end %>
   </div>
 </div>

@@ -14,8 +14,7 @@
 <%# ----- HERO REWARD POSSEDE ----- %>
 
 <div class="bonus shadow-sm">
-    <div class="titre"><h2>Mes Bonus</h2>
-    </div>
+    <h2>Mes Bonus</h2>
 </div>
 
 <div class="row">
@@ -25,6 +24,8 @@
                 <%= image_tag "wald.jpg", class: "img-fluid", style: "object-fit: cover" %>
                 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <h5><%= user_reward.reward.title %></h5>
+                          <%= @description = user_reward.reward.description %>
+
 
                     <!-- Button trigger modal -->
                   <button type="button" class="btn btn-custom details-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-reward-description="<%= user_reward.reward.description %>" data-reward-title="<%= user_reward.reward.title %>">
@@ -33,8 +34,8 @@
                 </div>
             </div>
                <% end %>
-           <!-- Modale -->
 
+           <!-- Modale -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -46,7 +47,8 @@
                                 <p id="modal-description"></p>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-custom2" data-bs-dismiss="modal">Fermer</button>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
                             </div>
                           </div>
                         </div>
@@ -98,4 +100,4 @@
     });
   });
 </script>
-  </div>
+ </div>
