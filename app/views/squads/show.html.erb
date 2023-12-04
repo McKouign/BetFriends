@@ -17,6 +17,7 @@
   <% @matches.sort_by { |match| match.date }.reverse.each do |match| %>
     <div class="cadre m-3">
       <div class="card-squad-display-1 col-12">
+        <p class="text-white"><%= match.date.strftime('%d-%m-%Y') %></p>
         <div class="card-squad-display-2 col-12 d-flex">
           <div class="squad-content pt-2">
             <h3><%= match.sport %></h3>
