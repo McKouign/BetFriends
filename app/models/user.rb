@@ -14,4 +14,9 @@ class User < ApplicationRecord
   def won_points
     self.points_counter += 50
   end
+
+  def won_average
+    won_average = (self.bets.where(progress: 'won').count / self.bets.count) * 100
+    return won_average
+  end
 end
