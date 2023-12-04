@@ -64,7 +64,7 @@
                 </div>
                 <div class="modal-body">
                   <% current_user.user_rewards.each do |user_reward| %>
-                    <div class="card d-flex text-center" style="width: 18rem;">
+                    <div class="card d-flex text-center mb-3" data-bs-dismiss="modal" style="width: 18rem;" id="card-reward-bet">
                       <div id="bet_user_reward_id_<%= user_reward.id %>" data-action="click->bets#RewardSelect" data-bets-reward-value=<%= user_reward.id %> class="d-flex flex-column card-body text-center justify-content-center">
                         <h5 class="card-title"><%= user_reward.reward.title %></h5>
                         <p class="card-text"><%= user_reward.reward.description %></p>
