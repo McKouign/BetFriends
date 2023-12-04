@@ -4,31 +4,31 @@
       <ul class="list-unstyled text-decoration-none text-center">
         <% if user_signed_in? %>
 
-          <li class="mb-3 range-links object-fit-fill">
+           <li class="mb-3 range-links object-fit-fill <%= 'active' if current_page?(root_path) %>">
             <%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
             <% end %>
           </li>
 
-          <li class="mb-3 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill <%= 'active' if current_page?(user_path(current_user)) %>">
             <%= link_to user_path(current_user), class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-stats.svg", class:"me-2 mb-2" %>Le vestiaire
             <% end %>
           </li>
 
-          <li class="mb-3 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill <%= 'active' if current_page?(home_path) %>">
             <%= link_to home_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-journal-1.svg", class:"me-2 mb-2" %>Actualités
             <% end %>
           </li>
 
-          <li class="mb-3 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill<%= 'active' if current_page?(squad_path(current_user.squad)) %>">
             <%= link_to squad_path(current_user.squad), class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-historique.svg", class:"me-2 mb-2" %>Historique
             <% end %>
           </li>
 
-          <li class="mb-3 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill <%= 'active' if current_page?(rewards_path) %>">
             <%= link_to rewards_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-boutique.svg", class:"me-2 mb-2" %>Boutique
             <% end %>
@@ -37,7 +37,7 @@
 
         <% else %>
 
-          <li class="mb-3 range-links object-fit-fill">
+          <li class="mb-3 range-links object-fit-fill <%= 'active' if current_page?(root_path) %>">
             <%= link_to root_path, class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-sports.svg", class:"me-2 mb-2" %>Accueil
             <% end %>

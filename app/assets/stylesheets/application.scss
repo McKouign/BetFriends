@@ -47,6 +47,7 @@ body {
 .list-unstyled{
   padding-top: 30px;
 }
+.range-links.active,
 .range-links:hover {
   margin:auto;
   width: 180px;
@@ -57,6 +58,7 @@ body {
   z-index:0;
   background-color: #181832;
 }
+.range-links.active::before,
 .range-links:hover::before {
   content:"";
   position:absolute;
