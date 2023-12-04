@@ -33,6 +33,7 @@ body {
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 .grid-3 {
   display: grid;
@@ -76,6 +77,7 @@ body {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   height: 92vh;
 }
+
 hr {
   border-top: 2px solid #fbf9f9;
 }
