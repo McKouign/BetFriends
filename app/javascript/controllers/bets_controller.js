@@ -3,7 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="bets"
 export default class extends Controller {
   static targets = ["reward"]
-  static values = { userRewardId: Number}
 
   connect() {
 
@@ -12,9 +11,11 @@ export default class extends Controller {
   RewardSelect(event) {
 
     console.log(this.rewardTargets)
-    //.forEach(target => {
-      //target.value = this.userRewardIdValue;
-    //});
+
+    const userRewardId = event.currentTarget.dataset.betsRewardValue
+    this.rewardTargets.forEach(target => {
+      target.value = userRewardId;
+    });
 
   }
 }
