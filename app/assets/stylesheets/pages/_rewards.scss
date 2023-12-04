@@ -3,15 +3,15 @@
   justify-content: center;
   justify-content:space-between;
   text-align: center;
-  margin-left:3vh;
-  margin-right: 3vh;
+  margin-left:1vh;
+  margin-right: 1vh;
   align-items: center;
-  height: 20vh;
-  background: #16113A;
+  background: #16113a00;
   // border: 1px solid;
   border-color: white;
   border-radius:10px;
   color: white;
+  max-height: 10vh;
 }
 
 // BANNIERE
@@ -95,6 +95,20 @@ hr{
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
 }
 
+// SUBMIT DE LA MODALE
+.btn-submit{
+  margin-left: 20px;
+  margin-right: 20px;
+  // display: flex;
+  // text-align: center;
+  // justify-content: center;
+  // align-items: center;
+  height: 5vh;
+  color: white;
+  background:linear-gradient(180deg, #b9de17 0%, #09c33a 100%);
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+}
 .custom-modal-header {
   background: linear-gradient(180deg, #BB8CF4 0%, #8844D6 100%);
   color: white;

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :bets, only: %i[create update destroy]
   resources :rewards, only: %i[index] do
-    resources :user_rewards, only: %i[create update]
+    resources :user_rewards, only: %i[new create update]
   end
   resources :squads, only: %i[show]
   resources :users, only: %i[show]
