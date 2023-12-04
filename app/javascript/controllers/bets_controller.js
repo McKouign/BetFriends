@@ -10,15 +10,9 @@ export default class extends Controller {
 
   RewardSelect(event) {
 
-    console.log(this.rewardTargets)
-
     const userRewardId = event.currentTarget.dataset.betsRewardValue
     this.rewardTargets.forEach(target => {
       target.value = userRewardId;
     });
-  }
-
-  GreenButton() {
-    this.ParticipationButtonTarget.classList.add("btn btn-success");
   }
 }
