@@ -21,7 +21,7 @@
     <div class="grid-3">
         <% current_user.user_rewards.each do |user_reward| %>
             <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
-                <%= image_tag "wald.jpg", class: "img-fluid", style: "object-fit: cover" %>
+
                 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <h5><%= user_reward.reward.title %></h5>
                     <!-- Button trigger modal -->
@@ -109,7 +109,6 @@
           <%= f.input :target_id, as: :hidden, input_html: { value: current_user.id } %>
           <%= f.button :submit, "Acheter le bonus", class: 'hidden-submit btn btn-submit details-button mx-auto' %>
           <%  %>
-          <%# decrementer %>
         <% end %>
 
       </div>

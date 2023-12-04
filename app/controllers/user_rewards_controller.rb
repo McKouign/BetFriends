@@ -5,6 +5,8 @@ class UserRewardsController < ApplicationController
     @user_reward = UserReward.new(user_reward_params)
     @user_reward.user = current_user
     if @user_reward.save
+      current_user.points_counter -= @user_reward.reward.price
+      current_user.save
       redirect_to rewards_path
     else
       @rewards = Reward.all
