@@ -3,6 +3,11 @@ class RewardsController < ApplicationController
       @rewards = Reward.all
       @user_rewards = UserReward.all
 
-      #@reward = Reward.find([:id])
+      @total_rewards = Reward.total_rewards
+
+      def new
+        @user_reward = UserReward.new
+        @user_reward.reward = Reward.find(params[:reward_id])
+      end
   end
 end

@@ -5,4 +5,8 @@ class Reward < ApplicationRecord
 
   has_many :user_rewards
   has_many :users, through: :user_rewards
+
+  def self.total_rewards
+    count
+  end
 end
