@@ -13,13 +13,13 @@
   <div class="grid-1">
       <div class="grid-3">
         <div class=" rounded-4 p-3 shadow" id="subcard">
-            <h2 class="text-white text-center">74%</h2>
+            <h2 class="text-white text-center"><%= current_user.won_average %>%</h2>
             <p class="text-white text-center">de victoires</p>
         </div>
 
         <div class=" rounded-4  p-3 shadow" id="subcard">
-            <h2 class="text-white text-center">14/17</h2>
-            <p class="text-white text-center">matchs joués</p>
+            <h2 class="text-white text-center"><%= current_user.bets.where(progress: 'won').count %>/<%= current_user.bets.count %></h2>
+            <p class="text-white text-center">paris gagnés</p>
         </div>
 
         <div class=" rounded-4  p-3 shadow" id="subcard">
@@ -35,26 +35,15 @@
         <div class="text-center col-12"  >
           <h2 class=" text-white">Classement</h2>
 
-          <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white ">
-            <p class="me-2">1er</p>
-            <p class="me-2"><%= current_user.nickname %></p>
-            <p class="me-2"><strong>79%</strong> de réussite</p>
-            <p class="me-2"><%= image_tag "picto/icon-points.svg", class:"me-2 align-items-center" %><strong>1250 </strong>points</p></p>
-          </div>
+          <% current_user.squad.users.sort_by { |user| user.points_counter }.each do |user| %>
 
-          <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white ">
-            <p class="me-2">2e</p>
-            <p class="me-2">Paulo75</p>
-            <p class="me-2"><strong>60%</strong> de réussite</p>
-            <p class="me-2"><%= image_tag "picto/icon-points.svg", class:"me-2 align-items-center" %><strong>1250 </strong>points</p></p>
-          </div>
-
-          <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white ">
-            <p class="me-2">3e</p>
-            <p class="me-2"><%= User.last.nickname %></p>
-            <p class="me-2"><strong>55%</strong> de réussite</p>
-            <p class="me-2"><%= image_tag "picto/icon-points.svg", class:"me-2 align-items-center" %><strong>1250 </strong>points</p></p>
-          </div>
+            <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white ">
+              <p class="me-2">1</p>
+              <p class="me-2"><%= user.nickname %></p>
+              <p class="me-2"><strong><%= user.won_average  %> %</strong> de réussite</p>
+              <p class="me-2"><%= image_tag "picto/icon-points.svg", class:"me-2 align-items-center" %><strong><%= user.points_counter %> </strong>points</p></p>
+            </div>
+          <% end %>
 
         </div>
       </div>
