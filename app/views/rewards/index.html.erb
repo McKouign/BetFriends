@@ -68,15 +68,27 @@
     <div class="row">
       <div class="grid-3">
          <% @rewards.each do |reward| %>
-        <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
+    <%# si les points sont < au prix du bonus alors affichage grisé %>
+    <% if current_user.points_counter < reward.price %>
+        <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 0.5;" id="subcard">
+      <% else %>
+        <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 1;" id="subcard">
+        <% end %>
           <%= image_tag "wald.jpg", class: "img-fluid", style: "object-fit: cover" %>
             <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
               <%= reward.title %> <br>
               <%= reward.description %>
                       <!-- Button trigger modal -->
+                      <% if current_user.points_counter < reward.price %>
+                      <button type="button" class="btn btn-custom details-button" data-bs-toggle="modal" data-bs-target="#user-reward_<%= reward.id %>-Modal" data-reward-description="" data-reward-title="<%= reward.title %>" <%= 'disabled' if current_user.points_counter < reward.price %>>
+                          <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Acheter
+                        </button>
+                            <% else %>
+
                   <button type="button" class="btn btn-custom details-button" data-bs-toggle="modal" data-bs-target="#user-reward_<%= reward.id %>-Modal" data-reward-description="" data-reward-title="">
                     <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Acheter
                   </button>
+                    <% end %>
                    <%= reward.price %> <br>
           </div>
         </div>
@@ -96,7 +108,10 @@
           <%= f.input :progress, as: :hidden, value: 'not_used' %>
           <%= f.input :target_id, as: :hidden, input_html: { value: current_user.id } %>
           <%= f.button :submit, "Acheter le bonus", class: 'hidden-submit btn btn-submit details-button mx-auto' %>
+          <%  %>
+          <%# decrementer %>
         <% end %>
+
       </div>
     </div>
   </div>

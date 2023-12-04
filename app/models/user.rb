@@ -14,4 +14,7 @@ class User < ApplicationRecord
   def won_points
     self.points_counter += 50
   end
+  def spend_points
+    current_user.points_counter -= current_user.user_reward.reward.price
+  end
 end
