@@ -36,23 +36,28 @@
               <div class="date">
                 <p class="text-white"><%= match.date.strftime('%H:%M:%S') %></p>
               </div>
-              <div class="card-squad-display-1 col-12">
-                <div class="card-squad-display-2 col-12 d-flex">
-                  <div class="squad-content col-2 pt-2">
+
+
+              <div class="card-squad-display-1">
+                <div class="card-squad-display-2 grid-5 text-center justify-content-center align-items-center">
+                  <div class="squad-content pt-2">
                     <h3><%= match.sport %></h3>
                   </div>
-                  <div class="squad-sport col-2 ms-3 m-1">
+                  <div class="squad-sport ms-3 m-1">
                     <h4><%= match.favori_participation.team.name %></h4>
                   </div>
-                  <div class="squad-sport col-3  m-1"><h5><%= match.favori_participation.score %> - <%= match.outsider_participation.score %></h5></div>
-                  <div class="squad-sport col-2  m-1">
+                  <div class="squad-sport  m-1"><h5><%= match.favori_participation.score %> - <%= match.outsider_participation.score %></h5></div>
+                  <div class="squad-sport m-1">
                     <h4><%= match.outsider_participation.team.name %></h4>
                   </div>
-                  <div class="win-or-lose col-2 pt-2">
+                  <div class="win-or-lose  pt-2">
                     <h3> gagné !</h3>
                   </div>
                 </div>
               </div>
+
+
+
               <div class="card-squad-display-3 col-11 d-flex justify-content-center">
                 <% if match.bets.count <= 1 %>
                   <%= "#{match.bets.count} pari placé sur ce match." %><br>

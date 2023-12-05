@@ -42,6 +42,12 @@ body {
   gap: 16px;
 }
 
+.grid-5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
 
 //********** LEFT-SIDE-BAR NAVLINKS MISE EN PAGE **********
 
