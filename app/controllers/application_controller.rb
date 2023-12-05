@@ -1,11 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_rss_feed
-  before_action :set_squad
-
-  def set_squad
-    @squad = current_user.squad
-  end
 
   private
 

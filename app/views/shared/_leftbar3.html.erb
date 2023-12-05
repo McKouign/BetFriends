@@ -22,7 +22,7 @@
             <% end %>
           </li>
 
-          <li class="mb-3 range-links object-fit-fill <%= 'active' if current_page?(squad_path(@squad)) %>">
+         <li class="mb-3 range-links object-fit-fill <%= 'active' if current_page?(squad_path(current_user.squad)) %>">
             <%= link_to squad_path(current_user.squad), class: "rounded-3 p-2 text-decoration-none text-white" do %>
               <%= image_tag "picto/icon-historique.svg", class:"me-2 mb-2" %>Historique
             <% end %>

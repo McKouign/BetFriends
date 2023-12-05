@@ -10,36 +10,62 @@
 <h1>Alors ? Ça dit quoi tes derniers paris ?</h1>
 </div>
 </div>
-
+  <br>
   <h2 class="text-white">Matches</h2>
+  <br>
+
 
 <%# ----- recup et affichage des matches ----- %>
-  <% @matches.sort_by { |match| match.date }.reverse.each do |match| %>
-    <% if match.date < Date.today && match.bets.present? %>
-      <div class="cadre m-3">
-          <div class="card-squad-display-1 col-12">
-            <p class="text-white"><%= match.date.strftime('%d-%m %H:%M:%S') %></p>
-            <div class="card-squad-display-2 col-12 d-flex">
-              <div class="squad-content pt-2">
-                <h3><%= match.sport %></h3>
+
+
+
+<div class="accordion" id="matchesAccordion">
+  <% grouped_matches = @matches.select { |match| match.date < Date.today && match.bets.present? }.group_by { |match| match.date.to_date } %>
+
+  <% grouped_matches.each do |date, matches| %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="dateHeading<%= date.strftime('%Y%m%d') %>">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dateCollapse<%= date.strftime('%Y%m%d') %>" aria-expanded="true" aria-controls="dateCollapse<%= date.strftime('%Y%m%d') %>">
+          <%= date.strftime('%d-%m-%Y') %>
+        </button>
+      </h2>
+      <div id="dateCollapse<%= date.strftime('%Y%m%d') %>" class="accordion-collapse collapse" aria-labelledby="dateHeading<%= date.strftime('%Y%m%d') %>" data-bs-parent="#matchesAccordion">
+        <div class="accordion-body">
+          <% matches.each do |match| %>
+            <div class="cadre m-3">
+              <div class="date">
+                <p class="text-white"><%= match.date.strftime('%H:%M:%S') %></p>
               </div>
-              <div class="squad-sport m-1">
-                <h4><%= match.favori_participation.team.name %></h4>
+              <div class="card-squad-display-1 col-12">
+                <div class="card-squad-display-2 col-12 d-flex">
+                  <div class="squad-content col-2 pt-2">
+                    <h3><%= match.sport %></h3>
+                  </div>
+                  <div class="squad-sport col-2 ms-3 m-1">
+                    <h4><%= match.favori_participation.team.name %></h4>
+                  </div>
+                  <div class="squad-sport col-3  m-1"><h5><%= match.favori_participation.score %> - <%= match.outsider_participation.score %></h5></div>
+                  <div class="squad-sport col-2  m-1">
+                    <h4><%= match.outsider_participation.team.name %></h4>
+                  </div>
+                  <div class="win-or-lose col-2 pt-2">
+                    <h3> gagné !</h3>
+                  </div>
+                </div>
               </div>
-              <div class="squad-sport m-1"><h5><%= match.favori_participation.score %> - <%= match.outsider_participation.score %></h5></div>
-              <div class="squad-sport m-1">
-                <h4><%= match.outsider_participation.team.name %></h4>
-              </div>
-              <div class="win-or-lose pt-2">
-                <h3> gagné !</h3>
+              <div class="card-squad-display-3 col-11 d-flex justify-content-center">
+                <% if match.bets.count <= 1 %>
+                  <%= "#{match.bets.count} pari placé sur ce match." %><br>
+                <% else  %>
+                  <%= "#{match.bets.count} paris placés sur ce match." %><br>
+                <% end %>
               </div>
             </div>
-          </div>
-        <div class="card-squad-display-3 col-11 d-flex justify-content-center">
-            <%= match.bets.count %> joueur(s) ont parié sur ce match.<br>
+          <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
+</div>
 
 </div>
