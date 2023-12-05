@@ -1,11 +1,6 @@
-class Rssfeed
+class RssFeedService
 
-  def initialize
-    @feed = feed
-    @items = items
-  end
-
-  def rssfeed
+  def rss_feed(url)
     url = 'https://rmcsport.bfmtv.com/rss/football/'
     @feed = RSS::Parser.parse(URI.open(url))
   end
