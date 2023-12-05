@@ -32,7 +32,15 @@ color: white;
   background: linear-gradient(180deg, #303061 8.01%, #6d166e 94.28%);
   color: white;
 }
-
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.grid-5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
 
 
 .squad-header{
@@ -96,7 +104,6 @@ color: white;
 }
 .card-squad-display-2{
   color: white;
-
 }
 .squad-sport {
 
