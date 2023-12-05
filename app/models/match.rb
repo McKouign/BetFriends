@@ -15,4 +15,8 @@ class Match < ApplicationRecord
     self.participations.find_by(odd: self.participations.map(&:odd).max)
   end
 
+  def match_winner
+    return self.participations.find_by(score: self.participations.map(&:score).max).id
+  end
+
 end

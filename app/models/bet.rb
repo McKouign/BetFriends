@@ -6,5 +6,12 @@ class Bet < ApplicationRecord
 
   enum :progress, { lost: 0, won: 1 }
 
-  
+  def won_bet
+    winner_team = self.match.match_winner
+    if
+      winner_team == self.participation.id
+      return self.won!
+    else
+      return self.lost!
+  end
 end
