@@ -17,8 +17,6 @@
 
 <%# ----- recup et affichage des matches ----- %>
 
-
-
 <div class="accordion" id="matchesAccordion">
   <% grouped_matches = @matches.select { |match| match.date < Date.today && match.bets.present? }.group_by { |match| match.date.to_date } %>
 
@@ -36,8 +34,6 @@
               <div class="date">
                 <p class="text-white"><%= match.date.strftime('%H:%M:%S') %></p>
               </div>
-
-
               <div class="card-squad-display-1">
                 <div class="card-squad-display-2 grid-5 text-center justify-content-center align-items-center">
                   <div class="squad-content pt-2">
@@ -55,8 +51,6 @@
                   </div>
                 </div>
               </div>
-
-
 
               <div class="card-squad-display-3 col-11 d-flex justify-content-center">
                 <% if match.bets.count <= 1 %>
