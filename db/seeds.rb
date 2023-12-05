@@ -39,12 +39,6 @@ dortmund = Team.create!(name: "Dortmund", sport: "Football")
 leverkusen = Team.create!(name: "Bayern Leverkusen", sport: "Football")
 
 
-
-
-
-
-
-
 match_1 = Match.create!(sport: "Football", date: DateTime.new(2023,12,10,21,00,00), funbet: false)
 match_2 = Match.create!(sport: "Football", date: DateTime.new(2023,12,9,16,15,00), funbet: false)
 match_3 = Match.create!(sport: "Football", date: DateTime.new(2023,12,10,14,00,00), funbet: false)
