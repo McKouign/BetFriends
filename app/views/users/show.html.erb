@@ -35,7 +35,7 @@
         <div class="text-center col-12"  >
           <h2 class=" text-white">Classement</h2>
 
-          <% current_user.squad.users.sort_by { |user| user.points_counter }.each do |user| %>
+          <% current_user.squad.users.sort_by { |user| user.points_counter }.reverse.each do |user| %>
 
             <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white ">
               <p class="me-2">1</p>

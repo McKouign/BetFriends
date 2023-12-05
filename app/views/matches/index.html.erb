@@ -5,24 +5,27 @@
     <% @matches.each do |match| %>
 
       <% if match.funbet == true && match.date >= Date.today %>
+
       <div class=" d-flex flex-column justify-content-center align-items-center", id="">
-        <p><%= match.date.strftime('%d-%m-%Y') %></p>
-        <h1><%= match.sport %></h1>
+        <p class="mt-2"><small><%= match.date.strftime('%d-%m-%Y') %></small></p>
+        <h5><%= match.sport %></h5>
+        <h2>Le derby londonien</h2>
 
         <div class="d-flex flex-row">
+
           <%= simple_form_for @bet do |f|%>
             <div class="d-none">
               <%= f.input :match_id, input_html: { value: match.id} %>
               <%= f.input :participation_id, input_html: { value: match.favori_participation.id} %>
             </div>
-            <%= f.button :submit, "#{match.favori_participation.team.name}", class:"bouton-paris text-wrap btn text-white btn-bet  rounded-3 text-center  mb-2 shadow-sm" %>
+            <%= f.button :submit, "#{match.favori_participation.team.name}", class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center mx-2 mb-2 shadow-sm" %>
           <% end %>
 
           <%= simple_form_for @bet do |f|%>
             <div class="d-none">
               <%= f.input :match_id, input_html: { value: match.id} %>
             </div>
-            <%= f.button :submit, "Nul", class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
+            <%= f.button :submit, "Nul", class:"bouton-paris btn text-white btn-bet  rounded-4 text-center mx-2 mb-2" %>
           <% end %>
 
           <%= simple_form_for @bet do |f|%>
@@ -30,11 +33,11 @@
               <%= f.input :match_id, input_html: { value: match.id} %>
               <%= f.input :participation_id, input_html: {value: match.outsider_participation.id} %>
             </div>
-            <%= f.button :submit, "#{match.outsider_participation.team.name}",class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
+            <%= f.button :submit, "#{match.outsider_participation.team.name}",class:"bouton-paris btn text-white btn-bet  rounded-4 text-center mx-2 mb-2" %>
           <% end %>
 
         </div>
-        <p><%= match.bets.count %> pari(s) sur ce match.</p>
+        <p><small><%= match.bets.count %> pari(s) sur ce match.</small></p>
       </div>
       <% end %>
     <% end %>
@@ -44,16 +47,16 @@
 
 <%# ----- CONTENT > BETS ----- %>
 
-<div class="grid-3 px-4">
+<div class="grid-3 mb-4 ">
 
   <% @matches.sort_by { |match| match.date}.each do |match| %>
     <% if match.funbet == false && match.date >= Date.today %>
-      <div data-controller="bets" class="rounded-4 bg-white bet-card shadow">
+      <div data-controller="bets" class="rounded-4 bg-light-2 bet-card shadow-lg">
 
-        <div class="card-image-top card-image-top-foot text-center">
+        <div class="card-image-top shadow card-image-top-foot text-center">
 
             <div class="d-flex justify-content-between px-2 text-white opacity-50">
-              <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%d-%m') %></p>
+              <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%d/%m') %></p>
               <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%H:%M') %></p>
 
             </div>
@@ -73,42 +76,43 @@
 
         </div>
 
-        <div class="bouton-paris d-flex justify-content-around text-center my-3 ">
+          <div class="ms-2 bouton-paris-test  grid-3-bis justify-content-between text-center my-3  ">
 
-          <%= simple_form_for @bet do |f|%>
-            <div class="d-none">
-              <%= f.input :match_id, input_html: { value: match.id} %>
-              <%= f.input :participation_id, input_html: { value: match.favori_participation.id} %>
-              <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
-            </div>
-            <%= f.button :submit, "#{match.favori_participation.team.name}", class:" bouton-paris text-wrap btn text-white btn-bet  rounded-3 text-center  mb-2 shadow-sm" %>
-          <% end %>
+            <%= simple_form_for @bet do |f|%>
+              <div class="d-none">
+                <%= f.input :match_id, input_html: { value: match.id} %>
+                <%= f.input :participation_id, input_html: { value: match.favori_participation.id} %>
+                <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
+              </div>
+              <%= f.button :submit, "#{match.favori_participation.team.name}", class:" bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+            <% end %>
 
-          <%= simple_form_for @bet do |f|%>
-            <div class="d-none">
-              <%= f.input :match_id, input_html: { value: match.id} %>
-              <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
-            </div>
-            <%= f.button :submit, "Nul", class:"bouton-paris text-wrap btn text-white btn-bet  rounded-3 text-center  mb-2 shadow-sm" %>
-          <% end %>
+            <%= simple_form_for @bet do |f|%>
+              <div class="d-none">
+                <%= f.input :match_id, input_html: { value: match.id} %>
+                <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
+              </div>
+              <%= f.button :submit, "Nul", class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+            <% end %>
 
-          <%= simple_form_for @bet do |f|%>
-            <div class="d-none">
-              <%= f.input :match_id, input_html: { value: match.id} %>
-              <%= f.input :participation_id, input_html: {value: match.outsider_participation.id} %>
-              <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
-            </div>
-            <%= f.button :submit, "#{match.outsider_participation.team.name}",class:"bouton-paris text-wrap btn text-white btn-bet  rounded-3 text-center  mb-2 shadow-sm" %>
-          <% end %>
+            <%= simple_form_for @bet do |f|%>
+              <div class="d-none">
+                <%= f.input :match_id, input_html: { value: match.id} %>
+                <%= f.input :participation_id, input_html: {value: match.outsider_participation.id} %>
+                <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
+              </div>
+              <%= f.button :submit, "#{match.outsider_participation.team.name}",class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+            <% end %>
 
-        </div>
+          </div>
+
 
         <div class="col-12 d-flex  flex-column justify-content-center mt-2 mb-3 text-center">
-          <button type="button" class="btn text-white btn-bet rounded-5 text-center mx-5 pb-0 mb-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#reward-<%=match.id%>-Modal"><%= image_tag "picto/icon-bonus.svg", class:"" %>Utiliser un bonus</button>
+          <button type="button" class="btn text-white btn-bet-bonus rounded-5 text-center mx-5 pb-0 mb-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#reward-<%=match.id%>-Modal"><%= image_tag "picto/icon-bonus.svg", class:"" %>Utiliser un bonus</button>
           <% if match.bets.present? %>
-            <p><small><%= match.bets.count %> pari(s) sur ce match.</small></p>
+            <p class="text-white"><small><%= match.bets.count %> pari(s) sur ce match.</small></p>
           <% else %>
-            <p>Aucun pari sur ce match</p>
+            <p class="text-white">Aucun pari sur ce match</p>
           <% end %>
         </div>
 
