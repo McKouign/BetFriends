@@ -1,12 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
-  
-  # @squad = current_user.squad
 
-  # def home
-  #   url = 'https://rmcsport.bfmtv.com/rss/football/'
-  #   @feed = RSS::Parser.parse(URI.open(url))
-  # end
+  def index
+    rss_feed_service = RssFeedService.new
+    rss_feed = rss_feed_service.rss_feed("https://rmcsport.bfmtv.com/rss/football/")
+  end
 
 end
