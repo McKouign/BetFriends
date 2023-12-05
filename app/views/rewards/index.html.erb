@@ -20,7 +20,7 @@
 <div class="row">
     <div class="grid-3">
         <% current_user.user_rewards.each do |user_reward| %>
-            <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
+            <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"">
 
                 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <h5><%= user_reward.reward.title %></h5>
@@ -70,11 +70,11 @@
          <% @rewards.each do |reward| %>
     <%# si les points sont < au prix du bonus alors affichage grisé %>
     <% if current_user.points_counter < reward.price %>
-        <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 0.5;" id="subcard">
+    <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 0.5; "id="subcard">
       <% else %>
         <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 1;" id="subcard">
         <% end %>
-          <%= image_tag "wald.jpg", class: "img-fluid", style: "object-fit: cover" %>
+          
             <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
               <%= reward.title %> <br>
               <%= reward.description %>

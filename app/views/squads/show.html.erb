@@ -57,18 +57,18 @@
                                   <% end %>
                                   <% else %>
                                   <div class="nul  pt-2">
-                                    <h3> null</h3>
+                                    <h4> Zéro pari</h4>
                                     </div>
-                                  
+
                                 <% end %>
 
                             </div>
                           </div>
                           <div class="card-squad-display-3 col-11 d-flex justify-content-center">
                             <% if match.bets.count <= 1 %>
-                              <%= "#{match.bets.count} pari placé sur ce match." %><br>
+                              <%= "#{match.bets.count} pari de ta team placé sur ce match." %><br>
                             <% else  %>
-                              <%= "#{match.bets.count} paris placés sur ce match." %><br>
+                              <%= "#{match.bets.count} paris de ta team placés sur ce match." %><br>
                             <% end %>
                           </div>
                         </div>
