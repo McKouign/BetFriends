@@ -32,17 +32,7 @@ color: white;
   background: linear-gradient(180deg, #303061 8.01%, #6d166e 94.28%);
   color: white;
 }
-.grid-1 {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-.grid-5 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 16px;
-}
-
-
+// HEADER
 .squad-header{
   background: linear-gradient(180deg, #303061 8.01%, #6d166e 94.28%);
   border-radius: 10px;
@@ -53,6 +43,18 @@ color: white;
   height: 30vh;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.grid-5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
 .card-squad-display-1{
   display: flex;
   justify-content: center;
@@ -63,6 +65,17 @@ color: white;
   border: 1px solid;
   border-color: white;
   border-radius:10px;
+}
+.card-squad-display-2{
+  color: white;
+  display: flex;
+  justify-content: center;
+  justify-content:space-between;
+  align-items: center;
+  text-align: center;
+}
+.squad-sport {
+  color: white;
 }
 
 // Boutton jaune sport
@@ -82,7 +95,7 @@ color: white;
 }
 
 // Bouton vert ou rouge gagné ou perdu
-.win-or-lose{
+.win{
   margin-left: 20px;
   margin-right: 20px;
   display: flex;
@@ -96,18 +109,28 @@ color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
+.lose{
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width: 16vh;
+  color: white;
+  background: linear-gradient(180deg, #e84848 0%, rgb(198, 14, 60) 100%);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
 .date{
   justify-content: center;
   align-items: center;
   text-align: center;
 
-}
-.card-squad-display-2{
-  color: white;
-}
-.squad-sport {
-
-  color: white;
 }
 
 .card-squad-display-3 {

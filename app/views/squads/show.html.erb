@@ -1,7 +1,4 @@
-
-
 <div class="container col-12">
-
 
 <%# ----- SQUAD HEADER ----- %>
 <div class="banner overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
@@ -14,12 +11,10 @@
   <h2 class="text-white">Matches</h2>
   <br>
 
-
 <%# ----- recup et affichage des matches ----- %>
 
 <div class="accordion" id="matchesAccordion">
   <% grouped_matches = @matches.select { |match| match.date < Date.today && match.bets.present? }.group_by { |match| match.date.to_date } %>
-
   <% grouped_matches.each do |date, matches| %>
     <div class="accordion-item">
       <h2 class="accordion-header" id="dateHeading<%= date.strftime('%Y%m%d') %>">
@@ -34,29 +29,39 @@
                           <div class="date">
                             <p class="text-white"><%= match.date.strftime('%H:%M:%S') %></p>
                           </div>
-                          <div class="card-squad-display-1 col-12">
-                            <div class="card-squad-display-2 col-12 d-flex">
-                              <div class="squad-content col-2 pt-2">
+                          <div class="card-squad-display-1">
+                            <div class="card-squad-display-2 grid-5">
+                              <div class="squad-content pt-2">
                                 <h3><%= match.sport %></h3>
                               </div>
-                              <div class="squad-sport col-2 ms-3 m-1">
+                              <div class="squad-sport  ms-3 m-1">
                                 <h4><%= match.favori_participation.team.name %></h4>
                               </div>
-                              <div class="squad-sport col-3  m-1"><h5><%= match.favori_participation.score %> - <%= match.outsider_participation.score %></h5></div>
-                              <div class="squad-sport col-2  m-1">
+                              <div class="squad-sport   m-1"><h5><%= match.favori_participation.score %> - <%= match.outsider_participation.score %></h5></div>
+                              <div class="squad-sport   m-1">
                                 <h4><%= match.outsider_participation.team.name %></h4>
                               </div>
-                              <div class="win-or-lose col-2 pt-2">
+
                                 <% bet = Bet.find_by(user: current_user, match: match) %>
                                 <% if bet.present? %>
                                   <% bet.won_bet %>
                                   <% if bet.won? %>
+                                  <div class="win pt-2">
                                     <h3> gagné !</h3>
+                                  </div>
+
                                   <% elsif bet.lost? %>
+                                  <div class="lose pt-2">
                                     <h3> perdu !</h3>
+                                    </div>
                                   <% end %>
+                                  <% else %>
+                                  <div class="nul  pt-2">
+                                    <h3> null</h3>
+                                    </div>
+                                  
                                 <% end %>
-                              </div>
+
                             </div>
                           </div>
                           <div class="card-squad-display-3 col-11 d-flex justify-content-center">
