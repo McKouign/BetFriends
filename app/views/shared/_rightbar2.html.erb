@@ -33,7 +33,7 @@
       </div>
 
         <% if user_signed_in? %>
-          <small><u><%= link_to "Classement complet", class: "text-decoration-none text-white bottom-0 "%></u></small>
+          <small><u><%= link_to "Classement complet",user_path(current_user), class: "text-decoration-none text-white bottom-0 "%></u></small>
         <% end %>
 
     </ul>
