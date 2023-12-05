@@ -32,8 +32,9 @@
         <li><%= image_tag "picto/icon-sports.svg", class:"me-2" %><small>Player 1</small></li>
       </div>
 
-        <small><u><%= link_to "Classement complet", squad_path(current_user.squad), class: "text-decoration-none text-white bottom-0 "%></u></small>
-
+        <% if user_signed_in? %>
+          <small><u><%= link_to "Classement complet", class: "text-decoration-none text-white bottom-0 "%></u></small>
+        <% end %>
 
     </ul>
 
