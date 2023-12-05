@@ -16,7 +16,11 @@ class User < ApplicationRecord
   end
 
   def won_average
-    won_average = (self.bets.where(progress: 'won').count / self.bets.count) * 100
+    if self.bets.count == 0
+      return 0
+    else
+      won_average = (self.bets.where(progress: 'won').count / self.bets.count ) * 100
     return won_average
+    end
   end
 end
