@@ -50,12 +50,21 @@
 
   <h5 class="mb-2 text-center mt-3">Actualités</h5>
 
+<% @rss_flux.items.first(3).each do |item| %>
+      <div class="text-white px-3 py-3 rounded-4 shadow-sm pe-4 d-flex flex-column justify-content-between" id="rss-card">
 
+        <div class="div">
 
- 
+            <p><strong><%= item.title %></strong></p>
 
-
-
+            <p id="actu-description"><%= item.description %></p>
+          </div>
+          <%# <div>
+            <%= link_to "En savoir plus", item.link, class: "text-decoration-none text-white bottom-0 btn btn-outline-primary",target: '_blank'%>
+          <%# </div> %>
+             <hr>
+      </div>
+    <% end %>
 
 
 </div>

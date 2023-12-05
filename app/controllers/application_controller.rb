@@ -6,9 +6,10 @@ class ApplicationController < ActionController::Base
     @squad = current_user.squad
   end
 
-  # def home
-  #   url = 'https://rmcsport.bfmtv.com/rss/football/'
-  #   @feed = RSS::Parser.parse(URI.open(url))
-  # end
+  private
 
+  def set_rss_feed
+    @rss_feed = RssFeedService.new
+    @rss_flux = @rss_feed.rss_feed("https://rmcsport.bfmtv.com/rss/football/")
+  end
 end

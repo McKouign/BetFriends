@@ -114,3 +114,10 @@ hr {
   text-align: center;
   max-width: 400px;
 }
+
+#rss-card {
+    max-height: 4em;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

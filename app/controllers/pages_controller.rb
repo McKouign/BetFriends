@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
-  def show
-  end
 
   def home
     url = 'https://rmcsport.bfmtv.com/rss/football/'
@@ -10,4 +8,3 @@ class PagesController < ApplicationController
   end
 
 end
-  
