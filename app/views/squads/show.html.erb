@@ -30,6 +30,8 @@
       <div id="dateCollapse<%= date.strftime('%Y%m%d') %>" class="accordion-collapse collapse" aria-labelledby="dateHeading<%= date.strftime('%Y%m%d') %>" data-bs-parent="#matchesAccordion">
         <div class="accordion-body">
               <% matches.each do |match| %>
+                        <% match.winner_team %>
+                        <% match.draw? %>
                         <div class="cadre m-3">
                           <div class="date">
                             <p class="text-white"><%= match.date.strftime('%H:%M:%S') %></p>
