@@ -33,17 +33,16 @@
 
             <div class="modal fade" id="reward-details-<%= user_reward.id %>-Modal" tabindex="-1" aria-labelledby="reward-details-<%= user_reward.id %>-ModalLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="reward-details-<%= user_reward.id %>-ModalLabel"><%= user_reward.reward.title %></h1>
+                <div class="modal-content d-flex justify-content-center text-align-center">
+                  <div class="modal-header ">
+                    <h1 class="modal-title d-flex justify-content-center text-align-center fs-5" id="reward-details-<%= user_reward.id %>-ModalLabel"><%= user_reward.reward.title %></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
-                      <p id="modal-description"><%= user_reward.reward.description %></p>
+                  <div class="modal-body d-flex justify-content-center text-align-center">
+                      <p id="modal-description d-flex justify-content-center text-align-center"><%= user_reward.reward.description %></p>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                  <div class="modal-footer d-flex justify-content-center text-align-center">
+                    <button type="button" class="btn-custom2" data-bs-dismiss="modal">Fermer</button>
                   </div>
                 </div>
               </div>
@@ -74,7 +73,7 @@
       <% else %>
         <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 1;" id="subcard">
         <% end %>
-          
+
             <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
               <%= reward.title %> <br>
               <%= reward.description %>
