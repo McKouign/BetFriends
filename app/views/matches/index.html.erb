@@ -49,7 +49,7 @@
 
 <div class="grid-3 px-4">
 
-  <% @matches.each do |match| %>
+  <% @matches.sort_by { |match| match.date}.each do |match| %>
     <% if match.funbet == false && match.date >= Date.today %>
       <div data-controller="bets" class="rounded-4 bg-white bet-card shadow">
 
@@ -58,10 +58,11 @@
             <div class="d-flex justify-content-between px-2 text-white opacity-50">
               <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%d-%m') %></p>
               <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%H:%M') %></p>
+
             </div>
 
 
-          <div class="d-flex flex-row justify-content-around align-items-bottom ">
+          <div class="d-flex flex-row justify-content-around mt-3 ">
             <div class="d-flex flex-column text-white">
               <%= image_tag "psg.png", id:"logo-team" %>
 
