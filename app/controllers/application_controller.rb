@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_rss_feed
 
 
-  def index
-    rss_feed_service = RssFeedService.new
-    rss_feed = rss_feed_service.rss_feed("https://rmcsport.bfmtv.com/rss/football/")
+  private
+
+  def set_rss_feed
+    @rss_feed = RssFeedService.new
+    @rss_flux = @rss_feed.rss_feed("https://rmcsport.bfmtv.com/rss/football/")
   end
-
 end
