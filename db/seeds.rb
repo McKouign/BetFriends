@@ -78,10 +78,10 @@ participation_19 = Participation.create!(team: sociedad, match: match_10, odd: 1
 participation_20 = Participation.create!(team: osasuna, match: match_10, odd: 2.30,score:1)
 participation_21 = Participation.create!(team: chelsea, match: match_11, odd: 5.10,score:3)
 participation_22 = Participation.create!(team: brighton, match: match_11, odd: 4.90,score:2)
-participation_23 = Participation.create!(team: chelsea, match: match_12, odd: 5.10,score:1)
-participation_24 = Participation.create!(team: chelsea, match: match_12, odd: 4.20,score:0)
-participation_25 = Participation.create!(team: chelsea, match: match_13, odd:5.00 ,score:1)
-participation_26 = Participation.create!(team: chelsea, match: match_13, odd: 5.00,score:1)
+participation_23 = Participation.create!(team: newcastle, match: match_12, odd: 5.10,score:1)
+participation_24 = Participation.create!(team: man_united, match: match_12, odd: 4.20,score:0)
+participation_25 = Participation.create!(team: dortmund, match: match_13, odd:4.00 ,score:1)
+participation_26 = Participation.create!(team: leverkusen, match: match_13, odd: 5.00,score:1)
 
 
 
