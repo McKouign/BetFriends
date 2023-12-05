@@ -31,7 +31,13 @@
                 <h4><%= match.outsider_participation.team.name %></h4>
               </div>
               <div class="win-or-lose pt-2">
-                <h3> gagné !</h3>
+                <% if match.bets.current_user.present? && match.bets.current_user.won? %>
+                  <h3> gagné !</h3>
+                <% elsif match.bets.current_user.present? && match.bets.current_user.lost? %>
+                  <h3> perdu !</h3>
+                <% else %>
+                  <h3> Tu n'as pas parié sur ce match !</h3>
+                <% end %>
               </div>
             </div>
           </div>
