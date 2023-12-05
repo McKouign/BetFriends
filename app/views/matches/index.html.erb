@@ -2,7 +2,7 @@
 <div class="row">
 
     <% @matches.each do |match| %>
-        <% if match.funbet == true %>
+        <% if match.funbet == true && match.date >= Date.today %>
 
           <div class="grid-1 mb-3">
             <div class="squad-header d-flex justify-content-center align-items-center">
@@ -44,7 +44,7 @@
 
     <%# ----- BET CARD ----- %>
     <% @matches.each do |match| %>
-      <% if match.funbet == false %>
+      <% if match.funbet == false && match.date >= Date.today %>
 
           <div data-controller="bets" class="col-4 rounded-4 bg-white bet-card shadow">
 
