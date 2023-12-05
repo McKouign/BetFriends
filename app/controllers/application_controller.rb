@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_rss_feed
 
-
   private
 
   def set_rss_feed
