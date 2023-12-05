@@ -74,9 +74,9 @@ reward_2 = Reward.create!(title: "Poteau rentrant", description: "+100 points au
 reward_3 = Reward.create!(title: "Coup du chapeau", description: "+200 points", price: 250)
 reward_4 = Reward.create!(title: "Tacle à la gorge", description: "points au cube", price: 350)
 
-bet_1 = Bet.create!(user: user_1, participation: participation_11, progress: 0, match: match_6)
+bet_1 = Bet.create!(user: user_1, participation: participation_12, progress: 0, match: match_6)
 bet_2 = Bet.create!(user: user_2, participation: participation_1, progress: 0, match: match_7)
 bet_3 = Bet.create!(user: user_1, progress: 0, match: match_9)
-bet_4 = Bet.create!(user: user_2, participation: participation_2, progress: 0, match: match_9)
-bet_5 = Bet.create!(user: user_2, participation: participation_1, progress: 0, match: match_10)
-bet_6 = Bet.create!(user: user_1, participation: participation_2, progress: 0, match: match_11)
+bet_4 = Bet.create!(user: user_2, participation: participation_18, progress: 0, match: match_9)
+bet_5 = Bet.create!(user: user_2, participation: participation_19, progress: 0, match: match_10)
+bet_6 = Bet.create!(user: user_1, progress: 0, match: match_11)

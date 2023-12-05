@@ -16,6 +16,8 @@
 <%# ----- recup et affichage des matches ----- %>
   <% @matches.sort_by { |match| match.date }.reverse.each do |match| %>
     <% if match.date < Date.today && match.bets.present? %>
+      <% match.winner_team %>
+      <% match.draw? %>
       <div class="cadre m-3">
           <div class="card-squad-display-1 col-12">
             <p class="text-white"><%= match.date.strftime('%d-%m %H:%M:%S') %></p>
@@ -31,18 +33,20 @@
                 <h4><%= match.outsider_participation.team.name %></h4>
               </div>
               <div class="win-or-lose pt-2">
-                <% if match.bets.current_user.present? && match.bets.current_user.won? %>
-                  <h3> gagné !</h3>
-                <% elsif match.bets.current_user.present? && match.bets.current_user.lost? %>
-                  <h3> perdu !</h3>
-                <% else %>
-                  <h3> Tu n'as pas parié sur ce match !</h3>
-                <% end %>
+                  <% bet = Bet.find_by(user: current_user, match: match) %>
+                  <% if bet.present? %>
+                    <% bet.won_bet %>
+                    <% if bet.won? %>
+                      <h3> gagné !</h3>
+                    <% elsif bet.lost? %>
+                      <h3> perdu !</h3>
+                    <% end %>
+                  <% end %>
               </div>
             </div>
           </div>
         <div class="card-squad-display-3 col-11 d-flex justify-content-center">
-            <%= match.bets.count %> joueur(s) ont parié sur ce match.<br>
+            <%= match.bets.count %> pari(s) sur ce match.<br>
         </div>
       </div>
     <% end %>

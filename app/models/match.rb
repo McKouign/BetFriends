@@ -16,13 +16,13 @@ class Match < ApplicationRecord
   end
 
   def winner_team
-    if self.favori_participation.score != self.participation.score
+    if self.favori_participation.score != self.outsider_participation.score
       self.participations.find_by(score: self.participations.map(&:score).max).id
     end
   end
 
   def draw?
-    self.favori_participation.score == self.participation.score
+    self.favori_participation.score == self.outsider_participation.score
   end
 
 end
