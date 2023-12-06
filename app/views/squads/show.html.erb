@@ -45,18 +45,15 @@
 
                                 <% bet = Bet.find_by(user: current_user, match: match) %>
                                 <% if bet.present? %>
-                                  <% bet.won_bet %>
                                   <% if bet.won? %>
-                                  <div class="win pt-2">
-                                    <h3> gagné !</h3>
-                                  </div>
-
+                                    <div class="win pt-2">
+                                      <h3> gagné !</h3>
+                                    </div>
                                   <% elsif bet.lost? %>
                                     <div class="lose pt-2">
                                       <h3> perdu !</h3>
                                     </div>
                                   <% end %>
-
                                 <% end %>
 
                             </div>
