@@ -8,12 +8,12 @@ User.destroy_all
 Squad.destroy_all
 
 squad = Squad.create!(name: "Les Boss")
-user_1 = User.create!(email: "azerty@gmail.com", password: "azerty", nickname: "Gégédu33", points_counter:300, squad: squad)
-user_2 = User.create!(email: "azerto@gmail.com", password: "azerto", nickname: "MBappé", points_counter:200, squad: squad )
+user_1 = User.create!(email: "azerty@gmail.com", password: "azerty://", nickname: "Gégédu33", points_counter:300, squad: squad)
+user_2 = User.create!(email: "azerto@gmail.com", password: "azerto://", nickname: "MBappé", points_counter:200, squad: squad )
 
-user_3 = User.create!(email: "azertu@gmail.com", password: "azertu", nickname: "Footix98", points_counter:450, squad: squad )
-user_4 = User.create!(email: "azerti@gmail.com", password: "azerti", nickname: "AliGator", points_counter:850, squad: squad )
-user_5 = User.create!(email: "azerte@gmail.com", password: "azerte", nickname: "ParieurFou", points_counter:950, squad: squad )
+user_3 = User.create!(email: "azertu@gmail.com", password: "azertu://", nickname: "Footix98", points_counter:450, squad: squad )
+user_4 = User.create!(email: "azerti@gmail.com", password: "azerti://", nickname: "AliGator", points_counter:850, squad: squad )
+user_5 = User.create!(email: "azerte@gmail.com", password: "azerte://", nickname: "ParieurFou", points_counter:950, squad: squad )
 
 barcelone = Team.create!(name: "FC Barcelone", sport: "Football")
 real_madrid = Team.create!(name: "Real Madrid", sport: "Football")

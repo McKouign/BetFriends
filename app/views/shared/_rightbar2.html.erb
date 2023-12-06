@@ -4,28 +4,25 @@
   <%# ----- HEADER MENU > CLASSEMENT  %>
 
   <div class=" text-center">
-    <%# IMPLEMENTER ITERATION CLASSEMENT LIMIT TOP 5 %>
 
+    <h5 class="mt-3">Le Top 5</h5>
+    <% if user_signed_in? %>
+    <% current_user.squad.users.sort_by { |user| user.points_counter }.reverse.first(5).each do |user| %>
 
-      <h5 class="mt-3">Le Top 5</h5>
-      <% if user_signed_in? %>
-      <% current_user.squad.users.sort_by { |user| user.points_counter }.reverse.first(5).each do |user| %>
-
-        <div class="d-flex flex-row  justify-content-evenly align-items-center align-middle mb-2 text-white ">
-          <p class="me-2"><small><%= user.nickname %></small></p>
-          <p class="me-2"><small><%= user.points_counter %> </strong>points</small></p>
-        </div>
-      <% end %>
-      <% end %>
-      <% if user_signed_in? %>
-        <small><u><%= link_to "Classement complet",user_path(current_user), class: "text-decoration-none text-white bottom-0 "%></u></small>
-      <% end %>
+      <div class="d-flex flex-row  justify-content-evenly align-items-center align-middle text-white ">
+        <p class="me-2"><small><%= user.nickname %></small> - <%= user.points_counter %> points</p>
+      </div>
+    <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+      <small><u><%= link_to "Classement complet",user_path(current_user), class: "text-decoration-none text-white bottom-0 "%></u></small>
+    <% end %>
 
   </div>
 
 
   <%# ----- HEADER MENU > PICTURE  %>
-  <div class="hightlight-bonus overflow-hidden rounded-3 mx-2 mb-2 text-center shadow">
+  <div class="hightlight-bonus overflow-hidden rounded-3 mx-2 mb-2 mt-2 text-center shadow">
     <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" id="right-image-bonus">
   </div>
 
