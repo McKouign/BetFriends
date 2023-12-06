@@ -85,7 +85,7 @@
                 <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
                     <% if user_bets_match_ids.include?(match.id) %>
                         <!-- Si pari exist, btn disabled -->
-                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center ms-5 mb-2 shadow-sm" disabled>
+                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" disabled>
                           <%= match.participations.first.team.name %>
                         </button>
                       <% else %>
