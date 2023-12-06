@@ -144,6 +144,7 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
 
   justify-content: space-between;
   background-color: hsl(0, 0%, 100%);
@@ -198,4 +199,9 @@ hr {
 #img-modal {
 width: 300px;
 height: auto;
+}
+
+.modal-dialog {
+  margin: auto;
+  max-width: unset;
 }

@@ -17,7 +17,7 @@
                 <%= f.input :participation_id, input_html: { value: match.participations.first.id} %>
               </div>
               <%# BOUTON 1 %>
-              <%= f.button :submit, "#{match.participations.first.team.name}", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" }, class:"bouton-paris text-wrap btn text-white btn-bet  rounded-3 text-center  mb-2 shadow-sm" %>
+              <%= f.button :submit, "#{match.participations.first.team.name}", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" }, class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
             <% end %>
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
@@ -25,7 +25,7 @@
               </div>
 
               <%# BOUTTON NUL %>
-              <%= f.button :submit, "Nul", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable"} , class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
+              <%= f.button :submit, "Nul", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable"} , class:"bouton-paris btn text-white btn-bet  rounded-4 text-center mx-1 mb-2" %>
             <% end %>
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
@@ -34,7 +34,7 @@
               </div>
 
               <%# BOUTON 2 action target%>
-              <%= f.button :submit, "#{match.participations.last.team.name}", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
+              <%= f.button :submit, "#{match.participations.last.team.name}", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:"bouton-paris btn text-white btn-bet  rounded-4 text-center mx-1 mb-2" %>
             <% end %>
           </div>
           <p><%= match.bets.count %> pari(s) sur ce match.</p>
@@ -175,26 +175,46 @@
   <% end %>
 </div>
 
-
 <% if user_signed_in? && current_user.sign_in_count == 1 %>
 
-  <div class="modal fade" data-controller="modal" data-modal-id-value="<%= current_user.id %>" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+<div class="container">
+<div class="modal fade" data-controller="modal" data-modal-id-value="<%= current_user.id %>" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <div class="cookiesContent" id="cookiesPopup">
+
+      <button class="close" data-bs-dismiss="modal">✖</button>
+
+      <div>
+        <h1 class="mt-5 display-5 ">Le roi de la lucarne !</h1>
+        <p class="text-white mb-3 p-modal">Bravo ! Tes derniers exploits nous ont impressionné.<br>Continue comme ça...</p>
+        <button type="button" class="accept" data-bs-dismiss="modal" >Ok !</button>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+
+<%#
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+</div>
+
 
 <%# <div class="modal" data-controller="modal">
 
