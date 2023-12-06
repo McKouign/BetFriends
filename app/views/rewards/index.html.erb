@@ -14,7 +14,6 @@
 <%# ----- HERO REWARD POSSEDE ----- %>
 
 <div class="bonus shadow-sm">
-
     <h2>Mes Bonus</h2>
 </div>
 <div class="row">
@@ -23,7 +22,7 @@
             <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"">
 
                 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                    <h5><%= user_reward.reward.title %></h5>
+                    <h5><%= user_reward.reward.title %></h5><br>
                     <!-- Button trigger modal -->
                   <button type="button" class="btn btn-custom details-button" data-bs-toggle="modal" data-bs-target="#reward-details-<%= user_reward.id %>-Modal" data-reward-description="<%= user_reward.reward.description %>" data-reward-title="<%= user_reward.reward.title %>">
                     <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Détails
@@ -69,14 +68,14 @@
          <% @rewards.each do |reward| %>
     <%# si les points sont < au prix du bonus alors affichage grisé %>
     <% if current_user.points_counter < reward.price %>
-    <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 0.5; "id="subcard">
+    <div class="card-rewards2 overflow-hidden rounded-4 shadow-sm" style="position: relative; "id="gris">
       <% else %>
-        <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 1;" id="subcard">
+        <div class="card-rewards2 overflow-hidden rounded-4 shadow-sm" style="position: relative; opacity: 1;" id="">
         <% end %>
 
             <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-              <%= reward.title %> <br>
-              <%= reward.description %>
+              <div class="element2"><h5><%= reward.title %></h5></div>
+
                       <!-- Button trigger modal -->
                       <% if current_user.points_counter < reward.price %>
                       <button type="button" class="btn btn-custom details-button" data-bs-toggle="modal" data-bs-target="#user-reward_<%= reward.id %>-Modal" data-reward-description="" data-reward-title="<%= reward.title %>" <%= 'disabled' if current_user.points_counter < reward.price %>>
@@ -88,7 +87,7 @@
                     <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Acheter
                   </button>
                     <% end %>
-                   <%= reward.price %> <br>
+                   <div class="element"><p><%= reward.price %> points</p></div>
           </div>
         </div>
   <!-- Modale -->
