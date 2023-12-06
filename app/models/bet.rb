@@ -12,6 +12,7 @@ class Bet < ApplicationRecord
 
     if (match.winner_team == self.participation.try(:id)) || (self.participation.nil? && self.match.draw?)
       self.won!
+      self.save
     # ou si le score des 2 équipes est égal et que le bet du joueur ne contient pas de participation, le pari est gagné
     end
   end

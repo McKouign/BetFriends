@@ -105,7 +105,7 @@ reward_4 = Reward.create!(title: "Tacle à la gorge", description: "points au cu
 
 bet_1 = Bet.create!(user: user_2, progress: 0, match: match_10)
 bet_2 = Bet.create!(user: user_2, participation: participation_20, progress: 0, match: match_10)
-bet_3 = Bet.create!(user: user_1, progress: 0, match: match_11)
+bet_3 = Bet.create!(user: user_1, progress: 0, participation: participation_21, match: match_11)
 bet_4 = Bet.create!(user: user_2, participation: participation_21, progress: 0, match: match_11)
 bet_5 = Bet.create!(user: user_1, participation: participation_24, progress: 0, match: match_12)
 bet_6 = Bet.create!(user: user_1, participation: participation_25, progress: 0, match: match_13)
