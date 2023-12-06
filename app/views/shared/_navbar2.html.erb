@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-10  d-flex flex-row justify-content-between  my-3">
+    <div class="col-12  d-flex flex-row justify-content-between  my-3">
         <div class="title col-2 align-middle">
           <a href="/"><%= image_tag "logo/logo-betfriends-2.svg", style:"width=120% height=auto" %></a>
         </div>
@@ -18,7 +18,7 @@
                     <p><strong><%= image_tag "picto/icon-bonus.svg", class: "me-2" %><%= current_user.user_rewards.count %> bonus </strong>en poche </p>
                   </div>
 
-                  <div class="navbarclass text-center me-2">
+                  <div class="navbarclass text-center">
                     <p><strong><%= image_tag "picto/icon-points.svg", class: "me-2" %><%= current_user.nickname %></strong></p>
                   </div>
 
