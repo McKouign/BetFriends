@@ -24,6 +24,7 @@
                 <%= f.input :match_id, input_html: { value: match.id} %>
               </div>
 
+
               <%# BOUTTON NUL %>
               <%= f.button :submit, "Nul", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable"} , class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
             <% end %>
@@ -34,7 +35,7 @@
               </div>
 
               <%# BOUTON 2 action target%>
-              <%= f.button :submit, "#{match.participations.last.team.name}", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
+              <%= f.button :submit, "#{match.participations.last.team.name}", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2"  %>
             <% end %>
           </div>
           <p><%= match.bets.count %> pari(s) sur ce match.</p>
@@ -73,19 +74,17 @@
         </div>
 
           <div class="ms-2 bouton-paris-test grid-3-bis justify-content-between text-center my-3">
-
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <%= f.input :participation_id, input_html: { value: match.participations.first.id} %>
                 <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
               </div>
-
                 <%# DESACTIVER LE BOUTTON 1 %>
                 <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
                     <% if user_bets_match_ids.include?(match.id) %>
                         <!-- Si pari exist, btn disabled -->
-                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" disabled>
+                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm " disabled>
                           <%= match.participations.first.team.name %>
                         </button>
                       <% else %>
@@ -100,7 +99,6 @@
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
               </div>
-
               <%# DESACTIVER LE BOUTTON NUL %>
                 <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
                     <% if user_bets_match_ids.include?(match.id) %>
@@ -155,7 +153,7 @@
               </div>
               <div class="modal-body">
                 <% current_user.user_rewards.each do |user_reward| %>
-                  <div class="card d-flex
+
 
                   <div class="card d-flex text-center mb-3" data-bs-dismiss="modal" style="width: 18rem;" id="card-reward-bet">
                     <div id="bet_user_reward_id_<%= user_reward.id %>" data-action="click->bets#RewardSelect" data-bets-reward-value=<%= user_reward.id %> class="d-flex flex-column card-body text-center justify-content-center">
