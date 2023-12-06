@@ -12,7 +12,7 @@
 
           <li class="mb-3 range-links object-fit-fill <%= 'active' if current_page?(user_path(current_user)) %>">
             <%= link_to user_path(current_user), class: "rounded-3 p-2 text-decoration-none text-white" do %>
-              <%= image_tag "picto/icon-stats.svg", class:"me-2 mb-2" %>Le vestiaire
+              <%= image_tag "picto/picto-vestiaire.svg", class:"me-2 mb-2" %>Le vestiaire
             <% end %>
           </li>
 
@@ -62,11 +62,11 @@
   </div>
 
   <div class="text-center">
-    <div class="user-links">
+    <div class="user-links opacity-75">
       <ul class="list-unstyled">
-        <li><a href="#">Paramètres</a></li>
+        <li><a href="#" class="text-decoration-none">Paramètres</a></li>
         <% if user_signed_in? %>
-          <li><%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-warning" %></li>
+          <li><%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "text-warning text-decoration-none" %></li>
         <% else %>
           <li><%= link_to "Connexion", new_user_session_path, class: "text-decoration-none text-white"%></li>
           <br>
