@@ -55,11 +55,10 @@
 
         <div class="card-image-top shadow card-image-top-foot text-center">
 
-            <div class="d-flex justify-content-between px-2 text-white opacity-50">
-              <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%d/%m') %></p>
-              <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%H:%M') %></p>
-
-            </div>
+          <div class="d-flex justify-content-between px-2 text-white opacity-50">
+            <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%d/%m') %></p>
+            <p class="border m-2 px-1 rounded-3"><%= match.date.strftime('%H:%M') %></p>
+          </div>
 
           <div class="d-flex flex-row justify-content-around mt-3 ">
             <div class="d-flex flex-column text-white">
@@ -72,7 +71,7 @@
 
         </div>
 
-          <div class="ms-5 bouton-paris-test grid-3-bis justify-content-between text-center my-3">
+          <div class="d-flex bouton-paris-test grid-3-bis justify-content-around px-2 text-center my-3">
 
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
