@@ -110,28 +110,10 @@ hr{
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
 }
 
-.btn-custom details-button{
-  margin-top: 10px;
-}
 
-// SUBMIT DE LA MODALE
-.btn-submit{
-  margin-left: 20px;
-  margin-right: 20px;
-  // display: flex;
-  // text-align: center;
-  // justify-content: center;
-  // align-items: center;
-  height: 5vh;
-  color: white;
-  background:linear-gradient(180deg, #b9de17 0%, #09c33a 100%);
-  border-radius: 20px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
-}
 .titre{
   margin-bottom: 30px;
 }
-
 .element{
   padding-top: 10px;
 }
@@ -139,23 +121,30 @@ hr{
 
 // MODALE DE REWARD
 
+#reward-details-Modal {
+  color: #16113A;
+}
+
+#user-rewardModal {
+  color: #16113A;
+}
+
 .custom-modal-header {
   background: linear-gradient(180deg, #BB8CF4 0%, #8844D6 100%);
   color: white;
   max-width: 400px;
 }
-
 .custom-modal-body {
   background-color: #16113A;
   color: white;
 }
-
 .custom-modal-footer {
   background: linear-gradient(180deg, #BB8CF4 0%, #8844D6 100%);
   color: white;
 }
+
 .modal-content {
-  background: linear-gradient(180deg, #BB8CF4 0%, #8844D6 100%);
+  background: linear-gradient(120deg, #8f195e, #3a3a6e 94.28%);
   color: white;
   border-radius: 8px;
 }
