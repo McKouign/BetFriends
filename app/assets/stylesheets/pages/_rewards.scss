@@ -128,9 +128,21 @@ hr{
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
 }
+.titre{
+  margin-bottom: 30px;
+}
+
+.element{
+  padding-top: 10px;
+}
+
+
+// MODALE DE REWARD
+
 .custom-modal-header {
   background: linear-gradient(180deg, #BB8CF4 0%, #8844D6 100%);
   color: white;
+  max-width: 400px;
 }
 
 .custom-modal-body {
@@ -146,11 +158,4 @@ hr{
   background: linear-gradient(180deg, #BB8CF4 0%, #8844D6 100%);
   color: white;
   border-radius: 8px;
-}
-.titre{
-  margin-bottom: 30px;
-}
-
-.element{
-  padding-top: 10px;
 }
