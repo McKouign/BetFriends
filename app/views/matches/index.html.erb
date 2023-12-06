@@ -86,15 +86,36 @@
                 <%= f.input :participation_id, input_html: { value: match.participations.first.id} %>
                 <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
               </div>
-              <%= f.button :submit, "#{match.participations.first.team.name}", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:" bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
-            <% end %>
+
+                <%# DESACTIVER LE BOUTTON 1 %>
+                <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
+                    <% if user_bets_match_ids.include?(match.id) %>
+                        <!-- Si pari exist, btn disabled -->
+                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" disabled>
+                          <%= match.participations.first.team.name %>
+                        </button>
+                      <% else %>
+                        <!-- Sinon, affichez les boutons  -->
+                        <%= f.button :submit, "#{match.participations.first.team.name}", class: "bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" %>
+                      <% end %>
+                    <% end %>
 
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
               </div>
-              <%= f.button :submit, "Nul", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+
+              <%# DESACTIVER LE BOUTTON NUL %>
+                <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
+                    <% if user_bets_match_ids.include?(match.id) %>
+                        <!-- Si pari exist, btn disabled -->
+                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" disabled>
+                          Nul</button>
+                          <% else %>
+                        <!-- Sinon, affichez les boutons  -->
+              <%= f.button :submit, "Nul",  class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+              <% end %>
             <% end %>
 
             <%= simple_form_for @bet do |f|%>
@@ -103,7 +124,17 @@
                 <%= f.input :participation_id, input_html: {value: match.participations.last.id} %>
                 <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
               </div>
-              <%= f.button :submit, "#{match.participations.last.team.name}", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" } ,class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+
+              <%# DESACTIVER LE BOUTTON NUL %>
+              <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
+                    <% if user_bets_match_ids.include?(match.id) %>
+                        <!-- Si pari exist, btn disabled -->
+                          <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" disabled>
+                          <%= match.participations.last.team.name %>
+                        </button>
+                          <% else %>
+              <%= f.button :submit, "#{match.participations.last.team.name}", class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+              <% end %>
             <% end %>
 
           </div>
