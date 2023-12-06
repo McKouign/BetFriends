@@ -9,11 +9,11 @@ Squad.destroy_all
 
 squad = Squad.create!(name: "Les Boss")
 user_1 = User.create!(email: "azerty@gmail.com", password: "azerty", nickname: "Gégédu33", squad: squad)
-user_2 = User.create!(email: "azerto@gmail.com", password: "azerto", nickname: "MBappé", points_counter:200, squad: squad )
+user_2 = User.create!(email: "azerto@gmail.com", password: "azerto", nickname: "MBappé", squad: squad )
 
-user_3 = User.create!(email: "azertu@gmail.com", password: "azertu", nickname: "Footix98", points_counter:450, squad: squad )
-user_4 = User.create!(email: "azerti@gmail.com", password: "azerti", nickname: "AliGator", points_counter:850, squad: squad )
-user_5 = User.create!(email: "azerte@gmail.com", password: "azerte", nickname: "ParieurFou", points_counter:950, squad: squad )
+user_3 = User.create!(email: "azertu@gmail.com", password: "azertu", nickname: "Footix98", squad: squad )
+user_4 = User.create!(email: "azerti@gmail.com", password: "azerti", nickname: "AliGator", squad: squad )
+user_5 = User.create!(email: "azerte@gmail.com", password: "azerte", nickname: "ParieurFou", squad: squad )
 
 barcelone = Team.create!(name: "FC Barcelone", sport: "Football")
 real_madrid = Team.create!(name: "Real Madrid", sport: "Football")
@@ -104,7 +104,7 @@ reward_3 = Reward.create!(title: "Coup du chapeau", description: "+200 points", 
 reward_4 = Reward.create!(title: "Tacle à la gorge", description: "points au cube", price: 350)
 
 bet_1 = Bet.create!(user: user_2, progress: 0, match: match_10)
-bet_2 = Bet.create!(user: user_2, participation: participation_20, progress: 0, match: match_10)
+bet_2 = Bet.create!(user: user_2, participation: participation_25, progress: 0, match: match_13)
 bet_3 = Bet.create!(user: user_1, progress: 0, participation: participation_21, match: match_11)
 bet_4 = Bet.create!(user: user_2, participation: participation_21, progress: 0, match: match_11)
 bet_5 = Bet.create!(user: user_1, participation: participation_24, progress: 0, match: match_12)
