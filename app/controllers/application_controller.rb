@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
     @rss_feed = RssFeedService.new
     @rss_flux = @rss_feed.rss_feed("https://rmcsport.bfmtv.com/rss/football/")
   end
+
 end

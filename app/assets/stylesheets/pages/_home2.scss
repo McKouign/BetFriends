@@ -4,6 +4,11 @@
   overflow: hidden;
 }
 
+.disabled {
+  background-color: green !important;
+  opacity: 1 !important;
+}
+
 .bet-card {
   overflow: hidden;
   height: fit-content;

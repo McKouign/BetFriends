@@ -1,6 +1,10 @@
+<%# BANNIERE %>
+
 <div class="banner overflow-hidden rounded-4 shadow-sm mb-3" style="position: relative;"id="subcard">
+
+<%# FUNBET %>
   <%= image_tag "ligne.jpg", class: "img-fluid", style: "object-fit: cover" %>
-  <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <div data-controller="bet-buttons" class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     <% @matches.each do |match| %>
       <% if match.funbet == true && match.date >= Date.today %>
         <div class=" d-flex flex-column justify-content-center align-items-center", id="">
@@ -12,20 +16,25 @@
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <%= f.input :participation_id, input_html: { value: match.participations.first.id} %>
               </div>
-              <%= f.button :submit, "#{match.participations.first.team.name}", class:"bouton-paris text-wrap btn text-white btn-bet  rounded-3 text-center  mb-2 shadow-sm" %>
+              <%# BOUTON 1 %>
+              <%= f.button :submit, "#{match.participations.first.team.name}", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" }, class:"bouton-paris text-wrap btn text-white btn-bet  rounded-3 text-center  mb-2 shadow-sm" %>
             <% end %>
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
                 <%= f.input :match_id, input_html: { value: match.id} %>
               </div>
-              <%= f.button :submit, "Nul", class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
+
+              <%# BOUTTON NUL %>
+              <%= f.button :submit, "Nul", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable"} , class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
             <% end %>
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <%= f.input :participation_id, input_html: {value: match.participations.last.id} %>
               </div>
-              <%= f.button :submit, "#{match.participations.last.team.name}",class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
+
+              <%# BOUTON 2 action target%>
+              <%= f.button :submit, "#{match.participations.last.team.name}", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:"bouton-paris btn text-white btn-bet  rounded-3 text-center mx-1 mb-2" %>
             <% end %>
           </div>
           <p><%= match.bets.count %> pari(s) sur ce match.</p>
@@ -75,7 +84,7 @@
                 <%= f.input :participation_id, input_html: { value: match.participations.first.id} %>
                 <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
               </div>
-              <%= f.button :submit, "#{match.participations.first.team.name}", class:" bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+              <%= f.button :submit, "#{match.participations.first.team.name}", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:" bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
             <% end %>
 
             <%= simple_form_for @bet do |f|%>
@@ -83,7 +92,7 @@
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
               </div>
-              <%= f.button :submit, "Nul", class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+              <%= f.button :submit, "Nul", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
             <% end %>
 
             <%= simple_form_for @bet do |f|%>
@@ -92,7 +101,7 @@
                 <%= f.input :participation_id, input_html: {value: match.participations.last.id} %>
                 <%= f.input :user_reward_id, input_html: { data: { bets_target: "reward" }} %>
               </div>
-              <%= f.button :submit, "#{match.participations.last.team.name}",class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
+              <%= f.button :submit, "#{match.participations.last.team.name}", data:{ bet_buttons_target:'submit', action: "click->bet-buttons#disable" } ,class:"bouton-paris text-wrap btn text-white btn-bet  rounded-4 text-center  mb-2 shadow-sm" %>
             <% end %>
 
           </div>
@@ -133,3 +142,47 @@
     <% end %>
   <% end %>
 </div>
+
+
+<% if user_signed_in? && current_user.sign_in_count == 1 %>
+
+  <div class="modal fade" data-controller="modal" data-modal-id-value="<%= current_user.id %>" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%# <div class="modal" data-controller="modal">
+
+  <div class="container ">
+
+    <div class="cookiesContent" id="cookiesPopup">
+
+        <button class="close" data-action="modal#close">✖</button>
+
+      <div>
+
+        <h1 class="mt-5 display-5 ">Le roi de la lucarne !</h1>
+        <p class="text-white mb-3 p-modal">Bravo ! Tes derniers exploits nous ont impressionné.<br>Continue comme ça...</p>
+
+        <button class="accept" data-action="modal#close">Ok !</button>
+      </div>
+
+    </div>
+
+  </div>
+</div> %>
+
+<% end %>
