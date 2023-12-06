@@ -37,12 +37,16 @@ man_united = Team.create!(name: "Manchester United", sport: "Football")
 newcastle= Team.create!(name: "Newcastle", sport: "Football")
 dortmund = Team.create!(name: "Dortmund", sport: "Football")
 leverkusen = Team.create!(name: "Bayern Leverkusen", sport: "Football")
+hobart = Team.create!(name: "Hobart Hurricanes", sport: "Cricket")
+sydney = Team.create!(name: "Sydney Sixers", sport: "Cricket")
+packers = Team.create!(name: "Packers", sport: "NFL")
+chiefs = Team.create!(name: "Chiefs", sport: "NFL")
 
 
 match_1 = Match.create!(sport: "Football", date: DateTime.new(2023,12,10,21,00,00), funbet: false)
 match_2 = Match.create!(sport: "Football", date: DateTime.new(2023,12,9,16,15,00), funbet: false)
 match_3 = Match.create!(sport: "Football", date: DateTime.new(2023,12,10,14,00,00), funbet: false)
-match_4 = Match.create!(sport: "Football", date: DateTime.new(2023,12,9,18,30,00), funbet: true)
+match_4 = Match.create!(sport: "Football", date: DateTime.new(2023,12,9,18,30,00), funbet: false)
 match_5 = Match.create!(sport: "Football", date: DateTime.new(2023,12,10,15,00,00),funbet: false)
 match_6 = Match.create!(sport: "Football", date: DateTime.new(2023,12,9,13,30,00), funbet: false)
 match_7 = Match.create!(sport: "Football", date: DateTime.new(2023,12,9,21,00,00), funbet: false)
@@ -52,7 +56,8 @@ match_10 = Match.create!(sport: "Football", date: DateTime.new(2023,12,2,21,00,0
 match_11 = Match.create!(sport: "Football", date: DateTime.new(2023,12,2,21,00,00), funbet: false)
 match_12 = Match.create!(sport: "Football", date: DateTime.new(2023,12,3,20,30,00), funbet: false)
 match_13 = Match.create!(sport: "Football", date: DateTime.new(2023,12,3,17,00,00), funbet: false)
-
+match_14 = Match.create!(sport: "NFL", date: DateTime.new(2023,12,4,10,00,00), funbet: true)
+match_15 = Match.create!(sport: "Cricket", date: DateTime.new(2023,12,11,9,15,00), funbet: true)
 
 
 
@@ -74,14 +79,18 @@ participation_15 = Participation.create!(team: marseille, match: match_8, odd: 1
 participation_16 = Participation.create!(team: lorient, match: match_8, odd: 4.25)
 participation_17 = Participation.create!(team: monaco, match: match_9, odd: 2.70)
 participation_18 = Participation.create!(team: rennes, match: match_9, odd: 2.30)
-participation_19 = Participation.create!(team: sociedad, match: match_10, odd: 1.47,score:1)
-participation_20 = Participation.create!(team: osasuna, match: match_10, odd: 2.30,score:1)
-participation_21 = Participation.create!(team: chelsea, match: match_11, odd: 5.10,score:3)
-participation_22 = Participation.create!(team: brighton, match: match_11, odd: 4.90,score:2)
-participation_23 = Participation.create!(team: newcastle, match: match_12, odd: 5.10,score:1)
-participation_24 = Participation.create!(team: man_united, match: match_12, odd: 4.20,score:0)
-participation_25 = Participation.create!(team: dortmund, match: match_13, odd:4.00 ,score:1)
-participation_26 = Participation.create!(team: leverkusen, match: match_13, odd: 5.00,score:1)
+participation_19 = Participation.create!(team: sociedad, match: match_10, odd: 1.47,score: 1)
+participation_20 = Participation.create!(team: osasuna, match: match_10, odd: 2.30,score: 1)
+participation_21 = Participation.create!(team: chelsea, match: match_11, odd: 5.10,score: 3)
+participation_22 = Participation.create!(team: brighton, match: match_11, odd: 4.90,score: 2)
+participation_23 = Participation.create!(team: newcastle, match: match_12, odd: 5.10,score: 1)
+participation_24 = Participation.create!(team: man_united, match: match_12, odd: 4.20,score: 0)
+participation_25 = Participation.create!(team: dortmund, match: match_13, odd: 4.00 ,score: 1)
+participation_26 = Participation.create!(team: leverkusen, match: match_13, odd: 5.00,score: 1)
+participation_27 = Participation.create!(team: hobart, match: match_15, odd: 5.10)
+participation_28 = Participation.create!(team: sydney, match: match_15, odd: 4.20)
+participation_29 = Participation.create!(team: packers, match: match_14, odd: 4.00 ,score: 27)
+participation_30 = Participation.create!(team: chiefs, match: match_14, odd: 5.00,score: 19)
 
 
 
@@ -90,9 +99,10 @@ reward_2 = Reward.create!(title: "Poteau rentrant", description: "+100 points au
 reward_3 = Reward.create!(title: "Coup du chapeau", description: "+200 points", price: 250)
 reward_4 = Reward.create!(title: "Tacle à la gorge", description: "points au cube", price: 350)
 
-bet_1 = Bet.create!(user: user_1, participation: participation_19, progress: 0, match: match_10)
+bet_1 = Bet.create!(user: user_2, progress: 0, match: match_10)
 bet_2 = Bet.create!(user: user_2, participation: participation_20, progress: 0, match: match_10)
 bet_3 = Bet.create!(user: user_1, progress: 0, match: match_11)
 bet_4 = Bet.create!(user: user_2, participation: participation_21, progress: 0, match: match_11)
-bet_5 = Bet.create!(user: user_2, participation: participation_23, progress: 0, match: match_12)
-bet_6 = Bet.create!(user: user_1, progress: 0, match: match_13)
+bet_5 = Bet.create!(user: user_1, participation: participation_24, progress: 0, match: match_12)
+bet_6 = Bet.create!(user: user_1, participation: participation_25, progress: 0, match: match_13)
+bet_7 = Bet.create!(user: user_1, participation: participation_29, progress: 0, match: match_14)

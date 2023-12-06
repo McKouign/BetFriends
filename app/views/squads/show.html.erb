@@ -36,11 +36,11 @@
                                 <h3><%= match.sport %></h3>
                               </div>
                               <div class="squad-sport  ms-3 m-1">
-                                <h4><%= match.favori_participation.team.name %></h4>
+                                <h4><%= match.participations.first.team.name %></h4>
                               </div>
-                              <div class="squad-sport   m-1"><h5><%= match.favori_participation.score %> - <%= match.outsider_participation.score %></h5></div>
+                              <div class="squad-sport   m-1"><h5><%= match.participations.first.score %> - <%= match.participations.last.score %></h5></div>
                               <div class="squad-sport   m-1">
-                                <h4><%= match.outsider_participation.team.name %></h4>
+                                <h4><%= match.participations.last.team.name %></h4>
                               </div>
 
                                 <% bet = Bet.find_by(user: current_user, match: match) %>
@@ -52,11 +52,12 @@
                                   </div>
 
                                   <% elsif bet.lost? %>
-                                  <div class="lose pt-2">
-                                    <h3> perdu !</h3>
+                                    <div class="lose pt-2">
+                                      <h3> perdu !</h3>
                                     </div>
                                   <% end %>
-                                  <% else %>
+
+                                <% else %>
                                   <div class="nul  pt-2">
                                     <h4> Zéro pari</h4>
                                     </div>
