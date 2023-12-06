@@ -37,11 +37,11 @@
 
           <% current_user.squad.users.sort_by { |user| user.points_counter }.reverse.each do |user| %>
 
-            <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white ">
-              <p class="me-2">1</p>
-              <p class="me-2"><%= user.nickname %></p>
-              <p class="me-2"><strong><%= user.bets.where(progress: 'won').count %>/<%= user.bets.count %></strong> paris gagnés</p>
-              <p class="me-2"><%= image_tag "picto/icon-points.svg", class:"me-2 align-items-center" %><strong><%= user.points_counter %> </strong>points</p></p>
+            <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white">
+              <p>🏅</p>
+              <p><%= user.nickname %></p>
+              <p><strong><%= user.bets.where(progress: 'won').count %>/<%= user.bets.count %></strong> paris gagnés</p>
+              <p><%= image_tag "picto/icon-points.svg", class:"me-2 align-items-center" %><strong><%= user.points_counter %> </strong>points</p></p>
             </div>
           <% end %>
 

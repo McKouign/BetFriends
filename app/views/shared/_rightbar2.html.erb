@@ -10,7 +10,7 @@
     <% current_user.squad.users.sort_by { |user| user.points_counter }.reverse.first(5).each do |user| %>
 
       <div class="d-flex flex-row  justify-content-evenly align-items-center align-middle text-white ">
-        <p class="me-2"><small><%= user.nickname %></small> - <%= user.points_counter %> points</p>
+        <p class="me-2"><small><%= user.nickname %> - <%= user.points_counter %> points</small></p>
       </div>
     <% end %>
     <% end %>
