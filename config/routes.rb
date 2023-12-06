@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get 'home', to: 'pages#home'
-
+  get 'test', to: 'pages#test'
+  get '/update_sign_in_count/:id', to: 'users#update_sign_in_count'
 
   resources :bets, only: %i[create update destroy]
   resources :rewards, only: %i[index] do

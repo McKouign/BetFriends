@@ -7,4 +7,8 @@ class PagesController < ApplicationController
     @feed = RSS::Parser.parse(URI.open(url))
   end
 
+
+  def test
+  end
+
 end
