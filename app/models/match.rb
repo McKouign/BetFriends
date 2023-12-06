@@ -7,22 +7,15 @@ class Match < ApplicationRecord
   has_many :teams, through: :participations
   has_many :participations
 
-  def favori_participation
-    self.participations.find_by(odd: self.participations.map(&:odd).min)
-  end
-
-  def outsider_participation
-    self.participations.find_by(odd: self.participations.map(&:odd).max)
-  end
 
   def winner_team
-    if self.favori_participation.score != self.outsider_participation.score
+    if self.participations.first.score != self.participations.last.score
       self.participations.find_by(score: self.participations.map(&:score).max).id
     end
   end
 
   def draw?
-    self.favori_participation.score == self.outsider_participation.score
+    self.participations.first.score == self.participations.last.score
   end
 
 end
