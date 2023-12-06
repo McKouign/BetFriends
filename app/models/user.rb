@@ -21,4 +21,24 @@ class User < ApplicationRecord
     self.save
   end
 
+  def plat_du_pied
+    self.points_counter += 60
+    self.save
+  end
+
+  def poteau_rentrant
+    self.points_counter += 80
+    self.save
+  end
+
+  def panenka
+    self.points_counter += 100
+    self.save
+  end
+
+  def coup_du_chapeau
+    self.points_counter += 150
+    self.save
+  end
+
 end

@@ -9,4 +9,5 @@ class Reward < ApplicationRecord
   def self.total_rewards
     count
   end
+
 end
