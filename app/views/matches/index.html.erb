@@ -150,17 +150,15 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="reward-<%=match.id%>-ModalLabel">Mes bonus disponibles</h5>
+                <h5 class="modal-title title-modal" id="reward-<%=match.id%>-ModalLabel">Mes bonus disponibles</h5>
               </div>
-              <div class="modal-body">
+              <div class="modal-body bet-bonus d-flex row">
                 <% current_user.user_rewards.each do |user_reward| %>
                   <% if user_reward.unused? %>
-                    <div class="card d-flex
-
-                    <div class="card d-flex text-center mb-3" data-bs-dismiss="modal" style="width: 18rem;" id="card-reward-bet">
+                    <div class="card-mod d-flex text-center mb-3" data-bs-dismiss="modal" style="width: 18rem;" id="card-reward-bet">
                       <div id="bet_user_reward_id_<%= user_reward.id %>" data-action="click->bets#RewardSelect" data-bets-reward-value=<%= user_reward.id %> class="d-flex flex-column card-body text-center justify-content-center">
-                        <h5 class="card-title"><%= user_reward.reward.title %></h5>
-                        <p class="card-text"><%= user_reward.reward.description %></p>
+                        <h5 class="card-title">  <%= image_tag "picto/icon-bonus.svg", class:"picto" %><%= user_reward.reward.title %></h5>
+                        <p class="card-text mb-2"><%= user_reward.reward.description %></p>
                       </div>
                     </div>
                     <% end %>
@@ -170,7 +168,6 @@
             </div>
           </div>
         </div>
-
       </div>
     <% end %>
   <% end %>
@@ -180,7 +177,7 @@
 
 <div class="container">
 <div class="modal fade" data-controller="modal" data-modal-id-value="<%= current_user.id %>" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog connexion">
 
   <% if current_user.bets.where(progress: 'won').count >= current_user.bets.where(progress: 'lost').count %>
     <div class="cookiesContent" id="cookiesPopup">
@@ -188,7 +185,6 @@
     <div class="cookiesContent2" id="cookiesPopup">
   <% end %>
       <button class="close" data-bs-dismiss="modal">✖</button>
-
       <div>
         <% if current_user.bets.where(progress: 'won').count >= current_user.bets.where(progress: 'lost').count %>
           <h1 class="fs-1"><%= current_user.points_counter %> points</h3>
@@ -201,10 +197,8 @@
         <% end %>
         <button type="button" class="accept" data-bs-dismiss="modal" >J'entre sur le terrain !</button>
       </div>
-
     </div>
   </div>
   </div>
 </div>
-
 <% end %>

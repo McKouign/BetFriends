@@ -35,21 +35,20 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="reward-details-<%= user_reward.id %>-ModalLabel"><%= user_reward.reward.title %></h1>
+                    <h1 class="modal-title fs-5" id="reward-details-<%= user_reward.id %>-ModalLabel"><%= image_tag "picto/icon-bonus.svg", class:"me-2" %><%= user_reward.reward.title %></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body ">
+                  <div class="modal-body d-flex row justify-content-center mb-3">
                       <p id="modal-description "><%= user_reward.reward.description %></p>
+
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fermer</button>
-                  </div>
+
                 </div>
               </div>
             </div>
           <% end %>
         <% end %>
-<!-- Modale -->
+<!-- Modale FIN -->
     </div>
 </div>
 
@@ -93,23 +92,27 @@
                    <div class="element"><p><%= reward.price %> points</p></div>
           </div>
         </div>
+
+
   <!-- Modale -->
  <div class="modal fade" id="user-reward_<%= reward.id %>-Modal" tabindex="-1" aria-labelledby="user-reward_<%= reward.id %>-ModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="user-reward_<%= reward.id %>-ModalLabel"><%= reward.title %></h1>
+        <h1 class="modal-title fs-5" id="user-reward_<%= reward.id %>-ModalLabel"><%= image_tag "picto/icon-bonus.svg", class:"me-2" %> <%= reward.title %></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body d-flex row align-items-center justify-content-center">
         <p id="modal-description"><%= reward.description %></p>
         <%# FORMULAIRE CREATION REWARD %>
+        <div class="simple-form d-flex align-items-center justify-content-center">
         <%= simple_form_for UserReward.new, url: reward_user_rewards_path(:id) do |f| %>
           <%= f.input :reward_id, as: :hidden, input_html: { value: reward.id } %>
           <%= f.input :progress, as: :hidden, value: 'not_used' %>
           <%= f.input :target_id, as: :hidden, input_html: { value: current_user.id } %>
-          <%= f.button :submit, "Acheter le bonus", class: 'btn-outline-light' %>
+          <%= f.button :submit, "Acheter le bonus" , class: 'btn-outline-light-custom' %>
           <%  %>
+          </div>
         <% end %>
 
       </div>
