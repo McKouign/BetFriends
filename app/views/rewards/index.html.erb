@@ -38,18 +38,18 @@
                     <h1 class="modal-title fs-5" id="reward-details-<%= user_reward.id %>-ModalLabel"><%= user_reward.reward.title %></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body ">
+                  <div class="modal-body cd-flex text-center mb-3">
                       <p id="modal-description "><%= user_reward.reward.description %></p>
+
+                      <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fermer</button>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fermer</button>
-                  </div>
+                  
                 </div>
               </div>
             </div>
           <% end %>
         <% end %>
-<!-- Modale -->
+<!-- Modale FIN -->
     </div>
 </div>
 
