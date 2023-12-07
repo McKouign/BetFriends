@@ -5,7 +5,7 @@
 
   <div class=" ">
 
-    <h5 class="mt-3 mb-3 text-center">Le Top 5</h5>
+    <h5 class="mt-4 mt-3 mb-3 text-center">Le Top 5</h5>
     <% if user_signed_in? %>
     <% current_user.squad.users.sort_by { |user| user.points_counter }.reverse.first(5).each do |user| %>
 
@@ -16,14 +16,14 @@
     <% end %>
     <% end %>
     <% if user_signed_in? %>
-      <small><%= link_to "Classement complet",user_path(current_user), class: "text-decoration-none text-white bottom-0 btn btn-outline-light rounded-3 d-flex justify-content-center text-center mb-5 mx-5"%></small>
+      <small><%= link_to "Classement complet",user_path(current_user), class: "text-decoration-none text-white bottom-0 btn btn-outline-light rounded-3 d-flex justify-content-center text-center mt-4 mb-3 mx-3"%></small>
     <% end %>
 
   </div>
 
 
   <%# ----- HEADER MENU > PICTURE  %>
-  <div class="hightlight-bonus overflow-hidden rounded-4 mx-2 mb-2 mt-2 text-center shadow">
+  <div class="hightlight-bonus overflow-hidden rounded-4 mx-2 mb-2 mt-1 text-center shadow">
     <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" id="right-image-bonus">
   </div>
 

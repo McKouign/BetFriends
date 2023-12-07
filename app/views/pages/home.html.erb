@@ -17,10 +17,10 @@
 
   <div class="grid-2">
     <% @feed.items.first(8).each do |item| %>
-      <div class="card mb-3 p-3 rounded-4 shadow-sm bg-light-2" id="">
+      <div class="d-flex flex-column justify-content-between card mb-3 p-3 rounded-4 shadow-sm bg-light-2" id="">
         <div class="text-white">
-          <p class=""><small><em><%= item.pubDate.strftime('%d-%m-%Y %X') %></em></small></p>
-          <h5 class=""><%= item.title %></h5>
+          <p class=""><small><em><%= item.pubDate.strftime('%d %B') %></em></small></p>
+          <p class="fs-5"><strong><%= item.title %></strong></p>
           <hr>
           <p class="" id="actu-description"><%= item.description %></p>
         </div>
