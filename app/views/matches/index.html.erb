@@ -84,13 +84,13 @@
                 <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
                     <% if user_bets_match_ids.include?(match.id) %>
                         <!-- Si pari exist, btn disabled -->
-                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" disabled>
+                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm <%= 'btn-green' if match.participations.first.bets.find_by(user: current_user) %>" disabled>
                           <%= match.participations.first.team.name %>
                         </button>
                       <% else %>
                         <!-- Sinon, affichez les boutons  -->
                         <% user_bet_team = current_user.bets.find_by(match_id: match.id)&.participation&.team&.name %>
-                        <%= f.button :submit, "#{match.participations.first.team.name}", class: "bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm #{'btn-green' if user_bet_team == match.participations.first.team.name}" %>
+                        <%= f.button :submit, "#{match.participations.first.team.name}", class: "bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" %>
                       <% end %>
                     <% end %>
 
@@ -104,7 +104,7 @@
                 <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
                     <% if user_bets_match_ids.include?(match.id) %>
                         <!-- Si pari exist, btn disabled -->
-                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" disabled>
+                        <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm <%= 'btn-green' if match.bets.where(participation_id: nil).find_by(user: current_user) %>" disabled>
                           Nul
                         </button>
                           <% else %>
@@ -125,7 +125,7 @@
               <% user_bets_match_ids = current_user.bets.pluck(:match_id)  %>
                     <% if user_bets_match_ids.include?(match.id) %>
                         <!-- Si pari exist, btn disabled -->
-                          <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm" disabled>
+                          <button type="button" class="bouton-paris text-wrap btn text-white btn-bet rounded-4 text-center mb-2 shadow-sm <%= 'btn-green' if match.participations.last.bets.find_by(user: current_user) %>" disabled>
                           <%= match.participations.last.team.name %>
                         </button>
                           <% else %>
@@ -156,13 +156,15 @@
                 <% current_user.user_rewards.each do |user_reward| %>
                   <% if user_reward.unused? %>
                     <div class="card d-flex
+
                     <div class="card d-flex text-center mb-3" data-bs-dismiss="modal" style="width: 18rem;" id="card-reward-bet">
                       <div id="bet_user_reward_id_<%= user_reward.id %>" data-action="click->bets#RewardSelect" data-bets-reward-value=<%= user_reward.id %> class="d-flex flex-column card-body text-center justify-content-center">
                         <h5 class="card-title"><%= user_reward.reward.title %></h5>
                         <p class="card-text"><%= user_reward.reward.description %></p>
                       </div>
                     </div>
-                  <% end %>
+                    <% end %>
+
                 <% end %>
               </div>
             </div>
@@ -185,16 +187,16 @@
       <button class="close" data-bs-dismiss="modal">✖</button>
 
       <div>
-        <% if current_user.bets.last.won? %>
+        <% if current_user.bets.where(progress: 'won').count >= current_user.bets.where(progress: 'lost').count %>
+          <h1 class="fs-1"><%= current_user.points_counter %> points</h3>
           <h1 class="mt-5 display-5 ">Le roi de la lucarne !</h1>
           <p class="text-white mb-3 p-modal">Bravo ! Tes derniers exploits nous ont impressionné.<br>Continue comme ça...</p>
-          <h3>Tes points : <%= current_user.points_counter %></h3>
         <% else %>
+          <h1 class="fs-1"><%= current_user.points_counter %> points</h3>
           <h1 class="mt-5 display-5 ">Le maestro des poteaux !</h1>
           <p class="text-white mb-3 p-modal">Alalala, un petit plat du pied vaut parfois mieux qu'un tir en force... Allez, le prochain sera dedans !</p>
-          <h3>Tes points : <%= current_user.points_counter %></h3>
         <% end %>
-        <button type="button" class="accept" data-bs-dismiss="modal" >Ok !</button>
+        <button type="button" class="accept" data-bs-dismiss="modal" >J'entre sur le terrain !</button>
       </div>
 
     </div>
