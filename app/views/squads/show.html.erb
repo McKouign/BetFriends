@@ -32,6 +32,19 @@
                           </div>
                           <div class="card-squad-display-1">
                             <div class="card-squad-display-2 custom-grid-5">
+
+                          <% if match.funbet %>
+                          <div class="squad-content2 pt-2">
+                                <h3><%= match.sport %></h3>
+                              </div>
+                              <div class="squad-sport  ms-3 m-1">
+                                <h4><%= match.participations.first.team.name %></h4>
+                              </div>
+                              <div class="squad-sport scores m-1"><h5><%= match.participations.first.score %> - <%= match.participations.last.score %></h5></div>
+                              <div class="squad-sport m-1">
+                                <h4><%= match.participations.last.team.name %></h4>
+                              </div>
+                              <% else %>
                               <div class="squad-content pt-2">
                                 <h3><%= match.sport %></h3>
                               </div>
@@ -42,6 +55,9 @@
                               <div class="squad-sport m-1">
                                 <h4><%= match.participations.last.team.name %></h4>
                               </div>
+                            <% end %>
+
+
 
                                 <% bet = Bet.find_by(user: current_user, match: match) %>
                                 <% if bet.present? %>
@@ -54,6 +70,10 @@
                                       <h3> perdu !</h3>
                                     </div>
                                   <% end %>
+                                   <% else %>
+                                   <div class="disab pt-2">
+                                  <h3>✖</h3>
+                                  </div>
                                 <% end %>
 
                             </div>

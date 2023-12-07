@@ -49,13 +49,23 @@
       </div>
 
       <% if current_user.bets.where(progress: 'won').count >= current_user.bets.where(progress: 'lost').count %>
-        <div class="d-flex justify-content-center shadow rounded-4 p-3", id="subcard-win">
-            <h2 class=" text-white">Le roi de la lucarne</h2>
-        </div>
+
+
+         <div class="d-flex justify-content-center shadow rounded-4 p-3" style="position: relative;"id="subcard-win">
+         <h2 class="text-white pb-2">Le roi de la lucarne</h2>
+        <%= image_tag "modal-win.png", class: "img-fluid rounded-4", style: "object-fit: cover" %>
+        <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+         </div>
+          </div>
       <% else %>
-        <div class="d-flex justify-content-center shadow rounded-4 p-3", id="subcard-loose">
-            <h2 class=" text-white">Le maestro des poteaux</h2>
-        </div>
+
+        <div class="d-flex justify-content-center shadow rounded-4 p-3" style="position: relative;"id="subcard-loose">
+         <h2 class=" text-white pb-2">Le maestro des poteaux</h2>
+        <%= image_tag "modal-loose.png", class: "img-fluid rounded-4", style: "object-fit: cover" %>
+        <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+         </div>
+          </div>
+
       <% end %>
 
     </div>
