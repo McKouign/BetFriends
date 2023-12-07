@@ -77,7 +77,22 @@ hr{
   height: 5vh;
   width: 16vh;
   color: white;
-  background:linear-gradient(180deg, #BB8CF4 0%, #8844D6 100%);
+  background:linear-gradient(180deg, #c39bf5 0%, #8844D6 100%);
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+}
+.btn-custom:hover{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width: 16vh;
+  color: white;
+  background:linear-gradient(180deg, #bd9ee3 0%, #9964d6 100%);
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
 }
@@ -109,7 +124,32 @@ hr{
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
 }
-
+.btn-outline-light-custom{
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 5vh;
+  width: 18vh;
+  color: white;
+  background:linear-gradient(180deg, #c39bf5 0%, #8844D6 100%);
+  border-radius: 20px;
+}
+.btn-outline-light-custom:hover{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width: 18vh;
+  color: white;
+  background:linear-gradient(180deg, #bd9ee3 0%, #9964d6 100%);
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+}
 
 .titre{
   margin-bottom: 30px;

@@ -155,10 +155,8 @@
               <div class="modal-body bet-bonus d-flex row">
                 <% current_user.user_rewards.each do |user_reward| %>
                   <% if user_reward.unused? %>
-
                     <div class="card-mod d-flex text-center mb-3" data-bs-dismiss="modal" style="width: 18rem;" id="card-reward-bet">
                       <div id="bet_user_reward_id_<%= user_reward.id %>" data-action="click->bets#RewardSelect" data-bets-reward-value=<%= user_reward.id %> class="d-flex flex-column card-body text-center justify-content-center">
-
                         <h5 class="card-title">  <%= image_tag "picto/icon-bonus.svg", class:"picto" %><%= user_reward.reward.title %></h5>
                         <p class="card-text mb-2"><%= user_reward.reward.description %></p>
                       </div>
@@ -169,7 +167,6 @@
             </div>
           </div>
         </div>
-
       </div>
     <% end %>
   <% end %>
@@ -182,9 +179,7 @@
   <div class="modal-dialog connexion">
 
     <div class="cookiesContent" id="cookiesPopup">
-
       <button class="close" data-bs-dismiss="modal">✖</button>
-
       <div>
         <% if current_user.bets.last.won? %>
           <h1 class="mt-5 display-5 ">Le roi de la lucarne !</h1>
@@ -197,10 +192,8 @@
         <% end %>
         <button type="button" class="accept" data-bs-dismiss="modal" >Ok !</button>
       </div>
-
     </div>
   </div>
   </div>
 </div>
-
 <% end %>
