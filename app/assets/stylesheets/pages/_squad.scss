@@ -1,4 +1,4 @@
-
+// ACCORDEONS
 --bs-primary-bg-subtle{
   background-color:  #16113A;
 }
@@ -49,10 +49,11 @@ color: white;
   display: grid;
   grid-template-columns: 1fr;
 }
-.grid-5 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+.custom-grid-5 {
+  display: grid !important;
+  grid-template-columns: 150px 150px 150px 150px 150px;
   gap: 16px;
+  align-items: center;
 }
 
 .card-squad-display-1{
@@ -76,6 +77,9 @@ color: white;
 }
 .squad-sport {
   color: white;
+}
+.scores{
+
 }
 
 // Boutton jaune sport
