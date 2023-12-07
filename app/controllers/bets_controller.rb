@@ -4,6 +4,10 @@ class BetsController < ApplicationController
     @bet = Bet.new(bet_params)
     @bet.user = current_user
     if @bet.save
+      if @bet.user_reward.present?
+        @bet.reward_status
+        @bet.user_reward.save
+      end
       redirect_to matches_path
     else
       @matches = Match.all
@@ -13,7 +17,7 @@ class BetsController < ApplicationController
   end
 
   def update
-    
+
   end
 
   def destroy

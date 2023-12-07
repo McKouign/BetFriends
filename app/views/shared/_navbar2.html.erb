@@ -15,7 +15,7 @@
                   </div>
 
                   <div class="navbarclass text-center">
-                    <p><strong><%= image_tag "picto/icon-bonus.svg", class: "me-2" %><%= current_user.user_rewards.count %> bonus </strong>en poche </p>
+                    <p><strong><%= image_tag "picto/icon-bonus.svg", class: "me-2" %><%= current_user.user_rewards.where(progress: 'unused').count %> bonus </strong>en poche </p>
                   </div>
 
                   <div class="navbarclass text-center">

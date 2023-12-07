@@ -154,15 +154,15 @@
               </div>
               <div class="modal-body">
                 <% current_user.user_rewards.each do |user_reward| %>
-                  <div class="card d-flex
-
-                  <div class="card d-flex text-center mb-3" data-bs-dismiss="modal" style="width: 18rem;" id="card-reward-bet">
-                    <div id="bet_user_reward_id_<%= user_reward.id %>" data-action="click->bets#RewardSelect" data-bets-reward-value=<%= user_reward.id %> class="d-flex flex-column card-body text-center justify-content-center">
-                      <h5 class="card-title"><%= user_reward.reward.title %></h5>
-                      <p class="card-text"><%= user_reward.reward.description %></p>
+                  <% if user_reward.unused? %>
+                    <div class="card d-flex
+                    <div class="card d-flex text-center mb-3" data-bs-dismiss="modal" style="width: 18rem;" id="card-reward-bet">
+                      <div id="bet_user_reward_id_<%= user_reward.id %>" data-action="click->bets#RewardSelect" data-bets-reward-value=<%= user_reward.id %> class="d-flex flex-column card-body text-center justify-content-center">
+                        <h5 class="card-title"><%= user_reward.reward.title %></h5>
+                        <p class="card-text"><%= user_reward.reward.description %></p>
+                      </div>
                     </div>
-                  </div>
-
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -185,8 +185,15 @@
       <button class="close" data-bs-dismiss="modal">✖</button>
 
       <div>
-        <h1 class="mt-5 display-5 ">Le roi de la lucarne !</h1>
-        <p class="text-white mb-3 p-modal">Bravo ! Tes derniers exploits nous ont impressionné.<br>Continue comme ça...</p>
+        <% if current_user.bets.last.won? %>
+          <h1 class="mt-5 display-5 ">Le roi de la lucarne !</h1>
+          <p class="text-white mb-3 p-modal">Bravo ! Tes derniers exploits nous ont impressionné.<br>Continue comme ça...</p>
+          <h3>Tes points : <%= current_user.points_counter %></h3>
+        <% else %>
+          <h1 class="mt-5 display-5 ">Le maestro des poteaux !</h1>
+          <p class="text-white mb-3 p-modal">Alalala, un petit plat du pied vaut parfois mieux qu'un tir en force... Allez, le prochain sera dedans !</p>
+          <h3>Tes points : <%= current_user.points_counter %></h3>
+        <% end %>
         <button type="button" class="accept" data-bs-dismiss="modal" >Ok !</button>
       </div>
 

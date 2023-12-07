@@ -19,6 +19,7 @@
 <div class="row">
     <div class="grid-3">
         <% current_user.user_rewards.each do |user_reward| %>
+          <% if user_reward.unused? %>
             <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"">
 
                 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
@@ -46,7 +47,8 @@
                 </div>
               </div>
             </div>
-<% end %>
+          <% end %>
+        <% end %>
 <!-- Modale -->
     </div>
 </div>
