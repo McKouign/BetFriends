@@ -182,8 +182,11 @@
 <div class="modal fade" data-controller="modal" data-modal-id-value="<%= current_user.id %>" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
 
+  <% if current_user.bets.where(progress: 'won').count >= current_user.bets.where(progress: 'lost').count %>
     <div class="cookiesContent" id="cookiesPopup">
-
+  <% else %>
+    <div class="cookiesContent2" id="cookiesPopup">
+  <% end %>
       <button class="close" data-bs-dismiss="modal">✖</button>
 
       <div>
