@@ -14,19 +14,18 @@
           </div>
 
 
-          <h2>Fun Bet</h2>
-          <h1 class="fs-1"><%= match.sport %></h1>
 
+          <h1 class="fs-1"><%= match.sport %></h1>
+              <h2>Fun Bet: Double tes points</h2>
           <div class="d-flex flex-row justify-content-between mt-3 mb-3">
-            <div class="d-flex flex-column text-white">
-              <%= image_tag "#{match.participations.first.team.logo}", id:"logo-team", class:"me-5" %>
-            </div>
-            <div class="d-flex flex-column text-white">
-              <%= image_tag "#{match.participations.last.team.logo}", id:"logo-team", class:"ms-5" %>
-             </div>
+
+
           </div>
 
           <div class="d-flex flex-row">
+            <div class="d-flex flex-column text-white">
+              <%= image_tag "#{match.participations.first.team.logo}", id:"logo-team", class:"me-5" %>
+            </div>
             <%= simple_form_for @bet do |f|%>
               <div class="d-none">
                 <%= f.input :match_id, input_html: { value: match.id} %>
@@ -47,16 +46,23 @@
               <div class="d-none">
                 <%= f.input :match_id, input_html: { value: match.id} %>
                 <%= f.input :participation_id, input_html: {value: match.participations.last.id} %>
+
               </div>
 
               <%# BOUTON 2 action target%>
               <%= f.button :submit, "#{match.participations.last.team.name}", data: { bet_buttons_target:'submit', action: "click->bet-buttons#disable" } , class:"bouton-paris btn text-white btn-bet  rounded-4 text-center mx-1 mb-2" %>
             <% end %>
+                <div class="d-flex flex-column text-white">
+              <%= image_tag "#{match.participations.last.team.logo}", id:"logo-team", class:"ms-5" %>
+             </div>
           </div>
           <p class="mb-3"><%= match.bets.count %> pari(s) sur ce match.</p>
         </div>
+
       <% end %>
+
     <% end %>
+
   </div>
 </div>
 
