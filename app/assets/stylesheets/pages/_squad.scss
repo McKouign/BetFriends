@@ -7,10 +7,12 @@
   background: linear-gradient(180deg, #303061 8.01%, #6d166e 94.28%);
   color: white;
   box-shadow: none;
+
 }
 // RETIRER LA BORDER BLANCHE
 .accordion-item {
  border-color:  #16113A;
+
 }
 //COULEUR POLICE
 .accordion-header{
@@ -21,11 +23,13 @@
 // CONTENU ACCORDEON
 .accordion-item{
   background: linear-gradient(180deg, #303061 8.01%, #6d166e 94.28%);
+  border-radius: 8px;
 }
 // COULEUR BUTTON & APRES FERMETURE
 .accordion-button{
 background: linear-gradient(180deg, #303061 8.01%, #6d166e 94.28%);
 color: white;
+border-radius: 8px;
 }
 // COULEUR BUTTON SURVOL
 .accordion-button:hover {
