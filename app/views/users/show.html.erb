@@ -1,6 +1,6 @@
 <%# ----- SQUAD HEADER ----- %>
 <div class="banner overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
-<%= image_tag "ligne.jpg", class: "img-fluid", style: "object-fit: cover" %>
+<%= image_tag "team.jpg", class: "img-fluid", style: "object-fit: cover" %>
 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 <h1>Plutôt Winner ou Looser ?</h1>
 </div>
@@ -41,7 +41,7 @@
               <p>🏅</p>
               <p><%= user.nickname %></p>
               <p><strong><%= user.bets.where(progress: 'won').count %>/<%= user.bets.count %></strong> paris gagnés</p>
-              <p><%= image_tag "picto/icon-points.svg", class:"me-2 align-items-center" %><strong><%= user.points_counter %> </strong>points</p></p>
+              <p><strong><%= user.points_counter %> </strong>points</p></p>
             </div>
           <% end %>
 
