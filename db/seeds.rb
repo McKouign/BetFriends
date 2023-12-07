@@ -162,7 +162,7 @@ bet_36 = Bet.create!(user: user_4, participation: participation_39, match: match
 bet_37 = Bet.create!(user: user_4, participation: participation_34, match: match_16)
 bet_38 = Bet.create!(user: user_4, match: match_17)
 bet_29 = Bet.create!(user: user_4, participation: participation_32, match: match_18)
-bet_40 = Bet.create!(user: user_4, participation: participation_29, match: match_19)
+bet_40 = Bet.create!(user: user_4, participation: participation_30, match: match_19)
 
 bet_41 = Bet.create!(user: user_1, match: match_10)
 bet_42 = Bet.create!(user: user_1, match: match_11)
@@ -173,4 +173,4 @@ bet_46 = Bet.create!(user: user_1, participation: participation_40, match: match
 bet_47 = Bet.create!(user: user_1, participation: participation_34, match: match_16)
 bet_48 = Bet.create!(user: user_1, match: match_17)
 bet_49 = Bet.create!(user: user_1, match: match_18)
-bet_50 = Bet.create!(user: user_1, participation: participation_29, match: match_19)
+bet_50 = Bet.create!(user: user_1, participation: participation_30, match: match_19)

@@ -18,35 +18,40 @@
 </div>
 <div class="row">
     <div class="grid-3">
-        <% current_user.user_rewards.each do |user_reward| %>
-          <% if user_reward.unused? %>
-            <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"">
+        <% if current_user.user_rewards.present? %>
+          <% current_user.user_rewards.each do |user_reward| %>
+            <% if user_reward.unused? %>
+              <div class="card-rewards overflow-hidden rounded-4 shadow-sm" style="position: relative;"">
 
-                <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                    <h5><%= user_reward.reward.title %></h5><br>
-                    <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-custom details-button" data-bs-toggle="modal" data-bs-target="#reward-details-<%= user_reward.id %>-Modal" data-reward-description="<%= user_reward.reward.description %>" data-reward-title="<%= user_reward.reward.title %>">
-                    <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Détails
-                  </button>
-                </div>
-            </div>
-
-            <div class="modal fade" id="reward-details-<%= user_reward.id %>-Modal" tabindex="-1" aria-labelledby="reward-details-<%= user_reward.id %>-ModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="reward-details-<%= user_reward.id %>-ModalLabel"><%= image_tag "picto/icon-bonus.svg", class:"me-2" %><%= user_reward.reward.title %></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                      <h5><%= user_reward.reward.title %></h5><br>
+                      <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-custom details-button" data-bs-toggle="modal" data-bs-target="#reward-details-<%= user_reward.id %>-Modal" data-reward-description="<%= user_reward.reward.description %>" data-reward-title="<%= user_reward.reward.title %>">
+                      <%= image_tag "picto/icon-bonus.svg", class:"me-2" %> Détails
+                    </button>
                   </div>
-                  <div class="modal-body d-flex row justify-content-center mb-3">
-                      <p id="modal-description "><%= user_reward.reward.description %></p>
+              </div>
+
+
+              <div class="modal fade" id="reward-details-<%= user_reward.id %>-Modal" tabindex="-1" aria-labelledby="reward-details-<%= user_reward.id %>-ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="reward-details-<%= user_reward.id %>-ModalLabel"><%= image_tag "picto/icon-bonus.svg", class:"me-2" %><%= user_reward.reward.title %></h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex row justify-content-center mb-3">
+                        <p id="modal-description "><%= user_reward.reward.description %></p>
+
+                    </div>
 
                   </div>
-
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
+          <% else %>
+            <p class="text-white">Tu n'as pas encore de bonus.</p>
         <% end %>
 <!-- Modale FIN -->
     </div>
