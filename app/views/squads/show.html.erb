@@ -2,7 +2,7 @@
 
 <%# ----- SQUAD HEADER ----- %>
 <div class="banner overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
-<%= image_tag "team.jpg", class: "img-fluid", style: "object-fit: cover" %>
+<%= image_tag "historique", class: "img-fluid w-100", style: "object-fit: cover" %>
 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 <h1>Alors ? Ça dit quoi tes derniers paris ?</h1>
 </div>
@@ -31,15 +31,15 @@
                           <div class="date">
                           </div>
                           <div class="card-squad-display-1">
-                            <div class="card-squad-display-2 grid-5">
+                            <div class="card-squad-display-2 custom-grid-5">
                               <div class="squad-content pt-2">
                                 <h3><%= match.sport %></h3>
                               </div>
                               <div class="squad-sport  ms-3 m-1">
                                 <h4><%= match.participations.first.team.name %></h4>
                               </div>
-                              <div class="squad-sport   m-1"><h5><%= match.participations.first.score %> - <%= match.participations.last.score %></h5></div>
-                              <div class="squad-sport   m-1">
+                              <div class="squad-sport scores m-1"><h5><%= match.participations.first.score %> - <%= match.participations.last.score %></h5></div>
+                              <div class="squad-sport m-1">
                                 <h4><%= match.participations.last.team.name %></h4>
                               </div>
 
