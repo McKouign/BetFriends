@@ -18,13 +18,13 @@
         </div>
 
         <div class=" rounded-4  p-3 shadow" id="subcard">
-            <h2 class="text-white text-center"><%= current_user.bets.where(progress: 'won').count %>/<%= current_user.bets.count %></h2>
+            <h2 class="text-white text-center"><%= current_user.bets.where(progress: 'won').count %></h2>
             <p class="text-white text-center">paris gagnés</p>
         </div>
 
         <div class=" rounded-4  p-3 shadow" id="subcard">
-            <h2 class="text-white text-center">3e</h2>
-            <p class="text-white text-center">de la team</p>
+            <h2 class="text-white text-center"><%= current_user.bets.count %></h2>
+            <p class="text-white text-center">paris joué</p>
           </div>
         </div>
       </div>

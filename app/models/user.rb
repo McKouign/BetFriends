@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :rewards, through: :user_rewards
   has_many :bets
 
+  def won_average
+    (self.bets.where(progress: 'won').count / self.bets.count) * 100
+  end
+
   def won_points
     self.points_counter += 50
     self.save
