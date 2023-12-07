@@ -2,7 +2,7 @@
 
 <%# ----- SQUAD HEADER ----- %>
 <div class="banner overflow-hidden rounded-4 shadow-sm" style="position: relative;"id="subcard">
-<%= image_tag "historique", class: "img-fluid w-100", style: "object-fit: cover" %>
+<%= image_tag "team.jpg", class: "img-fluid", style: "object-fit: cover" %>
 <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 <h1>Alors ? Ça dit quoi tes derniers paris ?</h1>
 </div>
@@ -17,11 +17,11 @@
   <% grouped_matches = @matches.select { |match| match.date < Date.today && match.bets.present? }.group_by { |match| match.date.to_date } %>
   <% grouped_matches.each do |date, matches| %>
     <div class="accordion-item">
-      <h2 class="accordion-header" id="dateHeading<%= date.strftime('%Y%m%d') %>">
+      <p class="accordion-header" id="dateHeading<%= date.strftime('%Y%m%d') %>">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dateCollapse<%= date.strftime('%Y%m%d') %>" aria-expanded="true" aria-controls="dateCollapse<%= date.strftime('%Y%m%d') %>">
-          <%= date.strftime('%d-%m-%Y') %>
+           <%= date.strftime('%d %B %Y') %>
         </button>
-      </h2>
+      </p>
       <div id="dateCollapse<%= date.strftime('%Y%m%d') %>" class="accordion-collapse collapse" aria-labelledby="dateHeading<%= date.strftime('%Y%m%d') %>" data-bs-parent="#matchesAccordion">
         <div class="accordion-body">
               <% matches.each do |match| %>
