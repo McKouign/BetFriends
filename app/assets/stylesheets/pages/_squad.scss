@@ -78,9 +78,6 @@ color: white;
 .squad-sport {
   color: white;
 }
-.scores{
-
-}
 
 // Boutton jaune sport
 .squad-content{
@@ -97,7 +94,20 @@ color: white;
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-
+.squad-content2{
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width: 16vh;
+  color: white;
+  background: linear-gradient(143deg, #ef54cd 5.16%, #a90d72  75.71%);
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 // Bouton vert ou rouge gagné ou perdu
 .win{
   margin-left: 20px;
@@ -142,7 +152,20 @@ color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-
+.disab{
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width: 16vh;
+  color: white;
+  background: linear-gradient(180deg, #bab9b9 0%, rgb(108, 107, 106) 100%);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 .date{
   justify-content: center;
   align-items: center;
