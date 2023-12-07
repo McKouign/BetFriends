@@ -18,13 +18,13 @@
         </div>
 
         <div class=" rounded-4  p-3 shadow" id="subcard">
-            <h2 class="text-white text-center"><%= current_user.bets.where(progress: 'won').count %>/<%= current_user.bets.count %></h2>
+            <h2 class="text-white text-center"><%= current_user.bets.where(progress: 'won').count %></h2>
             <p class="text-white text-center">paris gagnés</p>
         </div>
 
         <div class=" rounded-4  p-3 shadow" id="subcard">
-            <h2 class="text-white text-center">3e</h2>
-            <p class="text-white text-center">de la team</p>
+            <h2 class="text-white text-center"><%= current_user.bets.count %></h2>
+            <p class="text-white text-center">paris joué</p>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
 
           <% current_user.squad.users.sort_by { |user| user.points_counter }.reverse.each do |user| %>
 
-            <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white">
+            <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white pt-2">
               <p>🏅</p>
               <p><%= user.nickname %></p>
               <p><strong><%= user.bets.where(progress: 'won').count %>/<%= user.bets.count %></strong> paris gagnés</p>
@@ -48,13 +48,15 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-center shadow rounded-4 p-3", id="subcard">
-        <% if current_user.bets.where(progress: 'won').count >= current_user.bets.where(progress: 'lost').count %>
-          <h2 class=" text-white">Le roi de la lucarne</h2>
-        <% else %>
-          <h2 class=" text-white">Le maestro des poteaux</h2>
-        <% end %>
-      </div>
+      <% if current_user.bets.where(progress: 'won').count >= current_user.bets.where(progress: 'lost').count %>
+        <div class="d-flex justify-content-center shadow rounded-4 p-3", id="subcard-win">
+            <h2 class=" text-white">Le roi de la lucarne</h2>
+        </div>
+      <% else %>
+        <div class="d-flex justify-content-center shadow rounded-4 p-3", id="subcard-loose">
+            <h2 class=" text-white">Le maestro des poteaux</h2>
+        </div>
+      <% end %>
 
     </div>
   </div>

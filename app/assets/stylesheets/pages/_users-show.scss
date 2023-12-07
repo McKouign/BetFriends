@@ -30,6 +30,26 @@
   align-items: center;
   justify-content: center;
 }
+#subcard-win {
+  background-image: url("../../images/modal-win.png");
+  overflow: hidden;
+  background: linear-gradient(148deg, rgba(255, 255, 255, 0.16) -28.48%, rgba(255, 255, 255, 0.00) 114.99%);
+  // min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#subcard-loose {
+  background-image: url("../../images/modal-loose.png");
+  overflow: hidden;
+  background: linear-gradient(148deg, rgba(255, 255, 255, 0.16) -28.48%, rgba(255, 255, 255, 0.00) 114.99%);
+  // min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .classement-list {
   border-radius: 8px;
