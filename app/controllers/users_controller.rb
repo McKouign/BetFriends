@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
   def show
-    
+
   end
 
   def update_sign_in_count
