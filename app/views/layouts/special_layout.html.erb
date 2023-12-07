@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BetFriends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+  <div class="container-fluid d-flex justify-content-center mt-5">
+    <div class="row loggin">
+
+      <div class=" col-12 d-flex flex-column  rounded-5 p-5 bg-lightt logg-back shadow-lg">
+
+      <div class="d-flex justify-content-center">
+        <%= image_tag "logo/logo-betfriends-2xl.png", class:"mb-4" %>
+      </div>
+
+        <div class="grid-2 d-flex  bg-blue  rounded-4 overflow-hidden shadow">
+
+          <div class="img-loggin">
+            <%= image_tag "terrain21.png", class:"  img-loggin" %>
+          </div>
+
+        <div class="text-center">
+
+           <div class="formulaire p-4 ">
+
+          <h2 class="mt-4">Connexion</h2>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs ">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "adresse mail" } %>
+            <%= f.input :password,
+                        required: false,
+                        input_html: { autocomplete: "mot de passe" } %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+
+          <div class="form-actions">
+            <div class="btn btn-light mb-3"><%= f.button :submit,"Connexion" %></div>
+          </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+      </div>
+
+        </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <%= render "shared/flashes" %>
+  </body>
+</html>
