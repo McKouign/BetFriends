@@ -14,17 +14,17 @@
       <div class="grid-3">
         <div class=" rounded-4 p-3 shadow" id="subcard">
             <h2 class="text-white text-center"><%= current_user.points_counter %></h2>
-            <p class="text-white text-center">points</p>
+            <p class="text-white text-center fs-4">points</p>
         </div>
 
         <div class=" rounded-4  p-3 shadow" id="subcard">
             <h2 class="text-white text-center"><%= current_user.bets.where(progress: 'won').count %></h2>
-            <p class="text-white text-center">paris gagnés</p>
+            <P class="text-white text-center fs-4">paris gagnés</P>
         </div>
 
         <div class=" rounded-4  p-3 shadow" id="subcard">
             <h2 class="text-white text-center"><%= current_user.bets.count %></h2>
-            <p class="text-white text-center">paris joué</p>
+            <p class="text-white text-center fs-4">paris joué</p>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
     <div class="grid-2-1 mb-3">
       <div class="d-flex flex-column rounded-4 shadow p-3" id="subcard">
         <div class="text-center col-12"  >
-          <h2 class=" text-white">Classement</h2>
+          <h4 class=" text-white">Classement</h4>
 
           <% current_user.squad.users.sort_by { |user| user.points_counter }.reverse.each do |user| %>
 
@@ -52,7 +52,7 @@
 
 
          <div class="d-flex justify-content-center shadow rounded-4 p-3" style="position: relative;"id="subcard-win">
-         <h2 class="text-white pb-2">Le roi de la lucarne</h2>
+         <h4 class="text-white pb-5">Le roi de la lucarne</h4>
         <%= image_tag "modal-win.png", class: "img-fluid rounded-4", style: "object-fit: cover" %>
         <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
          </div>
@@ -60,7 +60,7 @@
       <% else %>
 
         <div class="d-flex justify-content-center shadow rounded-4 p-3" style="position: relative;"id="subcard-loose">
-         <h2 class=" text-white pb-2">Le maestro des poteaux</h2>
+         <h4 class=" text-white pb-5">Le maestro des poteaux</h4>
         <%= image_tag "modal-loose.png", class: "img-fluid rounded-4", style: "object-fit: cover" %>
         <div class="text-center text-white" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
          </div>
