@@ -48,12 +48,12 @@
                               <div class="squad-content pt-2">
                                 <h3><%= match.sport %></h3>
                               </div>
-                              <div class="squad-sport  ms-3 m-1">
+                              <div class="trs pt-2">
                                 <h4><%= match.participations.first.team.name %></h4>
                               </div>
-                              <div class="squad-sport scores m-1"><h5><%= match.participations.first.score %> - <%= match.participations.last.score %></h5></div>
-                              <div class="squad-sport m-1">
-                                <h4><%= match.participations.last.team.name %></h4>
+                              <div class="trs pt-2"><h5><%= match.participations.first.score %> - <%= match.participations.last.score %></h5></div>
+                              <div class="trs pt-2">
+                                <h3><%= match.participations.last.team.name %></h3>
                               </div>
                             <% end %>
 
