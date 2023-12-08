@@ -14,7 +14,8 @@
 <%# ----- recup et affichage des matches ----- %>
 
 <div class="accordion" id="matchesAccordion">
-  <% grouped_matches = @matches.select { |match| match.date < Date.today && match.bets.present? }.group_by { |match| match.date.to_date } %>
+  <% grouped_matches = @matches.select { |match| match.date < Date.today && match.bets.present? }.group_by { |match| match.date.to_date }.sort_by { |date, _matches| date }
+                             .reverse %> %>
   <% grouped_matches.each do |date, matches| %>
     <div class="accordion-item">
       <p class="accordion-header" id="dateHeading<%= date.strftime('%Y%m%d') %>">
