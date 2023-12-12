@@ -40,7 +40,7 @@
             <div class="classement-list d-flex  justify-content-evenly align-items-center mb-2 text-white pt-2">
               <p>🏅</p>
               <p><%= user.nickname %></p>
-              <p><strong><%= user.bets.where(progress: 'won').count %>/<%= user.bets.count %></strong> paris gagnés</p>
+              <p><strong><%= user.bets.where(progress: 'won').count %>/<%= user.bets.count %></strong> pari(s) gagné(s)</p>
               <p><strong><%= user.points_counter %> </strong>points</p></p>
             </div>
           <% end %>
